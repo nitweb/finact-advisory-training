@@ -1,0 +1,48 @@
+.custom_login {
+  background: url("http://127.0.0.1:8000/backend/assets/img/login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .custom_login .custom_login_logo {
+    text-align: center;
+    padding-bottom: 30px; }
+
+#form .parsley-errors-list {
+  padding: 0;
+  list-style: none; }
+  #form .parsley-errors-list li {
+    color: red;
+    margin-top: 5px; }
+#form .form-control.parsley-error:focus {
+  border-color: red !important; }
+
+.table_image_round {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px; }
+
+.theme-white a:hover {
+  color: #fff; }
+
+.table_slider_list_image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 70px; }
+
+.table_slider_update_image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+/*# sourceMappingURL=style.css.map */
