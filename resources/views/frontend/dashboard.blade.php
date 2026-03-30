@@ -59,10 +59,10 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/module-css/feature.css') }}" />
 
     <!-- template styles -->
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}" />
 
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css') }}?v={{ time() }}" />
 </head>
 
 <body class="custom-cursor">
@@ -135,7 +135,7 @@
     <script src="{{ asset('frontend/assets/js/gsap/SplitText.js') }}"></script>
 
     <!-- template js -->
-    <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/script.js') }}?v={{ time() }}"></script>
 </body>
 
 </html>

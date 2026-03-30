@@ -93,7 +93,7 @@ class ServiceController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $service_image->getClientOriginalExtension();
                 $image = $manager->read($service_image);
-                // $image->resize(1600, 500);
+                $image->resize(850, 400);
                 $image->toJpeg(80)->save(base_path('public/uploads/services/' . $name_gen));
                 $serviceDetails->service_image = 'uploads/services/' . $name_gen;
             }
@@ -201,7 +201,7 @@ class ServiceController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $service_image->getClientOriginalExtension();
                 $image = $manager->read($service_image);
-                // $image->resize(1600, 500);
+                $image->resize(850, 400);
                 $image->toJpeg(80)->save(base_path('public/uploads/services/' . $name_gen));
                 $serviceDetails->service_image = 'uploads/services/' . $name_gen;
             }
@@ -222,7 +222,7 @@ class ServiceController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin.service.list')->with('success', 'Service updated successfully.');
+            return redirect()->back()->with('success', 'Service updated successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Error occurred while updating service: ' . $e->getMessage());

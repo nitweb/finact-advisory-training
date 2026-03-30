@@ -10,7 +10,7 @@
 
                     <div class="main-menu-three__left">
                         <div class="main-menu-three__logo">
-                            <a href="index.html">
+                            <a href="{{ route('frontend.index') }}">
                                 <img src="{{ asset(siteSetting()->header_logo) }}" alt="Site Logo">
                             </a>
                         </div>
