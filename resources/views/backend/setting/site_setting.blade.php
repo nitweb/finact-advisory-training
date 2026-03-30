@@ -76,6 +76,59 @@
                                         </div>
                                     </div>
 
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="card">
+
+                                <div class="card-header d-flex justify-content-between">
+                                    <h4>Contact Info</h4>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <div class="form-group row mb-4">
+                                        <div class="col-md-12">
+                                            <label class="col-form-label">Office Address</label>
+                                            <input type="text" class="form-control @error('head_address') is-invalid @enderror" name="head_address" value="{{ $site_setting->head_address }}" data-parsley-required-message="Site Address is required*" required>
+                                        </div>
+                                    </div>
+
+                                    {{-- <div class="form-group row mb-4">
+                                        <div class="col-md-12">
+                                            <label class="col-form-label">Branch Address</label>
+                                            <textarea class="form-control @error('branch_address') is-invalid @enderror" name="branch_address" data-parsley-required-message="Site Address is required*">{{ $site_setting->branch_address }}</textarea>
+                                        </div>
+                                    </div> --}}
+
+                                    <div class="form-group row mb-4">
+                                        <div class="col-md-12">
+                                            <label class="col-form-label">Site Phone</label>
+                                            <input type="text" class="form-control @error('site_phone') is-invalid @enderror" name="site_phone" value="{{ $site_setting->site_phone }}" data-parsley-required-message="Site Phone is required*" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-4">
+                                        <div class="col-md-12">
+                                            <label class="col-form-label">Site Alternative Phone</label>
+                                            <input type="text" class="form-control" name="site_phone_alter" value="{{ $site_setting->site_phone_alter }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-4">
+                                        <div class="col-md-12">
+                                            <label class="col-form-label">Site Email</label>
+                                            <input type="text" class="form-control @error('site_email') is-invalid @enderror" name="site_email" value="{{ $site_setting->site_email }}" data-parsley-required-message="Site Email is required*" required>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
                                     <div class="form-group row mb-4">
                                         <div class="col-md-12">
                                             <label class="col-form-label">Facebook</label>
@@ -110,60 +163,9 @@
 
                         </div>
 
-                        <div class="col-6">
-
-                            <div class="card">
-
-                                <div class="card-header d-flex justify-content-between">
-                                    <h4>Contact Info</h4>
-                                </div>
-
-                                <div class="card-body">
-
-                                    <div class="form-group row mb-4">
-                                        <div class="col-md-12">
-                                            <label class="col-form-label">Head Office Address</label>
-                                            <textarea class="form-control @error('head_address') is-invalid @enderror" name="head_address" data-parsley-required-message="Site Address is required*" required>{{ $site_setting->head_address }}</textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row mb-4">
-                                        <div class="col-md-12">
-                                            <label class="col-form-label">Branch Address</label>
-                                            <textarea class="form-control @error('branch_address') is-invalid @enderror" name="branch_address" data-parsley-required-message="Site Address is required*" required>{{ $site_setting->branch_address }}</textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row mb-4">
-                                        <div class="col-md-12">
-                                            <label class="col-form-label">Site Phone</label>
-                                            <input type="text" class="form-control @error('site_phone') is-invalid @enderror" name="site_phone" value="{{ $site_setting->site_phone }}" data-parsley-required-message="Site Phone is required*" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row mb-4">
-                                        <div class="col-md-12">
-                                            <label class="col-form-label">Site Alternative Phone</label>
-                                            <input type="text" class="form-control" name="site_phone_alter" value="{{ $site_setting->site_phone_alter }}">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row mb-4">
-                                        <div class="col-md-12">
-                                            <label class="col-form-label">Site Email</label>
-                                            <input type="text" class="form-control @error('site_email') is-invalid @enderror" name="site_email" value="{{ $site_setting->site_email }}" data-parsley-required-message="Site Email is required*" required>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-12">
-                                <label class="col-form-label"></label>
-                                <button class="btn btn-primary">Update</button>
-                            </div>
-
+                        <div class="col-12">
+                            <label class="col-form-label"></label>
+                            <button class="btn btn-primary">Update Site Setting</button>
                         </div>
 
                     </div>
