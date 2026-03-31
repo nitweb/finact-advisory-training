@@ -56,6 +56,17 @@
                 </ul>
             </li>
 
+            <li class="dropdown {{ request()->routeIs(['admin.blog-category.list', 'admin.blog.list']) ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="list"></i>
+                    <span>Blog</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.blog-category.list') }}">Blog Category List</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.blog.list') }}">Blog List</a></li>
+                </ul>
+            </li>
+
             <li class="dropdown {{ request()->routeIs(['admin.publications.list', 'admin.circular.list', 'admin.gallery.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>

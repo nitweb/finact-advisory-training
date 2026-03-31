@@ -11,8 +11,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
-                                <h4>{{ $title }}</h4>
+                                <h4>{{ $title }} Add</h4>
                                 <h4>
+                                    <a href="{{ route('admin.service.list') }}" class="btn btn-outline-primary"><i class="fas fa-list"></i> {{ $title }} List</a>
                                     <a href="{{ URL::previous() }}" class="btn btn-sm btn-dark">
                                         <i class="fas fa-arrow-left"></i> Back
                                     </a>
@@ -130,7 +131,7 @@
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
                                             <label class="col-form-label"></label>
-                                            <button class="btn btn-primary">Create</button>
+                                            <button class="btn btn-primary">Create {{ $title }}</button>
                                         </div>
                                     </div>
 

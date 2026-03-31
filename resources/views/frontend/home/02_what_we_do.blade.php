@@ -22,13 +22,17 @@
                         <div class="section-title__tagline-box">
                             <span class="section-title__tagline">What We Do</span>
                         </div>
-                        <h2 class="section-title__title title-animation">Empowering Your Business with <span>Finance & Compliance</span></h2>
+                        <h2 class="section-title__title title-animation">
+                            Empowering Business Through <span>Financial Clarity</span> and <span>Compliance</span>.
+                        </h2>
                     </div>
-                    <p class="about-three__text"><strong>FINACT ADVISORY AND TRAINING</strong> is a professional finance and compliance advisory firm helping businesses strengthen their accounting, reporting, tax, VAT, and regulatory frameworks through practical and implementation-focused support.</p>
+                    <p class="about-three__text">
+                        <strong>FINACT Advisory & Training</strong> bridges the gap between technical complexity and everyday business needs. We help businesses build structured, reliable, and well-controlled financial operations through practical implementation-focused solutions across accounting, tax, VAT, and regulatory requirements.
+                    </p>
                     <br>
-                    <p class="about-three__text">We combine technical expertise with real-world business understanding to help organizations establish financial discipline, improve reporting quality, manage compliance obligations, and support informed decision-making.</p>
-                    <br>
-                    <p class="about-three__text">In today's fast-changing business environment, finance must deliver more than record-keeping. It must provide clarity, control, insight, and readiness for a more digital, data-driven, and AI-influenced future.</p>
+                    <p class="about-three__text">
+                        We transform financial data into clear insights—enabling stronger control, better decision-making, and sustainable growth.
+                    </p>
                 </div>
             </div>
 

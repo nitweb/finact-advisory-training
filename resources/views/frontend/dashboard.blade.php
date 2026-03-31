@@ -57,12 +57,15 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/module-css/newsletter.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/module-css/video.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/module-css/feature.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/module-css/error.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/module-css/page-header.css') }}" />
 
     <!-- template styles -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css') }}?v={{ time() }}" />
+
 </head>
 
 <body class="custom-cursor">

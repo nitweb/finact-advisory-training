@@ -30,15 +30,12 @@ class FrontendController extends Controller
 
         $about_us = AboutUs::where('id', 1)->latest()->get()->first();
 
-        $services = Service::where('status', 'active')
-            ->whereHas('serviceDetail.category', function ($q) {
-                $q->where('name', 'home');
-            })
-            ->orderBy('id', 'desc')
-            ->take(3)
-            ->get();
+        $services = Service::where('status', 'active')->orderBy('id', 'asc')->get();
+
+        $blog = Blog::where('status', 'active')->latest()->take(3)->get();
 
         $our_team = OurTeam::where('status', 'active')->orderBy('id', 'asc')->get();
+
         $top_level_team = $our_team
             ->filter(function ($item) {
                 return $item->type == 'top_level';
@@ -47,20 +44,20 @@ class FrontendController extends Controller
 
         $client = Client::where('status', 'active')->orderBy('id', 'desc')->get();
 
-        return view('frontend.index', compact('slider', 'about_us', 'services', 'our_team', 'top_level_team', 'client'));
+        return view('frontend.index', compact('slider', 'about_us', 'services', 'our_team', 'top_level_team', 'client', 'blog'));
     } // End Method
 
     public function ServiceDetails($slug)
     {
-        $service_list = Service::where('status', 'active')->orderBy('title', 'asc')->get();
+        $service_list = Service::where('status', 'active')->orderBy('id', 'asc')->get();
         $service = Service::where('slug', $slug)->first();
         return view('frontend.details.service_details', compact('service_list', 'service'));
     } // End Method
 
     public function AllServiceList()
     {
-        $services = Service::where('status', 'active')->latest()->get();
-        return view('frontend.pages.all_services', compact('services'));
+        $services = Service::where('status', 'active')->orderBy('id', 'asc')->get();
+        return view('frontend.pages.services', compact('services'));
     } // End Method
 
     public function AboutUs()

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -18,7 +19,7 @@ class ServiceController extends Controller
 {
     public function ServiceList()
     {
-        $title = 'Service List';
+        $title = 'Service';
 
         $services = Service::orderBy('id', 'asc')->get();
 
@@ -29,7 +30,7 @@ class ServiceController extends Controller
 
     public function ServiceAdd()
     {
-        $title = 'Service Add';
+        $title = 'Service';
         $categories = ServiceCategory::all();
 
         return view('backend.service.add', compact('title', 'categories'));
@@ -41,24 +42,17 @@ class ServiceController extends Controller
             $request->all(),
             [
                 'title' => 'required|max:100',
-                'category_id' => 'required|integer|exists:service_categories,id',
-                'icon' => 'required|string|max:50',
-                'service_image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+                'service_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
                 'short_description' => 'required|string|max:250',
                 'long_description' => 'required|string',
             ],
             [
                 'title.required' => 'Title is required',
                 'title.max' => 'Title is too long',
-                'category_id.required' => 'Service category is required',
-                'category_id.integer' => 'Service category must be an integer',
-                'category_id.exists' => 'Service category is not found',
-                'icon.required' => 'Icon is required',
-                'icon.max' => 'Icon is too long',
                 'service_image.required' => 'Service image is required',
                 'service_image.image' => 'Service image must be an image',
-                'service_image.mimes' => 'Service image must be a file of type: jpeg, png, jpg, gif, svg',
-                'service_image.max' => 'Service image must be less than 1MB',
+                'service_image.mimes' => 'Service image must be jpeg, png or jpg',
+                'service_image.max' => 'Service image must be less than 2MB',
                 'short_description.required' => 'Short description is required',
                 'short_description.max' => 'Short description is too long',
                 'long_description.required' => 'Long description is required',
@@ -74,21 +68,22 @@ class ServiceController extends Controller
         try {
             $service = new Service();
             $service->title = $request->title;
-            $service->slug = strtolower(str_replace(' ', '-', $request->slug));
-            $service->category_id = $request->category_id;
+            $service->slug = Str::slug($request->slug);
+            $service->category_id = 1;
             $service->date = now()->format('Y-m-d');
             $service->created_by = Auth::user()->id;
             $service->save();
 
             $serviceDetails = new ServiceDetails();
             $serviceDetails->service_id = $service->id;
-            $serviceDetails->icon = $request->icon;
+            $serviceDetails->icon = '#!';
             $serviceDetails->short_description = $request->short_description;
             $serviceDetails->long_description = $request->long_description;
             $serviceDetails->meta_title = $request->meta_title;
             $serviceDetails->meta_description = $request->meta_description;
             $serviceDetails->meta_keyword = $request->meta_keyword;
-            if ($request->file('service_image')) {
+
+            if ($request->hasFile('service_image')) {
                 $service_image = $request->file('service_image');
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $service_image->getClientOriginalExtension();
@@ -98,16 +93,6 @@ class ServiceController extends Controller
                 $serviceDetails->service_image = 'uploads/services/' . $name_gen;
             }
 
-            if ($request->file('service_banner_image')) {
-                $service_banner_image = $request->file('service_banner_image');
-                $manager = new ImageManager(new Driver());
-                $name_gen = hexdec(uniqid()) . '.' . $service_banner_image->getClientOriginalExtension();
-                $image = $manager->read($service_banner_image);
-                // $image->resize(1600, 407);
-                $image->toJpeg(80)->save(base_path('public/uploads/services/' . $name_gen));
-                $serviceDetails->service_banner_image = 'uploads/services/' . $name_gen;
-            }
-
             $serviceDetails->save();
 
             DB::commit();
@@ -115,14 +100,14 @@ class ServiceController extends Controller
             return redirect()->route('admin.service.list')->with('success', 'Service created successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Error occurred while creating service: ' . $e->getMessage());
+            Log::error('ServiceStore Error: ' . $e->getMessage());
             return redirect()->back()->with('error', 'Something went wrong!')->withInput();
         }
-    } // End Method
+    }
 
     public function ServiceEdit($id)
     {
-        $title = 'Service Edit';
+        $title = 'Service';
         $categories = ServiceCategory::all();
         $service = Service::findOrFail($id);
         $serviceDetails = $service->serviceDetail ?? null;
@@ -136,9 +121,7 @@ class ServiceController extends Controller
             [
                 'id' => 'required|integer',
                 'title' => 'required|max:100',
-                'category_id' => 'required|integer|exists:service_categories,id',
-                'icon' => 'required|string|max:50',
-                'service_image' => 'image|mimes:jpeg,png,jpg|max:1024',
+                'service_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
                 'short_description' => 'required|string|max:250',
                 'long_description' => 'required|string',
                 'status' => 'required',
@@ -147,14 +130,9 @@ class ServiceController extends Controller
                 'id.required' => 'Service ID is required',
                 'title.required' => 'Title is required',
                 'title.max' => 'Title is too long',
-                'category_id.required' => 'Service category is required',
-                'category_id.integer' => 'Service category must be an integer',
-                'category_id.exists' => 'Service category is not found',
-                'icon.required' => 'Icon is required',
-                'icon.max' => 'Icon is too long',
                 'service_image.image' => 'Service image must be an image',
-                'service_image.mimes' => 'Service image must be a file of type: jpeg, png, jpg, gif, svg',
-                'service_image.max' => 'Service image must be less than 1MB',
+                'service_image.mimes' => 'Service image must be jpeg, png or jpg',
+                'service_image.max' => 'Service image must be less than 2MB',
                 'short_description.required' => 'Short description is required',
                 'short_description.max' => 'Short description is too long',
                 'long_description.required' => 'Long description is required',
@@ -170,14 +148,11 @@ class ServiceController extends Controller
 
         try {
             $service = Service::findOrFail($request->id);
-            if (!$service) {
-                abort(404);
-            }
             $service->title = $request->title;
-            $service->slug = strtolower(str_replace(' ', '-', $request->slug));
+            $service->slug = Str::slug($request->slug);
             $service->date = now()->format('Y-m-d');
             $service->status = $request->status;
-            $service->category_id = $request->category_id;
+            $service->category_id = 1;
             $service->updated_by = Auth::user()->id;
             $service->save();
 
@@ -186,17 +161,20 @@ class ServiceController extends Controller
                 $serviceDetails = new ServiceDetails();
                 $serviceDetails->service_id = $service->id;
             }
-            $serviceDetails->icon = $request->icon;
+
+            $serviceDetails->icon = '#!';
             $serviceDetails->short_description = $request->short_description;
             $serviceDetails->long_description = $request->long_description;
             $serviceDetails->meta_title = $request->meta_title;
             $serviceDetails->meta_description = $request->meta_description;
             $serviceDetails->meta_keyword = $request->meta_keyword;
 
-            if ($request->file('service_image')) {
-                if (file_exists(base_path('public/' . $serviceDetails->service_image))) {
+            if ($request->hasFile('service_image')) {
+                // পুরনো image delete
+                if ($serviceDetails->service_image && file_exists(base_path('public/' . $serviceDetails->service_image))) {
                     unlink(base_path('public/' . $serviceDetails->service_image));
                 }
+
                 $service_image = $request->file('service_image');
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $service_image->getClientOriginalExtension();
@@ -206,18 +184,6 @@ class ServiceController extends Controller
                 $serviceDetails->service_image = 'uploads/services/' . $name_gen;
             }
 
-            if ($request->file('service_banner_image')) {
-                if (file_exists(base_path('public/' . $serviceDetails->service_banner_image))) {
-                    unlink(base_path('public/' . $serviceDetails->service_banner_image));
-                }
-                $service_banner_image = $request->file('service_banner_image');
-                $manager = new ImageManager(new Driver());
-                $name_gen = hexdec(uniqid()) . '.' . $service_banner_image->getClientOriginalExtension();
-                $image = $manager->read($service_banner_image);
-                $image->toJpeg(80)->save(base_path('public/uploads/services/' . $name_gen));
-                $serviceDetails->service_banner_image = 'uploads/services/' . $name_gen;
-            }
-
             $serviceDetails->save();
 
             DB::commit();
@@ -225,10 +191,10 @@ class ServiceController extends Controller
             return redirect()->back()->with('success', 'Service updated successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Error occurred while updating service: ' . $e->getMessage());
+            Log::error('ServiceUpdate Error: ' . $e->getMessage());
             return redirect()->back()->with('error', 'Something went wrong!')->withInput();
         }
-    } // End Method
+    }
 
     public function ServiceDelete($id)
     {
