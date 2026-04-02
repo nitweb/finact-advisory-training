@@ -42,7 +42,7 @@
 
                             <li><a href="#!">Training & Development</a></li>
 
-                            <li><a href="#!">Blog</a></li>
+                            <li><a href="{{ route('frontend.blog.list') }}">Blog</a></li>
 
                         </ul>
                         

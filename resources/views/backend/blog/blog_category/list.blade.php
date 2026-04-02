@@ -44,7 +44,7 @@
                                         <tbody>
                                             @foreach ($blog_categories as $key => $item)
                                                 <tr>
-                                                    <td>{{ $blog_categories->count() - $key }}</td>
+                                                    <td>{{ $key + 1 }}</td>
                                                     <td>{{ $item->name }}</td>
                                                     <td>
                                                         <div class="table_actions d-flex gap-2">

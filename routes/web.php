@@ -75,7 +75,9 @@ Route::group(
                 Route::get('/privacy-policy', 'PrivacyPolicy')->name('privacy.policy');
 
                 Route::get('/blog', 'BlogList')->name('blog.list');
+                Route::get('/blog/search', 'BlogSearch')->name('blog.search'); // ← MUST be before {slug}
                 Route::get('/blog/{slug}', 'BlogDetails')->name('blog.details');
+
                 // Route::get('/who-we-are', 'WhoWeAre')->name('who.we.are');
             },
         );
