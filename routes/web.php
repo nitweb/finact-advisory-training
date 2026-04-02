@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\ServiceSubCategoryController;
 use App\Http\Controllers\Backend\Settings\SettingController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SuccessfulPortfoliosController;
+use App\Http\Controllers\Backend\TrainingController;
 use App\Http\Controllers\Backend\WhoWeAreController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
@@ -77,6 +78,9 @@ Route::group(
                 Route::get('/blog', 'BlogList')->name('blog.list');
                 Route::get('/blog/search', 'BlogSearch')->name('blog.search'); // ← MUST be before {slug}
                 Route::get('/blog/{slug}', 'BlogDetails')->name('blog.details');
+
+                // Training & Development
+                Route::get('/training-and-development', 'TrainingDevelopment')->name('training.development');
 
                 // Route::get('/who-we-are', 'WhoWeAre')->name('who.we.are');
             },
@@ -429,6 +433,20 @@ Route::group(
                 Route::get('/list', 'OurContentList')->name('list');
                 Route::get('/edit/{id}', 'OurContentEdit')->name('edit');
                 Route::post('/update', 'OurContentUpdate')->name('update');
+            },
+        );
+
+        // Training & Development All Routes
+        Route::group(
+            [
+                'prefix' => 'training',
+                'controller' => TrainingController::class,
+                'as' => 'training.',
+            ],
+            function () {
+                Route::get('/list', 'TrainingList')->name('list');
+                Route::get('/edit/{id}', 'TrainingEdit')->name('edit');
+                Route::post('/update', 'TrainingUpdate')->name('update');
             },
         );
     },

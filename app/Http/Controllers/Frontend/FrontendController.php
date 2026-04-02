@@ -18,6 +18,7 @@ use App\Models\ServiceCategory;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\SuccessfulPortfolios;
+use App\Models\Training;
 use App\Models\User;
 use App\Models\WhoWeAre;
 use Illuminate\Http\Request;
@@ -236,5 +237,11 @@ class FrontendController extends Controller
     {
         $circular_data = Circular::latest()->get();
         return view('frontend.pages.circular', compact('circular_data'));
+    } // End Method
+
+    public function TrainingDevelopment()
+    {
+        $training_info = Training::first();
+        return view('frontend.pages.training_development', compact('training_info'));
     } // End Method
 }
