@@ -75,6 +75,7 @@
                                     touch <span class="fas fa-arrow-right"></span></a>
                             </div>
                         </div>
+
                         <div class="service-details__sidebar-download-box">
                             <h3 class="service-details__services-title">Download</h3>
                             <div class="service-details__sidebar-single-download">

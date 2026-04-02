@@ -1,6 +1,6 @@
 @extends('backend.admin.master')
 
-@section('admin_title', $title )
+@section('admin_title', $title)
 
 @section('admin_content')
 
@@ -22,6 +22,7 @@
                             <div class="card-body">
 
                                 @include('widgets.errors')
+                                @include('widgets.success')
 
                                 <form id="form" action="{{ route('admin.blog.store') }}" method="post" enctype="multipart/form-data" data-parsley-validate>
 
@@ -46,7 +47,7 @@
 
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
-                                            <label class="col-form-label">Blog Image [848px by 566px]</label>
+                                            <label class="col-form-label">Blog Image [850px by 500px]</label>
                                             <div id="image-preview" class="image-preview">
                                                 <label for="image-upload" id="image-label">Choose File</label>
                                                 <input type="file" name="blog_image" id="image-upload" required data-parsley-required-message="Blog Image is required*" />

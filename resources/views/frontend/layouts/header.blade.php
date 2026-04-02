@@ -38,14 +38,14 @@
                                 </ul>
                             </li>
 
-                            <li><a href="#!">Finance Support</a></li>
+                            <li><a href="{{ route('frontend.finance.support') }}">Finance Support</a></li>
 
-                            <li><a href="#!">Training & Development</a></li>
+                            <li><a href="{{ route('frontend.training.development') }}">Training & Development</a></li>
 
-                            <li><a href="#!">Blog</a></li>
+                            <li><a href="{{ route('frontend.blog.list') }}">Blog</a></li>
 
                         </ul>
-                        
+
                     </div>
 
                     <div class="main-menu-three__right">

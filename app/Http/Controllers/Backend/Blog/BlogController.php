@@ -88,7 +88,7 @@ class BlogController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $blog_image->getClientOriginalExtension();
                 $image = $manager->read($blog_image);
-                // $image->resize(1600, 500);
+                $image->resize(850, 500);
                 $image->toJpeg(80)->save(base_path('public/uploads/blog/' . $name_gen));
                 $blogDetails->blog_image = 'uploads/blog/' . $name_gen;
             }
@@ -183,7 +183,7 @@ class BlogController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $blog_image->getClientOriginalExtension();
                 $image = $manager->read($blog_image);
-                // $image->resize(1600, 500);
+                $image->resize(850, 500);
                 $image->toJpeg(80)->save(base_path('public/uploads/blog/' . $name_gen));
                 $blogDetails->blog_image = 'uploads/blog/' . $name_gen;
             }
@@ -192,7 +192,7 @@ class BlogController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin.blog.list')->with('success', 'Blog updated successfully.');
+            return redirect()->back()->with('success', 'Blog updated successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Error occurred while updating blog: ' . $e->getMessage());
@@ -214,7 +214,7 @@ class BlogController extends Controller
 
             $imagePath = public_path($blogDetails->blog_image);
             if (is_file($imagePath) && file_exists($imagePath)) {
-                unlink($imagePath); 
+                unlink($imagePath);
             }
 
             $blog->delete();

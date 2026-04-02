@@ -84,3 +84,9 @@
 .contact-page__left iframe {
     height: 675px;
 }
+
+.blog-details__user {
+    width: inherit;
+    border-radius: 5px;
+    padding: 0 10px;
+}
