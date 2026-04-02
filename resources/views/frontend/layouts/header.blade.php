@@ -10,8 +10,8 @@
 
                     <div class="main-menu-three__left">
                         <div class="main-menu-three__logo">
-                            <a href="index.html">
-                                <img src="{{ asset(siteSetting()->header_logo) }}" alt="Site Logo">
+                            <a href="{{ route('frontend.index') }}">
+                                <img src="{{ asset(siteSetting()->header_logo) }}" alt="Site Logo" style="width: 200px">
                             </a>
                         </div>
                     </div>
@@ -39,15 +39,14 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#">services</a>
+                                <a href="{{ route('frontend.all.services.list') }}">Services</a>
                                 <ul class="shadow-box">
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="ui-ux-design.html">UI/UX Design</a></li>
-                                    <li><a href="web-development.html">Web Development</a></li>
-                                    <li><a href="digital-marketing.html">Digital Marketing</a></li>
-                                    <li><a href="business-analysis.html">Business Analysis</a></li>
-                                    <li><a href="software-development.html">Software Development</a></li>
-                                    <li><a href="product-design.html">Product Design</a></li>
+                                    @php
+                                        $navServices = \App\Models\Service::where('status', 'active')->orderBy('id', 'asc')->get();
+                                    @endphp
+                                    @foreach ($navServices as $item)
+                                        <li><a href="{{ route('frontend.service.details', $item->slug) }}">{{ $item->title }}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
                             <li class="dropdown">

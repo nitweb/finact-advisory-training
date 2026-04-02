@@ -8,7 +8,7 @@
 
         <div class="logo-box">
             <a href="{{ route('frontend.index') }}" aria-label="logo image">
-                <img src="{{ asset(siteSetting()->footer_logo) }}" width="150" alt="Site Logo" />
+                <img src="{{ asset(siteSetting()->footer_logo) }}" alt="Site Logo" style="width: 200px"/>
             </a>
         </div>
 

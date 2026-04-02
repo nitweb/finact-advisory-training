@@ -17,7 +17,7 @@
                         <div class="footer-widget__about">
                             <div class="footer-widget__about-logo">
                                 <a href="{{ route('frontend.index') }}">
-                                    <img src="{{ asset(siteSetting()->footer_logo) }}" alt="Site Logo">
+                                    <img src="{{ asset(siteSetting()->footer_logo) }}" alt="Site Logo" style="width: 200px">
                                 </a>
                             </div>
                             <p class="footer-widget__about-text">{{ siteSetting()->footer_text }}</p>
@@ -47,11 +47,12 @@
                         <div class="footer-widget__services">
                             <h4 class="footer-widget__title">Services</h4>
                             <ul class="footer-widget__links-list list-unstyled">
-                                <li><a href="web-development.html">Web Development</a></li>
-                                <li><a href="business-analysis.html">Business Development</a></li>
-                                <li><a href="software-development.html">Cloud services</a></li>
-                                <li><a href="product-design.html">Product Management</a></li>
-                                <li><a href="ui-ux-design.html">UI/UX Design</a></li>
+                                @php
+                                    $footerServices = \App\Models\Service::where('status', 'active')->orderBy('id', 'asc')->take(5)->get();
+                                @endphp
+                                @foreach ($footerServices as $item)
+                                    <li><a href="{{ route('frontend.service.details', $item->slug) }}">{{ $item->title }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 @extends('backend.admin.master')
 
-@section('admin_title', $title )
+@section('admin_title', $title)
 
 @section('admin_content')
 
@@ -11,8 +11,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
-                                <h4>{{ $title }}</h4>
+                                <h4>{{ $title }} Add</h4>
                                 <h4>
+                                    <a href="{{ route('admin.service.list') }}" class="btn btn-outline-primary"><i class="fas fa-list"></i> {{ $title }} List</a>
                                     <a href="{{ URL::previous() }}" class="btn btn-sm btn-dark">
                                         <i class="fas fa-arrow-left"></i> Back
                                     </a>
@@ -22,13 +23,14 @@
                             <div class="card-body">
 
                                 @include('widgets.errors')
+                                @include('widgets.success')
 
                                 <form id="form" action="{{ route('admin.service.store') }}" method="post" enctype="multipart/form-data" data-parsley-validate>
 
                                     <input type="hidden" name="category_id" value="1">
 
                                     <input type="hidden" name="icon" value="#!">
-                                    
+
                                     @csrf
 
                                     {{-- <div class="form-group row mb-4">
@@ -57,7 +59,7 @@
 
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
-                                            <label class="col-form-label">Service Image [848px by 566px]</label>
+                                            <label class="col-form-label">Service Image [850px by 400px]</label>
                                             <div id="image-preview" class="image-preview">
                                                 <label for="image-upload" id="image-label">Choose File</label>
                                                 <input type="file" name="service_image" id="image-upload" required data-parsley-required-message="Service Image is required*" />
@@ -129,7 +131,7 @@
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
                                             <label class="col-form-label"></label>
-                                            <button class="btn btn-primary">Create</button>
+                                            <button class="btn btn-primary">Create {{ $title }}</button>
                                         </div>
                                     </div>
 
