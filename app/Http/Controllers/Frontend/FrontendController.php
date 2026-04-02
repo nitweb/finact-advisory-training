@@ -116,7 +116,8 @@ class FrontendController extends Controller
     public function ContactUs()
     {
         $site_setting = Setting::first();
-        return view('frontend.pages.contact_us', compact('site_setting'));
+        $services = Service::where('status', 'active')->latest()->get();
+        return view('frontend.pages.contact_us', compact('site_setting', 'services'));
     } // End Method
 
     public function BlogList()

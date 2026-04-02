@@ -71,13 +71,19 @@
                                     <div class="icon">
                                         <span class="icon-call"></span>
                                     </div>
-                                    <p><a href="tel:{{ siteSetting()->site_phone }}">{{ siteSetting()->site_phone }}</a></p>
+                                    <div>
+                                        <p><a href="tel:{{ siteSetting()->site_phone }}">{{ siteSetting()->site_phone }}</a></p>
+                                        <p><a href="tel:{{ siteSetting()->site_phone_alter }}">{{ siteSetting()->site_phone_alter }}</a></p>
+                                    </div>
                                 </li>
                                 <li>
                                     <div class="icon">
                                         <span class="icon-email"></span>
                                     </div>
-                                    <p><a href="mailto:{{ siteSetting()->site_email }}">{{ siteSetting()->site_email }}</a></p>
+                                    <div>
+                                        <p><a href="mailto:{{ siteSetting()->site_email }}">{{ siteSetting()->site_email }}</a></p>
+                                        <p><a href="mailto:{{ siteSetting()->site_email_alter }}">{{ siteSetting()->site_email_alter }}</a></p>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -102,7 +108,7 @@
                                 <script>
                                     document.write(new Date().getFullYear());
                                 </script>
-                                {{ siteSetting()->copyright }} By <a href="https://web.nebulaitbd.com/">Nebula IT.</a> All Rights Reserved.
+                                {{ siteSetting()->copyright }} By <a href="https://web.nebulaitbd.com/" target="_blank">Nebula IT.</a> All Rights Reserved.
                             </p>
                         </div>
                     </div>
