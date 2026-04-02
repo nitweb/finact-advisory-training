@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\CircularController;
 use App\Http\Controllers\Backend\ClientController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\EnlistmentController;
+use App\Http\Controllers\Backend\FinanceController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\JobApplyController;
 use App\Http\Controllers\Backend\OurContentsController;
@@ -78,6 +79,9 @@ Route::group(
                 Route::get('/blog', 'BlogList')->name('blog.list');
                 Route::get('/blog/search', 'BlogSearch')->name('blog.search'); // ← MUST be before {slug}
                 Route::get('/blog/{slug}', 'BlogDetails')->name('blog.details');
+
+                // Global Remote Finance Support
+                Route::get('/global-remote-finance-support', 'FinanceSupport')->name('finance.support');
 
                 // Training & Development
                 Route::get('/training-and-development', 'TrainingDevelopment')->name('training.development');
@@ -433,6 +437,20 @@ Route::group(
                 Route::get('/list', 'OurContentList')->name('list');
                 Route::get('/edit/{id}', 'OurContentEdit')->name('edit');
                 Route::post('/update', 'OurContentUpdate')->name('update');
+            },
+        );
+
+        // Finance Support All Routes
+        Route::group(
+            [
+                'prefix' => 'finance',
+                'controller' => FinanceController::class,
+                'as' => 'finance.',
+            ],
+            function () {
+                Route::get('/list', 'FinanceList')->name('list');
+                Route::get('/edit/{id}', 'FinanceEdit')->name('edit');
+                Route::post('/update', 'FinanceUpdate')->name('update');
             },
         );
 

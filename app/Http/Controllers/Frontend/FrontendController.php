@@ -9,6 +9,7 @@ use App\Models\Career;
 use App\Models\Circular;
 use App\Models\Client;
 use App\Models\Enlistment;
+use App\Models\Finance;
 use App\Models\Gallery;
 use App\Models\OurContents;
 use App\Models\OurTeam;
@@ -237,6 +238,12 @@ class FrontendController extends Controller
     {
         $circular_data = Circular::latest()->get();
         return view('frontend.pages.circular', compact('circular_data'));
+    } // End Method
+
+    public function FinanceSupport()
+    {
+        $finance_info = Finance::first();
+        return view('frontend.pages.finance_support', compact('finance_info'));
     } // End Method
 
     public function TrainingDevelopment()

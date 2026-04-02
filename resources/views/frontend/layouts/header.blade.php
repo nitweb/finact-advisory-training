@@ -38,7 +38,7 @@
                                 </ul>
                             </li>
 
-                            <li><a href="#!">Finance Support</a></li>
+                            <li><a href="{{ route('frontend.finance.support') }}">Finance Support</a></li>
 
                             <li><a href="{{ route('frontend.training.development') }}">Training & Development</a></li>
 

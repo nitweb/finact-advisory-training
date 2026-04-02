@@ -27,16 +27,16 @@
 
                                 @include('widgets.errors')
 
-                                <form id="form" action="{{ route('admin.training.update') }}" method="post" data-parsley-validate>
+                                <form id="form" action="{{ route('admin.finance.update') }}" method="post" data-parsley-validate>
 
                                     @csrf
 
-                                    <input type="hidden" name="id" value="{{ $training_info->id }}">
+                                    <input type="hidden" name="id" value="{{ $finance_info->id }}">
 
                                     <div class="form-group row mb-4">
                                         <div class="col-md-12">
                                             <label class="col-form-label">Long Description</label>
-                                            <textarea class="summernote" name="long_description" required data-parsley-required-message="Training & Development Description is required*">{{ $training_info->long_description }}</textarea>
+                                            <textarea class="summernote" name="long_description" required data-parsley-required-message="Training & Development Description is required*">{{ $finance_info->long_description }}</textarea>
                                         </div>
                                     </div>
 
