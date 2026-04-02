@@ -35,7 +35,7 @@
                             <h4 class="footer-widget__title">Quick links</h4>
                             <ul class="footer-widget__links-list list-unstyled">
                                 <li><a href="{{ route('frontend.about.us') }}">About Us</a></li>
-                                <li><a href="{{ route('frontend.team.list') }}">Meet Our Team</a></li>
+                                <li><a href="{{ route('frontend.blog.list') }}">Insights & Updates</a></li>
                                 <li><a href="{{ route('frontend.contact.us') }}">Contact Us</a></li>
                                 <li><a href="{{ route('frontend.terms.conditions') }}">Terms of Service</a></li>
                                 <li><a href="{{ route('frontend.privacy.policy') }}">Privacy policy</a></li>

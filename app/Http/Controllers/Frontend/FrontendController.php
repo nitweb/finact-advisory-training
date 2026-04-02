@@ -9,6 +9,7 @@ use App\Models\Career;
 use App\Models\Circular;
 use App\Models\Client;
 use App\Models\Enlistment;
+use App\Models\Finance;
 use App\Models\Gallery;
 use App\Models\OurContents;
 use App\Models\OurTeam;
@@ -18,6 +19,7 @@ use App\Models\ServiceCategory;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\SuccessfulPortfolios;
+use App\Models\Training;
 use App\Models\User;
 use App\Models\WhoWeAre;
 use Illuminate\Http\Request;
@@ -122,16 +124,46 @@ class FrontendController extends Controller
 
     public function BlogList()
     {
-        $blog = Blog::where('status', 'active')->latest()->get();
-        return view('frontend.pages.our_blog', compact('blog'));
-    } // End Method
+        $blog = Blog::where('status', 'active')->latest()->paginate(9);
+        return view('frontend.pages.blog', compact('blog'));
+    }
 
     public function BlogDetails($slug)
     {
         $blog = Blog::where('slug', $slug)->first();
         $author = User::where('id', $blog->created_by)->first()->name;
-        return view('frontend.details.blog_details', compact('blog', 'author'));
+        $recent_blogs = Blog::where('status', 'active')->latest()->take(5)->get();
+
+        return view('frontend.details.blog_details', compact('blog', 'author', 'recent_blogs'));
     } // End Method
+
+    public function BlogSearch(Request $request)
+    {
+        $query = $request->get('q', '');
+
+        $blogs = Blog::where('status', 'active')
+            ->where(function ($q) use ($query) {
+                $q->where('title', 'like', "%{$query}%")->orWhereHas('blogDetail', function ($q) use ($query) {
+                    $q->where('long_description', 'like', "%{$query}%");
+                });
+            })
+            ->with('blogDetail.category')
+            ->latest()
+            ->take(8)
+            ->get()
+            ->map(function ($blog) {
+                return [
+                    'title' => $blog->title,
+                    'slug' => $blog->slug,
+                    'image' => asset($blog->blogDetail->blog_image),
+                    'category' => $blog->blogDetail->category->name ?? 'Uncategorized',
+                    'date' => \Carbon\Carbon::parse($blog->date)->format('F j, Y'),
+                    'url' => route('frontend.blog.details', $blog->slug),
+                ];
+            });
+
+        return response()->json($blogs);
+    }
 
     public function PrivacyPolicy()
     {
@@ -206,5 +238,17 @@ class FrontendController extends Controller
     {
         $circular_data = Circular::latest()->get();
         return view('frontend.pages.circular', compact('circular_data'));
+    } // End Method
+
+    public function FinanceSupport()
+    {
+        $finance_info = Finance::first();
+        return view('frontend.pages.finance_support', compact('finance_info'));
+    } // End Method
+
+    public function TrainingDevelopment()
+    {
+        $training_info = Training::first();
+        return view('frontend.pages.training_development', compact('training_info'));
     } // End Method
 }

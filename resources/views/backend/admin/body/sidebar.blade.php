@@ -4,8 +4,8 @@
 
         <div class="sidebar-brand">
             <a href="{{ route('admin.dashboard') }}">
-                <img alt="image" src="{{ asset('/frontend/images/favicon.jpg') }}" class="header-logo" />
-                <span class="logo-name">Rahman Anis & Co</span>
+                <img alt="image" src="{{ asset(siteSetting()->header_logo) }}" class="header-logo" alt="Site Logo" style="height: 45px;"/>
+                {{-- <span class="logo-name">Rahman Anis & Co</span> --}}
             </a>
         </div>
 
@@ -51,8 +51,28 @@
                     <span>Services</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('admin.service.list') }}">Services</a></li>
-                    <li><a class="nav-link" href="{{ route('admin.client.list') }}">Our Clients</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.service.list') }}">Services List</a></li>
+                    {{-- <li><a class="nav-link" href="{{ route('admin.client.list') }}">Our Clients</a></li> --}}
+                </ul>
+            </li>
+
+            <li class="dropdown {{ request()->routeIs(['admin.finance.list']) ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="list"></i>
+                    <span>Finance Support</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.finance.list') }}">Finance Support</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown {{ request()->routeIs(['admin.training.list']) ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="list"></i>
+                    <span>Training & Development</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.training.list') }}">Training & Development</a></li>
                 </ul>
             </li>
 
@@ -67,7 +87,7 @@
                 </ul>
             </li>
 
-            <li class="dropdown {{ request()->routeIs(['admin.publications.list', 'admin.circular.list', 'admin.gallery.list']) ? 'active' : '' }}">
+            {{-- <li class="dropdown {{ request()->routeIs(['admin.publications.list', 'admin.circular.list', 'admin.gallery.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>
                     <span>Resources</span>
@@ -77,9 +97,9 @@
                     <li><a class="nav-link" href="{{ route('admin.circular.list') }}">Notice/Circular</a></li>
                     <li><a class="nav-link" href="{{ route('admin.gallery.list') }}">Gallery</a></li>
                 </ul>
-            </li>
+            </li> --}}
 
-            <li class="dropdown {{ request()->routeIs('admin.career.list') ? 'active' : '' }}">
+            {{-- <li class="dropdown {{ request()->routeIs('admin.career.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>
                     <span>Careers</span>
@@ -88,7 +108,7 @@
                     <li><a class="nav-link" href="{{ route('admin.career.list') }}">Job Post</a></li>
                     <li><a class="nav-link" href="{{ route('admin.job_apply.list') }}">Job Application</a></li>
                 </ul>
-            </li>
+            </li> --}}
 
             <li class="dropdown {{ request()->routeIs('admin.contact.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
@@ -106,9 +126,8 @@
                     <span>Settings</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('admin.setting.edit', siteSetting()->id) }}">Site
-                            Setting</a></li>
                     <li><a class="nav-link" href="{{ route('admin.setting.font-awesome') }}">FontAwesome</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.setting.edit', siteSetting()->id) }}">Site Setting</a></li>
                 </ul>
             </li>
 

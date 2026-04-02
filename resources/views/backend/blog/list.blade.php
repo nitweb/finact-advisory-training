@@ -47,7 +47,7 @@
                                         <tbody>
                                             @foreach ($blogs as $key => $item)
                                                 <tr>
-                                                    <td>{{ $blogs->count() - $key }}</td>
+                                                    <td>{{ $key + 1 }}</td>
                                                     <td>
                                                         @if ($item->blogDetail && $item->blogDetail->blog_image)
                                                             <div class="table_slider_list_image" style="background-image: url({{ asset($item->blogDetail->blog_image) }});"></div>
