@@ -1,25 +1,29 @@
-@extends('frontend.master')
-
+@extends('frontend.dashboard')
 @section('frontend_title', 'Home')
-
 @section('frontend_content')
 
-    {{-- ############### Slider ############### --}}
-    @include('frontend.home.slider')
+    {{-- Hero Section --}}
+    @include('frontend.home.01_hero')
 
-     {{-- ############### Our Services ############### --}}
-     @include('frontend.home.our_services')
+    {{-- What We Do Section --}}
+    @include('frontend.home.02_what_we_do')
 
-    {{-- ############### About Us ############### --}}
-    @include('frontend.home.about_us')
+    {{-- Services Section --}}
+    @include('frontend.home.03_services')
 
-    {{-- ############### Happy Customer ############### --}}
-    {{-- @include('frontend.home.happy_customer') --}}
+    {{-- Counter Section --}}
+    @include('frontend.home.04_counter')
 
-    {{-- ############### Our Clients ############### --}}
-    @include('frontend.home.our_clients')
+    {{-- Why Choose Us Section --}}
+    @include('frontend.home.05_why_choose_us')
 
-    {{-- ############### Our Team ############### --}}
-    @include('frontend.home.our_team')
+    {{-- Global Remote Finance Section --}}
+    @include('frontend.home.06_global_remote_finance')
+
+    {{-- Blog Section --}}
+    @include('frontend.home.07_blog')
+
+    {{-- Call To Action Section --}}
+    @include('frontend.home.08_call_to_action')
 
 @endsection

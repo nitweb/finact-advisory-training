@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Mail\ContactFormMail;
 use App\Models\Contact;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -30,23 +31,26 @@ class ContactController extends Controller
                 'name' => 'max:100',
                 'email' => 'email|max:100',
                 'phone' => 'max:20',
-                'subject' => 'max:200',
+                'subject' => 'nullable|max:200',
+                'organization' => 'nullable|max:200',
+                'service' => 'nullable',
             ],
             [
-                'name.max' => 'Name is too long',
-                'email.email' => 'Email is not valid',
-                'email.max' => 'Email is too long',
-                'phone.max' => 'Phone is too long',
-                'subject.max' => 'Subject is too long',
-            ]
+                'name.max' => 'Name must be less than 100 characters.',
+                'email.email' => 'Please enter a valid email address.',
+                'email.max' => 'Email must be less than 100 characters.',
+                'phone.max' => 'Phone number must be less than 20 characters.',
+                'subject.max' => 'Subject must be less than 200 characters.',
+                'organization.max' => 'Organization must be less than 200 characters.',
+            ],
         );
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
+
         DB::beginTransaction();
-    
+
         try {
             // Save the contact form data
             $contact = new Contact();
@@ -55,28 +59,32 @@ class ContactController extends Controller
             $contact->phone = $request->phone;
             $contact->subject = $request->subject;
             $contact->message = $request->message;
+            $contact->organization = $request->organization;
+            $contact->service = Service::find($request->service)?->title ?? null;
             $contact->save();
-    
+
             // Prepare email data
             $emailData = [
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'subject' => $request->subject,
+                'organization' => $request->organization,
+                'service' => $request->service,
                 'message' => $request->message,
             ];
-    
+
             // Send the email
             Mail::to('ceo@mazamanca.com')->send(new ContactFormMail($emailData));
-    
+
             DB::commit();
-    
+
             return redirect()->back()->with('success', 'Contact Message Sent Successfully');
         } catch (\Exception $e) {
             DB::rollBack();
-    
+
             Log::error('Error occurred while creating contact message: ' . $e->getMessage());
-    
+
             return redirect()->back()->with('error', 'Something Went Wrong!');
         }
     }

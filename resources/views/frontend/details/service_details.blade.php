@@ -1,102 +1,151 @@
-@extends('frontend.master')
-
+@extends('frontend.dashboard')
 @section('frontend_title', $service->title)
 
 @section('frontend_content')
 
-    <div class="wrap-slider" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://mazamanca.com/frontend/img/cover_about_us.jpg') no-repeat center; background-size: cover; height: 100px; display: flex; align-items: center; justify-content: center;">
-        <div class="container text-center">
-            <h1 style="color: #fff; font-size: 2.5rem; font-weight: bold; margin: 0;">Services Details</h1>
-            <ul class="breadcrumbs" style="list-style: none; padding: 0; display: inline-flex; gap: 10px; color: #fff;">
-                <li><a href="{{ route('frontend.index') }}" style="color: #fff; text-decoration: none;">Home</a></li>
-                <li>/</li>
-                <li>Services Details</li>
-            </ul>
+    <!--Page Header Start-->
+    <section class="page-header">
+        <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);"></div>
+        <div class="container">
+            <div class="page-header__inner">
+                <h3>{{ $service->title }}</h3>
+                <div class="thm-breadcrumb__inner">
+                    <ul class="thm-breadcrumb list-unstyled">
+                        <li><a href="{{ route('frontend.index') }}">Home</a></li>
+                        <li><span class="icon-arrow-angle-pointing-to-right"></span></li>
+                        <li><a href="{{ route('frontend.all.services.list') }}">Services</a></li>
+                        <li><span class="icon-arrow-angle-pointing-to-right"></span></li>
+                        <li>{{ $service->title }}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+    <!--Page Header End-->
 
-
-
-
-
-    <section class="flat-row v16 services-detail">
+    <!--Service Details Start-->
+    <section class="service-details">
 
         <div class="container">
 
             <div class="row">
 
-                <div class="col-md-3 col-sm-4">
+                <div class="col-xl-4 col-lg-5">
 
-                    <div class="sidebar">
+                    <div class="service-details__sidebar">
 
-                        <div class="widget widget-nav-menu">
-
-                            <ul class="widget-menu">
-
+                        <div class="service-details__services-box">
+                            <h3 class="service-details__services-title">Our Services</h3>
+                            <ul class="service-details__services-list list-unstyled">
                                 @foreach ($service_list as $item)
-                                    <li class="{{ $item->slug == $service->slug ? 'active' : '' }}"><a href="{{ route('frontend.service.details', $item->slug) }}">{{ $item->title }}</a></li>
+                                    <li class="{{ $item->slug == $service->slug ? 'active' : '' }}">
+                                        <a href="{{ route('frontend.service.details', $item->slug) }}">{{ $item->title }}<span class="icon-arrow-right"></span></a>
+                                    </li>
                                 @endforeach
-
                             </ul>
-
                         </div>
 
-                        <div class="widget widget-help">
+                        <div class="service-details__get-started">
+                            <h3 class="service-details__get-started-title">Get Started Today</h3>
+                            <p class="service-details__get-started-text">Pianissimos of dulcimers qui therefore
+                                always
+                                holds in these matters to this principle</p>
+                            <ul class="service-details__get-started-points list-unstyled">
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-call"></span>
+                                    </div>
+                                    <p><a href="tel:585858575084">+58 585 857 5084</a></p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-email"></span>
+                                    </div>
+                                    <p><a href="mailto:example@gmail.com">example@gmail.com</a></p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-pin"></span>
+                                    </div>
+                                    <p>4517 Washington Ave. Manchester,<br> Kentucky 39495</p>
+                                </li>
+                            </ul>
+                            <div class="service-details__get-started-btn-box">
+                                <a href="contact.html" class="thm-btn">get in
+                                    touch <span class="fas fa-arrow-right"></span></a>
+                            </div>
+                        </div>
+                        <div class="service-details__sidebar-download-box">
+                            <h3 class="service-details__services-title">Download</h3>
+                            <div class="service-details__sidebar-single-download">
 
-                            <h6>How can we help you?</h6>
-
-                            <p>Contact us at the Consultec WP office near-est to you or submit a business inquiry online.</p>
-
-                            <div class="wrap-style5">
-                                <div class="widgets-header-information">
-                                    <div class="informaiton-text">
-                                        <div class="info-icon">
-                                            <div class="btn-click">
-                                                <a href="{{ route('frontend.contact.us') }}" class="btn-black">CONTACT US</a>
+                                <ul class="clearfix list-unstyled">
+                                    <li>
+                                        <div class="content-box">
+                                            <div class="icon">
+                                                <span class="far fa-file-pdf"></span>
+                                            </div>
+                                            <div class="text-box">
+                                                <h5><a href="#">Pdf Download</a></h5>
+                                                <p><a href="#">Download</a></p>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+
+                                        <div class="btn-box">
+                                            <a href="#"><span class="far fa-cloud-download"></span></a>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="content-box">
+                                            <div class="icon">
+                                                <span class="far fa-file-pdf"></span>
+                                            </div>
+                                            <div class="text-box">
+                                                <h5><a href="#">Pdf Download</a></h5>
+                                                <p><a href="#">Download</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="btn-box">
+                                            <a href="#"><span class="far fa-cloud-download"></span></a>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="content-box">
+                                            <div class="icon">
+                                                <span class="far fa-file-pdf"></span>
+                                            </div>
+                                            <div class="text-box">
+                                                <h5><a href="#">Pdf Download</a></h5>
+                                                <p><a href="#">Download</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="btn-box">
+                                            <a href="#"><span class="far fa-cloud-download"></span></a>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
 
-                <div class="col-md-9 col-sm-8">
+                <div class="col-xl-8 col-lg-7">
 
-                    <div class="post-wrap">
+                    <div class="service-details__left">
 
-                        <article class="post clearfix">
+                        <div class="service-details__img">
+                            <img src="{{ asset($service->serviceDetail->service_image) }}" alt="{{ $service->title }}">
+                        </div>
 
-                            <div class="featured-post">
+                        <h3 class="service-details__title-1">{{ $service->title }}</h3>
 
-                                <img src="{{ asset($service->serviceDetail->service_image) }}" alt="image">
+                        <div class="service-details__text-1" style="text-align: justify;">{!! $service->serviceDetail->long_description !!}</div>
 
-                            </div><!-- /.feature-post -->
-
-                            <div class="content-post">
-
-                                <h2 class="title-post" style="font-size: 40px;margin-bottom: 25px;"><a>{{ $service->title }}</a></h2>
-
-                                <div class="entry ">
-
-                                    <div class="entry-content-text" style="text-align: justify;">
-
-                                        <p>{!! $service->serviceDetail->long_description !!}</p>
-
-                                    </div>
-
-                                </div>
-
-                            </div><!-- /.content-post -->
-
-                        </article>
-
-                    </div><!-- /.post-wrap -->
-
+                    </div>
                 </div>
 
             </div>
@@ -104,5 +153,6 @@
         </div>
 
     </section>
+    <!--Service Details End-->
 
 @endsection

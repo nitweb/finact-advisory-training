@@ -1,6 +1,6 @@
 @extends('backend.admin.master')
 
-@section('admin_title', $title )
+@section('admin_title', $title)
 
 @section('admin_content')
 
@@ -17,9 +17,9 @@
                         <div class="card">
 
                             <div class="card-header d-flex justify-content-between">
-                                <h4>{{ $title }}</h4>
+                                <h4>{{ $title }} List</h4>
                                 <h4>
-                                    <a href="{{ route('admin.service.add') }}" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Add</a>
+                                    <a href="{{ route('admin.service.add') }}" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Add {{ $title }}</a>
                                     <a href="{{ URL::previous() }}" class="btn btn-outline-dark"><i class="fas fa-arrow-left"></i> Back</a>
                                 </h4>
                             </div>
@@ -35,7 +35,7 @@
 
                                         <thead>
                                             <tr>
-                                                <th>SN</th>
+                                                {{-- <th>SN</th> --}}
                                                 <th>Image</th>
                                                 <th>Title</th>
                                                 {{-- <th>Category</th> --}}
@@ -47,7 +47,7 @@
                                         <tbody>
                                             @foreach ($services as $key => $item)
                                                 <tr>
-                                                    <td>{{ $services->count() - $key }}</td>
+                                                    {{-- <td>{{ $services->count() - $key }}</td> --}}
                                                     <td>
                                                         @if ($item->serviceDetail && $item->serviceDetail->service_image)
                                                             <div class="table_slider_list_image" style="background-image: url({{ asset($item->serviceDetail->service_image) }});"></div>
