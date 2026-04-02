@@ -52,12 +52,12 @@
 
                 <div class="banner-one__btn-box" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
                     <div class="banner-one__btn">
-                        <a href="#!" class="thm-btn">Book a Consultation
+                        <a href="{{ route('frontend.contact.us') }}" class="thm-btn">Book a Consultation
                             <span class="fas fa-arrow-right"></span>
                         </a>
                     </div>
                     <div class="banner-one__btn">
-                        <a href="#!" class="thm-btn">Explore Services
+                        <a href="{{ route('frontend.all.services.list') }}" class="thm-btn">Explore Services
                             <span class="fas fa-arrow-right"></span>
                         </a>
                     </div>

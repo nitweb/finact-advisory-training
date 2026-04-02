@@ -1,6 +1,5 @@
 @extends('frontend.dashboard')
 @section('frontend_title', 'Our Services')
-
 @section('frontend_content')
 
     <!--Page Header Start-->
@@ -11,7 +10,7 @@
                 <h3>Services</h3>
                 <div class="thm-breadcrumb__inner">
                     <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{ route('frontend.index') }}">Home</a></li>
                         <li><span class="icon-arrow-angle-pointing-to-right"></span></li>
                         <li>Services</li>
                     </ul>

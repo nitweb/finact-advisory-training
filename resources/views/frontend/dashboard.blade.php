@@ -60,6 +60,9 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/module-css/error.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/module-css/page-header.css') }}" />
 
+    {{-- CDN --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
     <!-- template styles -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}" />
@@ -136,6 +139,8 @@
     <script src="{{ asset('frontend/assets/js/gsap/gsap.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/gsap/ScrollTrigger.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/gsap/SplitText.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- template js -->
     <script src="{{ asset('frontend/assets/js/script.js') }}?v={{ time() }}"></script>

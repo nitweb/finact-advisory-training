@@ -81,6 +81,7 @@ class SettingController extends Controller
             $data->site_phone = $request->site_phone;
             $data->site_phone_alter = $request->site_phone_alter;
             $data->site_email = $request->site_email;
+            $data->site_email_alter = $request->site_email_alter;
 
             if ($request->file('header_logo')) {
                 if (file_exists(base_path('public/' . $data->header_logo))) {

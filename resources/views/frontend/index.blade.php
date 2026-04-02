@@ -1,6 +1,5 @@
 @extends('frontend.dashboard')
 @section('frontend_title', 'Home')
-
 @section('frontend_content')
 
     {{-- Hero Section --}}
@@ -23,5 +22,8 @@
 
     {{-- Blog Section --}}
     @include('frontend.home.07_blog')
+
+    {{-- Call To Action Section --}}
+    @include('frontend.home.08_call_to_action')
 
 @endsection
