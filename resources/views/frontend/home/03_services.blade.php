@@ -29,7 +29,7 @@
                             <h3 class="services-two__title">
                                 <a href="{{ route('frontend.service.details', $item->slug) }}">{{ $item->title }}</a>
                             </h3>
-                            <p class="services-two__text flex-grow-1">{{ Str::limit($item->serviceDetail->short_description, 120) }}</p>
+                            <p class="services-two__text flex-grow-1">{{ $item->serviceDetail->short_description }}</p>
                             <div class="services-two__plus mt-auto">
                                 <a href="{{ route('frontend.service.details', $item->slug) }}"><span class="fas fa-plus"></span></a>
                             </div>
@@ -40,5 +40,5 @@
         </div>
 
     </div>
-    
+
 </section>
