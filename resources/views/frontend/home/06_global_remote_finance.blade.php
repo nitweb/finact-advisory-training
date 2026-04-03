@@ -30,51 +30,55 @@
                 <div class="about-one__left">
 
                     <div class="section-title text-left sec-title-animation animation-style2">
+
                         <div class="section-title__tagline-box">
                             <span class="section-title__tagline">Global Remote Finance Support</span>
                         </div>
+
                         <h2 class="section-title__title title-animation">
-                            Seamless operations for an <span>interconnected world</span>.
+                            Reliable <span>Finance Operations</span> Across Locations
                         </h2>
+
                     </div>
 
                     <p class="about-one__text">
-                        We provide structured, process-driven finance and accounting support for international entities. By leveraging secure cloud-based ecosystems and disciplined workflows, we ensure your global operations remain accurate, compliant, and professionally managed—regardless of geography.
+                        We provide structured remote finance support for international organizations, ensuring consistency in accounting, reporting, and compliance processes.
                     </p>
 
-                    <ul class="about-one__points list-unstyled">
+                    <br>
+
+                    <p class="about-one__text">
+                        Our approach combines disciplined workflows, secure system usage, and clear communication to support operations across different time zones.
+                    </p>
+
+                    <br>
+
+                    <ul class="why-choose-three__points list-unstyled">
                         <li>
                             <div class="icon">
-                                <span class="icon-award"></span>
+                                <span class="icon-check-1"></span>
                             </div>
-                            <div class="content">
-                                <h4>Cloud-First Methodology</h4>
-                                <p>Expert management of QuickBooks, Xero, and integrated tech stacks.</p>
-                            </div>
+                            <p>Dramatically re-engineer value added IT systems via mission</p>
                         </li>
                         <li>
                             <div class="icon">
-                                <span class="icon-certified"></span>
+                                <span class="icon-check-1"></span>
                             </div>
-                            <div class="content">
-                                <h4>Process Excellence</h4>
-                                <p>Transitioning manual tasks into automated, reliable remote workflows.</p>
-                            </div>
+                            <p>We provide 24/7 monitoring and support to ensure your systems.</p>
                         </li>
                         <li>
                             <div class="icon">
-                                <span class="icon-monitor"></span>
+                                <span class="icon-check-1"></span>
                             </div>
-                            <div class="content">
-                                <h4>Data Security & Integrity</h4>
-                                <p>Robust protocols designed for international confidentiality standards.</p>
-                            </div>
+                            <p>Professional User Experince & Interface researching</p>
                         </li>
                     </ul>
 
+                    <br>
+
                     <div class="about-one__btn-and-client-info">
                         <div class="about-one__btn-box">
-                            <a href="#!" class="thm-btn">Explore Global Services
+                            <a href="{{ route('frontend.all.services.list') }}" class="thm-btn">Explore Global Services
                                 <span class="fas fa-arrow-right"></span>
                             </a>
                         </div>

@@ -17,23 +17,39 @@
             </div>
 
             <div class="col-xl-6" style="display: flex; align-items: center;">
+
                 <div class="about-three__right">
+
                     <div class="section-title text-left sec-title-animation animation-style2">
+
                         <div class="section-title__tagline-box">
                             <span class="section-title__tagline">What We Do</span>
                         </div>
+
                         <h2 class="section-title__title title-animation">
-                            Empowering Business Through <span>Financial Clarity</span> and <span>Compliance</span>.
+                            <span>Structured</span> Finance. <span>Reliable</span> Compliance. <span>Informed</span> Decisions.
                         </h2>
+
                     </div>
+
                     <p class="about-three__text">
-                        <strong>FINACT Advisory & Training</strong> bridges the gap between technical complexity and everyday business needs. We help businesses build structured, reliable, and well-controlled financial operations through practical implementation-focused solutions across accounting, tax, VAT, and regulatory requirements.
+                        <strong style="color: #000;">FINACT Advisory & Training</strong> provides integrated support across accounting, tax, VAT, regulatory compliance, and financial advisory.
                     </p>
+
                     <br>
+
                     <p class="about-three__text">
-                        We transform financial data into clear insights—enabling stronger control, better decision-making, and sustainable growth.
+                        We work with businesses to build structured financial processes, strengthen internal controls, and ensure that financial information supports day-to-day operations as well as long-term decision-making.
                     </p>
+
+                    <br>
+
+                    <p class="about-three__text">
+                        Our approach is practical—focusing on implementation to ensure that systems and processes are not only designed, but effectively applied.
+                    </p>
+
                 </div>
+
             </div>
 
         </div>

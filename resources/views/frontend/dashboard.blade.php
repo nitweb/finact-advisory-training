@@ -9,10 +9,8 @@
     <title>@yield('frontend_title') | Finact Advisory Training</title>
 
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/assets/images/favicons/apple-touch-icon.png') }}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/assets/images/favicons/favicon-32x32.png') }}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/assets/images/favicons/favicon-16x16.png') }}" />
-    <link rel="manifest" href="{{ asset('frontend/assets/images/favicons/site.webmanifest') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/assets/images/favicons/fav.png') }}" />
+
     <meta name="description" content="Itzone HTML 5 Template " />
 
     <!-- fonts -->
@@ -76,10 +74,9 @@
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
 
-    <div class="chat-icon"><button type="button" class="chat-toggler"><i class="fa fa-comment"></i></button></div>
-
     <!--Chat Popup-->
-    @include('frontend.layouts.chat_popup')
+    {{-- <div class="chat-icon"><button type="button" class="chat-toggler"><i class="fa fa-comment"></i></button></div>
+    @include('frontend.layouts.chat_popup') --}}
 
     <div class="page-wrapper">
 

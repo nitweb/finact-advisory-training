@@ -18,7 +18,7 @@ class BlogController extends Controller
 {
     public function BlogList()
     {
-        $title = 'Blog List';
+        $title = 'Blog';
 
         $blogs = Blog::latest()->get();
 
@@ -27,7 +27,7 @@ class BlogController extends Controller
 
     public function BlogAdd()
     {
-        $title = 'Blog Add';
+        $title = 'Blog';
         $categories = BlogCategory::all();
 
         return view('backend.blog.add', compact('title', 'categories'));
@@ -107,7 +107,7 @@ class BlogController extends Controller
 
     public function BlogEdit($id)
     {
-        $title = 'Blog Edit';
+        $title = 'Blog';
         $categories = BlogCategory::all();
         $blog = Blog::findOrFail($id);
         $blogDetails = $blog->blogDetail ?? new BlogDetails();

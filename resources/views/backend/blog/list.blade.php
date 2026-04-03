@@ -1,6 +1,6 @@
 @extends('backend.admin.master')
 
-@section('admin_title', $title )
+@section('admin_title', $title)
 
 @section('admin_content')
 
@@ -17,9 +17,9 @@
                         <div class="card">
 
                             <div class="card-header d-flex justify-content-between">
-                                <h4>{{ $title }}</h4>
+                                <h4>{{ $title }} List</h4>
                                 <h4>
-                                    <a href="{{ route('admin.blog.add') }}" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Add</a>
+                                    <a href="{{ route('admin.blog.add') }}" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Add {{ $title }}</a>
                                     <a href="{{ URL::previous() }}" class="btn btn-outline-dark"><i class="fas fa-arrow-left"></i> Back</a>
                                 </h4>
                             </div>

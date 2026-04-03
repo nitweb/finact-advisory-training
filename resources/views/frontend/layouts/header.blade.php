@@ -50,9 +50,9 @@
 
                     <div class="main-menu-three__right">
 
-                        <div class="main-menu-three__search-box">
+                        {{-- <div class="main-menu-three__search-box">
                             <a href="#!" class="main-menu-three__search searcher-toggler-box fal fa-search"></a>
-                        </div>
+                        </div> --}}
 
                         <div class="main-menu-three__btn-box">
                             <a href="{{ route('frontend.contact.us') }}" class="thm-btn">Get in Touch<span class="icon-right-arrow"></span></a>
