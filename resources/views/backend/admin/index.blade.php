@@ -8,15 +8,116 @@
         .custom_dashboard_title {
             color: var(--bs-body-color);
         }
+
+        .stats-card {
+            transition: all 0.25s ease-in-out;
+            border-radius: 12px;
+        }
+
+        a .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-box {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(45deg, #007bff, #00b4ff);
+        }
+
+        .bg-gradient-success {
+            background: linear-gradient(45deg, #28a745, #85e085);
+        }
+
+        .bg-gradient-warning {
+            background: linear-gradient(45deg, #ffc107, #ffb347);
+        }
+
+        .bg-gradient-danger {
+            background: linear-gradient(45deg, #dc3545, #ff6b6b);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a .stats-card {
+            cursor: pointer;
+        }
+
+        .gradient-banner {
+            background: linear-gradient(90deg, #163355, #b89867);
+            border-radius: 15px;
+        }
+
+        .hover-scale {
+            transition: all 0.25s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .visit_card_btn{
+            background-color: #163355;
+            border-color: #163355;
+        }
+
+        .visit_card_btn:hover{
+            background-color: #fff !important;
+        }
     </style>
 
     <div class="main-content">
 
         <section class="section">
 
+            {{-- Breadcrumb --}}
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Dabo Bunny</a></li>
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Frontend Visit Card --}}
+            <div class="row mb-3 mt-3">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm gradient-banner text-white p-4 d-flex flex-md-row flex-column align-items-center justify-content-between">
+                        <div class="mb-3 mb-md-0">
+                            <h4 class="fw-bold mb-1 text-white">View Your Website</h4>
+                            <p class="mb-0 opacity-75">Click below to open the live frontend of your site.</p>
+                        </div>
+                        <a href="{{ route('frontend.index') }}" target="_blank" class="btn btn-light text-primary fw-semibold px-4 py-2 rounded-pill shadow-sm hover-scale visit_card_btn">
+                            🌐 Visit Frontend
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <div class="row ">
 
-                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                {{-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
                         <div class="card-statistic-4">
                             <div class="align-items-center justify-content-between">
@@ -36,9 +137,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                {{-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
                         <div class="card-statistic-4">
                             <div class="align-items-center justify-content-between">
@@ -58,9 +159,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                {{-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
                         <div class="card-statistic-4">
                             <div class="align-items-center justify-content-between">
@@ -80,9 +181,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                {{-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
                         <div class="card-statistic-4">
                             <div class="align-items-center justify-content-between">
@@ -102,7 +203,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
@@ -126,7 +227,7 @@
                     </div>
                 </div>
 
-                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                {{-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
                         <div class="card-statistic-4">
                             <div class="align-items-center justify-content-between">
@@ -146,7 +247,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">

@@ -1009,7 +1009,7 @@
 }
 
 .sidebar__search-form:hover button[type="submit"] {
-    background-color: var(--itzone-black);
+    background-color: #b89867;
     color: var(--itzone-white);
 }
 

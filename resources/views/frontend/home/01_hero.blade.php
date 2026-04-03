@@ -39,7 +39,7 @@
 
                 <div style="display: flex;gap: 10px;align-items: center;" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="0">
                     <div class="main-slider__sub-title-shape"></div>
-                    <p class="main-slider__sub-title">Shaping Stronger Finance Futures</p>
+                    <p class="main-slider__sub-title">Shaping Structured Finance Functions</p>
                 </div>
 
                 <h2 class="banner-one__title" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">
@@ -47,7 +47,9 @@
                 </h2>
 
                 <p class="banner-one__text" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
-                    We help businesses build resilient finance functions, maintain regulatory certainty, and drive <br> better decisions through practical, implementation-focused solutions.
+                    We support businesses in establishing reliable financial systems, maintaining regulatory
+                    <br>
+                    compliance, and improving decision-making through practical, implementation-focused solutions.
                 </p>
 
                 <div class="banner-one__btn-box" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">

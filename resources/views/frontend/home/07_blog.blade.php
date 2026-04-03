@@ -10,13 +10,15 @@
     <div class="container">
 
         <div class="section-title text-center sec-title-animation animation-style1">
+
             <div class="section-title__tagline-box">
                 <span class="section-title__tagline">Insights & Updates</span>
             </div>
+
             <h2 class="section-title__title title-animation">
-                Latest News & Articles From
-                <br> The <span>Blog Posts</span>
+                <span>Latest</span> insights, updates, and <span>practical guidance</span> on accounting, tax, VAT, and financial management.
             </h2>
+
         </div>
 
         <ul class="row list-unstyled">
