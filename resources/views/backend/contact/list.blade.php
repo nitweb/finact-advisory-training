@@ -5,17 +5,22 @@
 @section('admin_content')
 
     <div class="main-content">
+
         <section class="section">
+
             <div class="section-body">
+
                 <div class="row">
+
                     <div class="col-12">
+
                         <div class="card">
 
                             <div class="card-header d-flex justify-content-between">
                                 <h4>{{ $title }}</h4>
-                                <a href="{{ URL::previous() }}" class="btn btn-outline-dark">
-                                    <i class="fas fa-arrow-left"></i> Back
-                                </a>
+                                <h4>
+                                    <a href="{{ URL::previous() }}" class="btn btn-outline-dark"><i class="fas fa-arrow-left"></i> Back</a>
+                                </h4>
                             </div>
 
                             <div class="card-body">
@@ -29,27 +34,24 @@
                                         <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
                                             <thead>
                                                 <tr>
-                                                    <th><input type="checkbox" id="selectAll" /></th>
-                                                    <th>#</th>
+                                                    <th>
+                                                        <input type="checkbox" id="selectAll" />
+                                                    </th>
                                                     <th>Name</th>
-                                                    {{-- <th>Email</th> --}}
-                                                    {{-- <th>Phone</th> --}}
                                                     <th>Organization</th>
                                                     <th>Service</th>
                                                     <th>Date</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
+
                                             <tbody>
-                                                @forelse ($contact_message as $key => $item)
+                                                @foreach ($contact_message as $key => $item)
                                                     <tr>
                                                         <td>
                                                             <input type="checkbox" class="selectItem" name="ids[]" value="{{ $item->id }}">
                                                         </td>
-                                                        <td>{{ $key + 1 }}</td>
-                                                        <td>{{ $item->name ?? '—' }}</td>
-                                                        {{-- <td>{{ $item->email ?? '—' }}</td> --}}
-                                                        {{-- <td>{{ $item->phone ?? '—' }}</td> --}}
+                                                        <td>{{ $item->name }}</td>
                                                         <td>{{ $item->organization ?? '—' }}</td>
                                                         <td>
                                                             @if ($item->service)
@@ -61,38 +63,40 @@
                                                         <td>{{ $item->created_at->format('d M Y') }}</td>
                                                         <td>
                                                             <div class="table_actions">
-                                                                <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#contactMessageModal" data-name="{{ $item->name }}" data-email="{{ $item->email }}" data-phone="{{ $item->phone }}" data-organization="{{ $item->organization }}" data-service="{{ $item->service }}" data-message="{{ $item->message }}">
-                                                                    <i class="fas fa-eye"></i> View Details
+                                                                <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#contactMessageModal" data-name="{{ $item->name }}" data-email="{{ $item->email }}" data-phone="{{ $item->phone ?? '—' }}" data-organization="{{ $item->organization ?? '—' }}" data-service="{{ $item->service ?? '—' }}" data-message="{{ $item->message }}">
+                                                                    <i class="fas fa-eye"></i> View Message
                                                                 </a>
-                                                                <a href="{{ route('admin.contact.delete', $item->id) }}" class="btn btn-sm btn-outline-danger delete-confirm">
+                                                                <a href="{{ route('admin.contact.delete', $item->id) }}" class="btn btn-outline-danger" onclick="return confirm('Are you sure?')">
                                                                     <i class="fas fa-trash"></i> Delete
                                                                 </a>
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                @empty
-                                                    <tr>
-                                                        <td colspan="9" class="text-center text-muted py-4">No contact messages found.</td>
-                                                    </tr>
-                                                @endforelse
+                                                @endforeach
                                             </tbody>
                                         </table>
 
-                                        <button type="submit" class="btn btn-outline-danger mt-2" id="deleteSelectedButton" disabled>
-                                            <i class="fas fa-trash"></i> Delete Selected
-                                        </button>
+                                        <button type="submit" class="btn btn-outline-danger" id="deleteSelectedButton" onclick="return confirm('Are you sure?')" disabled>Delete Selected</button>
                                     </form>
                                 </div>
 
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
+
     </div>
 
-    <!-- View Message Modal -->
+
+    <!-- Modal -->
     <div class="modal fade" id="contactMessageModal" tabindex="-1" aria-labelledby="contactMessageModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
@@ -135,6 +139,8 @@
         </div>
     </div>
 
+
+
 @endsection
 
 @section('footer_script')
@@ -149,60 +155,26 @@
             document.getElementById('modal-service').textContent = btn.getAttribute('data-service') || '—';
             document.getElementById('modal-message').textContent = btn.getAttribute('data-message') || '—';
         });
+    </script>
 
-        // Select All
+    <script>
         document.getElementById('selectAll').addEventListener('change', function() {
-            document.querySelectorAll('.selectItem').forEach(cb => cb.checked = this.checked);
+            let checkboxes = document.querySelectorAll('.selectItem');
+            checkboxes.forEach((checkbox) => {
+                checkbox.checked = this.checked;
+            });
             toggleDeleteButton();
         });
 
-        document.querySelectorAll('.selectItem').forEach(cb => {
-            cb.addEventListener('change', toggleDeleteButton);
+        document.querySelectorAll('.selectItem').forEach((checkbox) => {
+            checkbox.addEventListener('change', function() {
+                toggleDeleteButton();
+            });
         });
 
         function toggleDeleteButton() {
-            const selected = document.querySelectorAll('.selectItem:checked').length;
-            document.getElementById('deleteSelectedButton').disabled = selected === 0;
+            let selectedItems = document.querySelectorAll('.selectItem:checked').length;
+            document.getElementById('deleteSelectedButton').disabled = selectedItems === 0;
         }
-
-        // Delete single confirm
-        document.querySelectorAll('.delete-confirm').forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const url = this.href;
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: 'This message will be permanently deleted.',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#6c757d',
-                    confirmButtonText: 'Yes, delete it!',
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = url;
-                    }
-                });
-            });
-        });
-
-        // Delete selected confirm
-        document.getElementById('deleteSelectedForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = this;
-            Swal.fire({
-                title: 'Delete Selected?',
-                text: 'All selected messages will be permanently deleted.',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#6c757d',
-                confirmButtonText: 'Yes, delete all!',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit();
-                }
-            });
-        });
     </script>
 @endsection

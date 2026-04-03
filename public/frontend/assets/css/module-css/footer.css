@@ -178,7 +178,7 @@
 }
 
 .footer-widget__links-list li a:hover {
-    color: var(--itzone-base);
+    color: #b89867;
 }
 
 .footer-widget__contact {
@@ -239,7 +239,7 @@
 }
 
 .footer-widget__contact-list li p a:hover {
-    color: var(--itzone-base);
+    color: #b89867;
 }
 
 .footer-widget__services {
@@ -340,7 +340,7 @@
 }
 
 .site-footer__copyright-text a {
-    color: var(--itzone-base);
+    color: #b89867;
 }
 
 .site-footer__copyright-text a:hover {

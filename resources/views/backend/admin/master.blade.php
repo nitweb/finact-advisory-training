@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{ asset('/backend/assets/css/custom.css') }}">
 
     {{-- Favicon Icon --}}
-    <link rel='shortcut icon' type='image/x-icon' href='{{ asset('/frontend/images/favicon.jpg') }}' />
+    <link rel='shortcut icon' type='image/x-icon' href='{{ asset('frontend/assets/images/favicons/fav.png') }}' />
 
 </head>
 
