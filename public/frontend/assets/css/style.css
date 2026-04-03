@@ -1692,10 +1692,10 @@ xs sidebar
 .main-menu .main-menu__list>li:hover>a,
 .stricky-header .main-menu__list>li.current>a,
 .stricky-header .main-menu__list>li:hover>a {
-  color: var(--itzone-base);
+  color: #000;
 }
 
-.main-menu .main-menu__list>li>a::before,
+/* .main-menu .main-menu__list>li>a::before,
 .stricky-header .main-menu__list>li>a::before {
   content: "";
   height: 2px;
@@ -1709,7 +1709,7 @@ xs sidebar
   transform: scale(0, 1);
   transform-origin: left center;
   z-index: 1;
-}
+} */
 
 .main-menu .main-menu__list>li.current>a::before,
 .main-menu .main-menu__list>li:hover>a::before,

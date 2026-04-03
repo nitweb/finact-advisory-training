@@ -1,5 +1,6 @@
 @extends('frontend.dashboard')
 @section('frontend_title', 'About Us')
+
 @section('frontend_content')
 
     <!--Page Header Start-->
@@ -20,125 +21,41 @@
     </section>
     <!--Page Header End-->
 
-    <!--About One Start -->
-    <section class="about-one">
-        <div class="about-one__shape-2 float-bob">
-            <img src="assets/images/shapes/about-one-shape-2.png" alt="">
-        </div>
-        <div class="about-one__shape-3 float-bob-y">
-            <img src="assets/images/shapes/about-one-shape-3.png" alt="">
-        </div>
+    {{-- Who We Are Section --}}
+    <section class="who-we-are">
+        <div class="floating-shape floating-shape-1"></div>
+        <div class="floating-shape floating-shape-2"></div>
+        <div class="floating-shape floating-shape-3"></div>
         <div class="container">
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="about-one__left">
-                        <div class="section-title text-left sec-title-animation animation-style2">
-                            <div class="section-title__tagline-box">
-                                <span class="section-title__tagline">About Us</span>
-                            </div>
-                            <h2 class="section-title__title title-animation">Boost Business with Our <br> Innovative
-                                <span> IT Solutions</span>
-                            </h2>
-                        </div>
-                        <p class="about-one__text">Innovating and empowering businesses with tailored solutions for
-                            success<br> and growth. Empowering businesses to create meaningful innovation.</p>
-                        <ul class="about-one__points list-unstyled">
-                            <li>
-                                <div class="icon">
-                                    <span class="icon-award"></span>
-                                </div>
-                                <div class="content">
-                                    <h4>Award-Winning Company.</h4>
-                                    <p>Partner with us to unlock new possibilities, drive progress, and shape<br> a
-                                        future filled with success</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <span class="icon-certified"></span>
-                                </div>
-                                <div class="content">
-                                    <h4>Certified Company</h4>
-                                    <p>Partner with us to unlock new possibilities, drive progress, and shape<br> a
-                                        future filled with success</p>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="about-one__btn-and-client-info">
-                            <div class="about-one__btn-box">
-                                <a href="about.html" class="thm-btn">Learn More
-                                    <span class="fas fa-arrow-right"></span>
-                                </a>
-                            </div>
-                            <div class="about-one__client-info-inner">
-                                <div class="about-one__client-info">
-                                    <div class="about-one__client-img-inner">
-                                        <div class="about-one__client-img">
-                                            <img src="assets/images/resources/about-one-client-img-1.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="about-one__client-details">
-                                        <h5>Adam Smith</h5>
-                                        <p>ceo,Itzone</p>
-                                    </div>
-                                </div>
-                                <div class="about-one__client-sign">
-                                    <img src="assets/images/resources/about-one-client-sign.png" alt="">
-                                </div>
-                            </div>
-                        </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="who-we-are__content" data-aos="fade-right">
+                        <span class="who-we-are__badge">
+                            <i class="fas fa-building"></i> About FINACT
+                        </span>
+                        <h2 class="who-we-are__title">
+                            Who <span>We Are</span>
+                        </h2>
+                        <p class="who-we-are__text">
+                            <strong>FINACT Advisory & Training</strong> is a professional services practice focused on bridging the gap between technical complexity and practical business needs. We provide structured support across advisory, tax and VAT, and corporate compliance, alongside capability development initiatives.
+                        </p>
+                        <p class="who-we-are__text">
+                            We support entrepreneurs, investors, and organizations in building reliable financial foundations. Our objective is to deliver disciplined financial practices that enable clarity, regulatory compliance, and sustainable business operations.
+                        </p>
                     </div>
                 </div>
-                <div class="col-xl-6">
-                    <div class="about-one__right wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms">
-                        <div class="about-one__img-box">
-                            <div class="about-one__shape-1 float-bob-x">
-                                <img src="assets/images/shapes/about-one-shape-1.png" alt="">
+                <div class="col-lg-6">
+                    <div class="who-we-are__image-wrapper" data-aos="fade-left">
+                        <div class="who-we-are__image">
+                            <img src="{{ asset('frontend/assets/images/resources/about-three-img-1.jpg') }}" alt="Who We Are">
+                        </div>
+                        <div class="who-we-are__image-badge">
+                            <div class="who-we-are__image-badge-icon">
+                                <i class="fas fa-award"></i>
                             </div>
-                            <div class="about-one__img">
-                                <img src="assets/images/resources/about-one-img-1.jpg" alt="">
-                            </div>
-                            <div class="about-one__img-2">
-                                <img src="assets/images/resources/about-one-img-2.jpg" alt="">
-                            </div>
-                            <div class="about-one__video-link">
-                                <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
-                                    <div class="about-one__video-icon">
-                                        <span class="fa fa-play"></span>
-                                        <i class="ripple"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="about-one__client-box">
-                                <ul class="about-one__client-box-img-list list-unstyled">
-                                    <li>
-                                        <div class="about-one__client-box-img">
-                                            <img src="assets/images/resources/about-one-client-img-1-1.jpg" alt="">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="about-one__client-box-img">
-                                            <img src="assets/images/resources/about-one-client-img-1-2.jpg" alt="">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="about-one__client-box-img">
-                                            <img src="assets/images/resources/about-one-client-img-1-3.jpg" alt="">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="fas fa-plus"></span></a>
-                                    </li>
-                                </ul>
-                                <p class="about-one__client-text"><span class="odometer" data-count="120">00</span><span class="about-one__client-text-letter">K</span> Satisfied Client</p>
-                            </div>
-                            <div class="about-one__experience-box">
-                                <div class="about-one__experience-count-box">
-                                    <h3 class="odometer" data-count="25">00</h3>
-                                    <span>+</span>
-                                </div>
-                                <p class="about-one__experience-text">Years of
-                                    Experience</p>
+                            <div class="who-we-are__image-badge-text">
+                                <h4>10+</h4>
+                                <p>Years Experience</p>
                             </div>
                         </div>
                     </div>
@@ -146,801 +63,485 @@
             </div>
         </div>
     </section>
-    <!--About One End -->
 
-    <!--Service One Start -->
-    <section class="service-one">
-        <div class="services-one__shape-1"></div>
-        <div class="services-one__shape-2 float-bob-x">
-            <img src="assets/images/shapes/services-one-shape-2.png" alt="">
-        </div>
+    {{-- Our Philosophy Section --}}
+    <section class="philosophy-section">
         <div class="container">
-            <div class="section-title text-center sec-title-animation animation-style1">
-                <div class="section-title__tagline-box">
-                    <span class="section-title__tagline">Our Services</span>
+            <div class="philosophy__content" data-aos="fade-up">
+                <div class="philosophy__icon">
+                    <i class="fas fa-lightbulb"></i>
                 </div>
-                <h2 class="section-title__title title-animation">Innovative IT Services
-                    <br> Tailored <span>For Your Success.</span>
+                <span class="philosophy__tagline">Our Philosophy</span>
+                <h2 class="philosophy__quote">
+                    <span>Finance</span> is not merely a record of the past; it is the <span>basis for informed</span> decisions.
                 </h2>
-            </div>
-            <div class="service-one__carousel owl-theme owl-carousel">
-                <!--Services One Single Start-->
-                <div class="item">
-                    <div class="service-one__single-inner">
-                        <div class="service-one__single-wrap">
-                            <div class="service-one__single">
-                                <div class="service-one__single-shape-1"></div>
-                                <div class="service-one__icon">
-                                    <span class="icon-social-media-marketing"></span>
-                                </div>
-                                <h3 class="service-one__title"><a href="software-development.html">Software
-                                        Development</a></h3>
-                                <p class="service-one__text">Innovating and empowering businesses with tailored
-                                    solutions for success and growth.</p>
-                            </div>
-                        </div>
-                        <div class="service-one__btn-box">
-                            <a href="software-development.html" class="thm-btn">Read More
-                                <span class="fas fa-arrow-right"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Services One Single End-->
-                <!--Services One Single Start-->
-                <div class="item">
-                    <div class="service-one__single-inner">
-                        <div class="service-one__single-wrap">
-                            <div class="service-one__single">
-                                <div class="service-one__single-shape-1"></div>
-                                <div class="service-one__icon">
-                                    <span class="icon-financial-risk"></span>
-                                </div>
-                                <h3 class="service-one__title"><a href="web-development.html">Risk
-                                        Management</a></h3>
-                                <p class="service-one__text">Innovating and empowering businesses with tailored
-                                    solutions for success and growth.</p>
-                            </div>
-                        </div>
-                        <div class="service-one__btn-box">
-                            <a href="web-development.html" class="thm-btn">Read More
-                                <span class="fas fa-arrow-right"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Services One Single End-->
-                <!--Services One Single Start-->
-                <div class="item">
-                    <div class="service-one__single-inner">
-                        <div class="service-one__single-wrap">
-                            <div class="service-one__single">
-                                <div class="service-one__single-shape-1"></div>
-                                <div class="service-one__icon">
-                                    <span class="icon-ux-design"></span>
-                                </div>
-                                <h3 class="service-one__title"><a href="ui-ux-design.html">UI/UX Design</a></h3>
-                                <p class="service-one__text">Innovating and empowering businesses with tailored
-                                    solutions for success and growth.</p>
-                            </div>
-                        </div>
-                        <div class="service-one__btn-box">
-                            <a href="ui-ux-design.html" class="thm-btn">Read More
-                                <span class="fas fa-arrow-right"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Services One Single End-->
-                <!--Services One Single Start-->
-                <div class="item">
-                    <div class="service-one__single-inner">
-                        <div class="service-one__single-wrap">
-                            <div class="service-one__single">
-                                <div class="service-one__single-shape-1"></div>
-                                <div class="service-one__icon">
-                                    <span class="icon-promotion"></span>
-                                </div>
-                                <h3 class="service-one__title"><a href="digital-marketing.html">Digital
-                                        Marketing</a></h3>
-                                <p class="service-one__text">Innovating and empowering businesses with tailored
-                                    solutions for success and growth.</p>
-                            </div>
-                        </div>
-                        <div class="service-one__btn-box">
-                            <a href="digital-marketing.html" class="thm-btn">Read More
-                                <span class="fas fa-arrow-right"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Services One Single End-->
-                <!--Services One Single Start-->
-                <div class="item">
-                    <div class="service-one__single-inner">
-                        <div class="service-one__single-wrap">
-                            <div class="service-one__single">
-                                <div class="service-one__single-shape-1"></div>
-                                <div class="service-one__icon">
-                                    <span class="icon-implement"></span>
-                                </div>
-                                <h3 class="service-one__title"><a href="software-development.html">Cloud
-                                        Provider</a></h3>
-                                <p class="service-one__text">Innovating and empowering businesses with tailored
-                                    solutions for success and growth.</p>
-                            </div>
-                        </div>
-                        <div class="service-one__btn-box">
-                            <a href="software-development.html" class="thm-btn">Read More
-                                <span class="fas fa-arrow-right"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Services One Single End-->
-                <!--Services One Single Start-->
-                <div class="item">
-                    <div class="service-one__single-inner">
-                        <div class="service-one__single-wrap">
-                            <div class="service-one__single">
-                                <div class="service-one__single-shape-1"></div>
-                                <div class="service-one__icon">
-                                    <span class="icon-monitor"></span>
-                                </div>
-                                <h3 class="service-one__title"><a href="business-analysis.html">Data Analytics</a>
-                                </h3>
-                                <p class="service-one__text">Innovating and empowering businesses with tailored
-                                    solutions for success and growth.</p>
-                            </div>
-                        </div>
-                        <div class="service-one__btn-box">
-                            <a href="business-analysis.html" class="thm-btn">Read More
-                                <span class="fas fa-arrow-right"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Services One Single End-->
+                <p class="philosophy__text">
+                    A high-performing finance function should go beyond compliance to support decision-making and operational control. Our approach focuses on practical, implementation-led solutions that align financial discipline with business objectives.
+                </p>
+                <div class="philosophy__divider"></div>
             </div>
         </div>
     </section>
-    <!--Service One End -->
 
-    <!-- Sliding Text One Start -->
-    <section class="sliding-text-one">
-        <div class="sliding-text-one__wrap">
-            <ul class="sliding-text-one__list list-unstyled marquee_mode-1">
-                <li>
-                    <h2 data-hover="UI/UX Design" class="sliding-text-one__title">UI/UX Design</h2>
-                    <span class="icon-star"></span>
-                </li>
-                <li>
-                    <h2 data-hover="Product Design" class="sliding-text-one__title">Product Design</h2>
-                    <span class="icon-star"></span>
-                </li>
-                <li>
-                    <h2 data-hover="Web Development" class="sliding-text-one__title">Web Development</h2>
-                    <span class="icon-star"></span>
-                </li>
-                <li>
-                    <h2 data-hover="BRANDING" class="sliding-text-one__title">BRANDING</h2>
-                    <span class="icon-star"></span>
-                </li>
-                <li>
-                    <h2 data-hover="Cyber Security" class="sliding-text-one__title">Cyber Security</h2>
-                    <span class="icon-star"></span>
-                </li>
-                <li>
-                    <h2 data-hover="Website design" class="sliding-text-one__title">Website design</h2>
-                    <span class="icon-star"></span>
-                </li>
-                <li>
-                    <h2 data-hover="Digital Marketing" class="sliding-text-one__title">Digital Marketing</h2>
-                    <span class="icon-star"></span>
-                </li>
-                <li>
-                    <h2 data-hover="Website design" class="sliding-text-one__title">Website design</h2>
-                    <span class="icon-star"></span>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <!-- Sliding Text One End -->
-
-    <!--Team Two Start -->
-    <section class="team-two">
-        <div class="team-two__shape-1">
-            <img src="assets/images/shapes/team-two-shape-1.png" alt="" class="rotate-me">
-        </div>
+    {{-- What We Do Section --}}
+    <section class="what-we-do">
         <div class="container">
-            <div class="section-title text-center sec-title-animation animation-style1">
-                <div class="section-title__tagline-box">
-                    <span class="section-title__tagline">Our Expert Team</span>
-                </div>
-                <h2 class="section-title__title title-animation">See Our Skilled Expert <span>Team</span>
-                </h2>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-header__subtitle">Our Expertise</span>
+                <h2 class="section-header__title">What We <span>Do</span></h2>
+                <p class="section-header__desc">We provide structured support across the key financial and compliance functions of a business.</p>
             </div>
-            <div class="team-two__carousel owl-theme owl-carousel">
-                <!-- Team Two Single Start -->
-                <div class="item">
-                    <div class="team-two__single">
-                        <div class="team-two__img-box">
-                            <div class="team-two__img">
-                                <img src="assets/images/team/team-2-1.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="team-two__content-inner">
-                            <div class="team-two__content">
-                                <h3 class="team-two__title"><a href="team-details.html">Alisha Martin</a></h3>
-                                <p class="team-two__sub-title">Cheif Expert</p>
-                            </div>
-                            <div class="team-two__arrow-and-social">
-                                <div class="team-two__arrow">
-                                    <span class="icon-share"></span>
-                                </div>
-                                <ul class="team-two__social list-unstyled">
-                                    <li>
-                                        <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-twitter-1"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-pinterest"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-linkedin"></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+            <div class="what-we-do__cards">
+                <div class="what-we-do__card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="what-we-do__card-icon">
+                        <i class="fas fa-calculator"></i>
                     </div>
+                    <h3 class="what-we-do__card-title">Accounting Services</h3>
+                    <p class="what-we-do__card-text">Comprehensive accounting support including bookkeeping, financial reporting, and maintaining accurate records aligned with standards.</p>
                 </div>
-                <!-- Team Two Single End -->
-                <!-- Team Two Single Start -->
-                <div class="item">
-                    <div class="team-two__single">
-                        <div class="team-two__img-box">
-                            <div class="team-two__img">
-                                <img src="assets/images/team/team-2-2.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="team-two__content-inner">
-                            <div class="team-two__content">
-                                <h3 class="team-two__title"><a href="team-details.html">Devid Coper</a></h3>
-                                <p class="team-two__sub-title">Product Designer</p>
-                            </div>
-                            <div class="team-two__arrow-and-social">
-                                <div class="team-two__arrow">
-                                    <span class="icon-share"></span>
-                                </div>
-                                <ul class="team-two__social list-unstyled">
-                                    <li>
-                                        <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-twitter-1"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-pinterest"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-linkedin"></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                <div class="what-we-do__card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="what-we-do__card-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
                     </div>
+                    <h3 class="what-we-do__card-title">Tax & VAT Services</h3>
+                    <p class="what-we-do__card-text">Expert guidance on tax planning, VAT compliance, and regulatory requirements to ensure your business meets all obligations.</p>
                 </div>
-                <!-- Team Two Single End -->
-                <!-- Team Two Single Start -->
-                <div class="item">
-                    <div class="team-two__single">
-                        <div class="team-two__img-box">
-                            <div class="team-two__img">
-                                <img src="assets/images/team/team-2-3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="team-two__content-inner">
-                            <div class="team-two__content">
-                                <h3 class="team-two__title"><a href="team-details.html">Naila Dev</a></h3>
-                                <p class="team-two__sub-title">UI/UX Designer</p>
-                            </div>
-                            <div class="team-two__arrow-and-social">
-                                <div class="team-two__arrow">
-                                    <span class="icon-share"></span>
-                                </div>
-                                <ul class="team-two__social list-unstyled">
-                                    <li>
-                                        <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-twitter-1"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-pinterest"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-linkedin"></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                <div class="what-we-do__card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="what-we-do__card-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
+                    <h3 class="what-we-do__card-title">Advisory Services</h3>
+                    <p class="what-we-do__card-text">Strategic financial advisory to strengthen control, improve decision-making, and support sustainable business growth.</p>
                 </div>
-                <!-- Team Two Single End -->
-                <!-- Team Two Single Start -->
-                <div class="item">
-                    <div class="team-two__single">
-                        <div class="team-two__img-box">
-                            <div class="team-two__img">
-                                <img src="assets/images/team/team-2-4.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="team-two__content-inner">
-                            <div class="team-two__content">
-                                <h3 class="team-two__title"><a href="team-details.html">Robert Martin</a></h3>
-                                <p class="team-two__sub-title">CEO & Founder</p>
-                            </div>
-                            <div class="team-two__arrow-and-social">
-                                <div class="team-two__arrow">
-                                    <span class="icon-share"></span>
-                                </div>
-                                <ul class="team-two__social list-unstyled">
-                                    <li>
-                                        <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-twitter-1"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-pinterest"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-linkedin"></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                <div class="what-we-do__card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="what-we-do__card-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
+                    <h3 class="what-we-do__card-title">Compliance Support</h3>
+                    <p class="what-we-do__card-text">Ensuring your organization meets all regulatory requirements with robust compliance frameworks and internal controls.</p>
                 </div>
-                <!-- Team Two Single End -->
-                <!-- Team Two Single Start -->
-                <div class="item">
-                    <div class="team-two__single">
-                        <div class="team-two__img-box">
-                            <div class="team-two__img">
-                                <img src="assets/images/team/team-2-5.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="team-two__content-inner">
-                            <div class="team-two__content">
-                                <h3 class="team-two__title"><a href="team-details.html">Kevin Martis </a></h3>
-                                <p class="team-two__sub-title">Chief Officer</p>
-                            </div>
-                            <div class="team-two__arrow-and-social">
-                                <div class="team-two__arrow">
-                                    <span class="icon-share"></span>
-                                </div>
-                                <ul class="team-two__social list-unstyled">
-                                    <li>
-                                        <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-twitter-1"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-pinterest"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-linkedin"></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Team Two Single End -->
-                <!-- Team Two Single Start -->
-                <div class="item">
-                    <div class="team-two__single">
-                        <div class="team-two__img-box">
-                            <div class="team-two__img">
-                                <img src="assets/images/team/team-2-6.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="team-two__content-inner">
-                            <div class="team-two__content">
-                                <h3 class="team-two__title"><a href="team-details.html">Anila Koper</a></h3>
-                                <p class="team-two__sub-title">Software Engineer</p>
-                            </div>
-                            <div class="team-two__arrow-and-social">
-                                <div class="team-two__arrow">
-                                    <span class="icon-share"></span>
-                                </div>
-                                <ul class="team-two__social list-unstyled">
-                                    <li>
-                                        <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-twitter-1"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-pinterest"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="icon-linkedin"></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Team Two Single End -->
             </div>
         </div>
     </section>
-    <!--Team Two End -->
 
-    <!-- Counter Two Start -->
-    <section class="counter-two">
-        <div class="counter-two__bg-shape float-bob-y" style="background-image: url(assets/images/shapes/counter-two-bg-shape.png);"></div>
+    {{-- Who We Serve Section --}}
+    <section class="who-we-serve">
         <div class="container">
-            <div class="row">
-                <!--Counter Two Single Start-->
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="100ms">
-                    <div class="counter-two__single">
-                        <div class="counter-two__icon">
-                            <span class="icon-trophy"></span>
-                        </div>
-                        <div class="counter-two__content">
-                            <div class="counter-two__count-box">
-                                <h3 class="odometer" data-count="120">00</h3>
-                                <span>+</span>
-                            </div>
-                            <p class="counter-two__text">award Winning</p>
-                        </div>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-header__subtitle">Our Clients</span>
+                <h2 class="section-header__title">Who We <span>Serve</span></h2>
+                <p class="section-header__desc">We provide tailored expertise for a diverse portfolio of clients across various sectors.</p>
+            </div>
+            <div class="who-we-serve__wrapper">
+                <div class="who-we-serve__item" data-aos="fade-up" data-aos-delay="100">
+                    <span class="who-we-serve__item-number">01</span>
+                    <div class="who-we-serve__item-icon">
+                        <i class="fas fa-rocket"></i>
                     </div>
+                    <h4 class="who-we-serve__item-title">Scaling SMEs</h4>
+                    <p class="who-we-serve__item-text">Businesses requiring structured financial oversight and flexible CFO-level support for growth.</p>
                 </div>
-                <!--Counter Two Single End-->
-                <!--Counter Two Single Start-->
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="200ms">
-                    <div class="counter-two__single">
-                        <div class="counter-two__icon">
-                            <span class="icon-costumer"></span>
-                        </div>
-                        <div class="counter-two__content">
-                            <div class="counter-two__count-box">
-                                <h3 class="odometer" data-count="99">00</h3>
-                                <span>%</span>
-                            </div>
-                            <p class="counter-two__text">Satisfied client</p>
-                        </div>
+                <div class="who-we-serve__item" data-aos="fade-up" data-aos-delay="150">
+                    <span class="who-we-serve__item-number">02</span>
+                    <div class="who-we-serve__item-icon">
+                        <i class="fas fa-seedling"></i>
                     </div>
+                    <h4 class="who-we-serve__item-title">High-Growth Startups</h4>
+                    <p class="who-we-serve__item-text">Founders building compliant and investment-ready financial foundations for success.</p>
                 </div>
-                <!--Counter Two Single End-->
-                <!--Counter Two Single Start-->
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="300ms">
-                    <div class="counter-two__single">
-                        <div class="counter-two__icon">
-                            <span class="icon-rating"></span>
-                        </div>
-                        <div class="counter-two__content">
-                            <div class="counter-two__count-box">
-                                <h3 class="odometer" data-count="10">00</h3>
-                                <span>M</span>
-                            </div>
-                            <p class="counter-two__text">worldwide reviews</p>
-                        </div>
+                <div class="who-we-serve__item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="who-we-serve__item-number">03</span>
+                    <div class="who-we-serve__item-icon">
+                        <i class="fas fa-building"></i>
                     </div>
+                    <h4 class="who-we-serve__item-title">Corporate Organizations</h4>
+                    <p class="who-we-serve__item-text">Entities seeking to strengthen financial control and compliance frameworks.</p>
                 </div>
-                <!--Counter Two Single End-->
-                <!--Counter Two Single Start-->
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="400ms">
-                    <div class="counter-two__single">
-                        <div class="counter-two__icon">
-                            <span class="icon-customer"></span>
-                        </div>
-                        <div class="counter-two__content">
-                            <div class="counter-two__count-box">
-                                <h3 class="odometer" data-count="200">00</h3>
-                                <span>+</span>
-                            </div>
-                            <p class="counter-two__text">Happy Clients</p>
-                        </div>
+                <div class="who-we-serve__item" data-aos="fade-up" data-aos-delay="250">
+                    <span class="who-we-serve__item-number">04</span>
+                    <div class="who-we-serve__item-icon">
+                        <i class="fas fa-globe"></i>
                     </div>
+                    <h4 class="who-we-serve__item-title">Foreign Investors</h4>
+                    <p class="who-we-serve__item-text">Organizations establishing or expanding operations within Bangladesh.</p>
                 </div>
-                <!--Counter Two Single End-->
+                <div class="who-we-serve__item" data-aos="fade-up" data-aos-delay="300">
+                    <span class="who-we-serve__item-number">05</span>
+                    <div class="who-we-serve__item-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4 class="who-we-serve__item-title">International Partners</h4>
+                    <p class="who-we-serve__item-text">Businesses seeking reliable remote finance support and cloud-based solutions.</p>
+                </div>
             </div>
         </div>
     </section>
-    <!-- Counter Two End -->
 
-    <!--Testimonial Two Start-->
-    <section class="testimonial-two">
-        <div class="testimonial-two-bg-shape" style="background-image: url(assets/images/shapes/testimonial-two-bg-shape.png);"></div>
+    {{-- FINACT Method Section --}}
+    <section class="finact-method">
         <div class="container">
-            <div class="section-title text-center sec-title-animation animation-style1">
-                <div class="section-title__tagline-box">
-                    <span class="section-title__tagline">Testimonials</span>
-                </div>
-                <h2 class="section-title__title title-animation">What Our Customer <span>Says?</span>
-                </h2>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-header__subtitle">Our Approach</span>
+                <h2 class="section-header__title">The <span>FINACT</span> Method</h2>
+                <p class="section-header__desc">Our structured methodology ensures comprehensive and effective financial solutions.</p>
             </div>
-            <div class="testimonial-two__carousel owl-theme owl-carousel">
-                <!--Testimonial Two Single Start-->
-                <div class="item">
-                    <div class="testimonial-two__single">
-                        <div class="testimonial-two__single-bdr"></div>
-                        <div class="testimonial-two__quote">
-                            <span class="fas fa-quote-right"></span>
-                        </div>
-                        <div class="testimonial-two__client-info-box">
-                            <div class="testimonial-two__client-info">
-                                <div class="testimonial-two__client-img-box">
-                                    <div class="testimonial-two__client-img">
-                                        <img src="assets/images/testimonial/testimonial-2-1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="testimonial-two__client-content">
-                                    <h3 class="testimonial-two__client-name"><a href="testimonials.html">Adam
-                                            Smith</a></h3>
-                                    <p class="testimonial-two__client-sub-title">Co-Founder</p>
-                                </div>
-                            </div>
-                            <div class="testimonial-two__client-ratting">
-                                <span class="icon-star-1"></span>
-                                <span class="icon-star-1"></span>
-                                <span class="icon-star-1"></span>
-                                <span class="icon-star-1"></span>
-                                <span class="icon-star-1"></span>
-                            </div>
-                        </div>
-                        <p class="testimonial-two__text">“Adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labored etos dolore magna aliquant. Ut enim ad minim veniam nostrud exercitation
-                            ullamco laboris nisi ut aliquip</p>
+            <div class="finact-method__timeline">
+                <div class="finact-method__step" data-aos="fade-up">
+                    <div class="finact-method__step-content">
+                        <span class="finact-method__step-letter">D</span>
+                        <h3 class="finact-method__step-title">Diagnostic</h3>
+                        <p class="finact-method__step-text">A deep dive into your current financial health and efficiency gaps to understand where improvements are needed.</p>
                     </div>
+                    <div class="finact-method__step-number">1</div>
                 </div>
-                <!--Testimonial Two Single End-->
-                <!--Testimonial Two Single Start-->
-                <div class="item">
-                    <div class="testimonial-two__single">
-                        <div class="testimonial-two__single-bdr"></div>
-                        <div class="testimonial-two__quote">
-                            <span class="fas fa-quote-right"></span>
-                        </div>
-                        <div class="testimonial-two__client-info-box">
-                            <div class="testimonial-two__client-info">
-                                <div class="testimonial-two__client-img-box">
-                                    <div class="testimonial-two__client-img">
-                                        <img src="assets/images/testimonial/testimonial-2-2.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="testimonial-two__client-content">
-                                    <h3 class="testimonial-two__client-name"><a href="testimonials.html">Robert
-                                            Son</a></h3>
-                                    <p class="testimonial-two__client-sub-title">Co-Founder</p>
-                                </div>
-                            </div>
-                            <div class="testimonial-two__client-ratting">
-                                <span class="icon-star-1"></span>
-                                <span class="icon-star-1"></span>
-                                <span class="icon-star-1"></span>
-                                <span class="icon-star-1"></span>
-                                <span class="icon-star-1"></span>
-                            </div>
-                        </div>
-                        <p class="testimonial-two__text">“Adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labored etos dolore magna aliquant. Ut enim ad minim veniam nostrud exercitation
-                            ullamco laboris nisi ut aliquip</p>
+                <div class="finact-method__step" data-aos="fade-up">
+                    <div class="finact-method__step-content">
+                        <span class="finact-method__step-letter">E</span>
+                        <h3 class="finact-method__step-title">Evaluation</h3>
+                        <p class="finact-method__step-text">Rigorous review of systems, records, and regulatory compliance status to identify opportunities.</p>
                     </div>
+                    <div class="finact-method__step-number">2</div>
                 </div>
-                <!--Testimonial Two Single End-->
-                <!--Testimonial Two Single Start-->
-                <div class="item">
-                    <div class="testimonial-two__single">
-                        <div class="testimonial-two__single-bdr"></div>
-                        <div class="testimonial-two__quote">
-                            <span class="fas fa-quote-right"></span>
-                        </div>
-                        <div class="testimonial-two__client-info-box">
-                            <div class="testimonial-two__client-info">
-                                <div class="testimonial-two__client-img-box">
-                                    <div class="testimonial-two__client-img">
-                                        <img src="assets/images/testimonial/testimonial-2-3.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="testimonial-two__client-content">
-                                    <h3 class="testimonial-two__client-name"><a href="testimonials.html">Alisha
-                                            Martin</a></h3>
-                                    <p class="testimonial-two__client-sub-title">Co-Founder</p>
-                                </div>
-                            </div>
-                            <div class="testimonial-two__client-ratting">
-                                <span class="icon-star-1"></span>
-                                <span class="icon-star-1"></span>
-                                <span class="icon-star-1"></span>
-                                <span class="icon-star-1"></span>
-                                <span class="icon-star-1"></span>
-                            </div>
-                        </div>
-                        <p class="testimonial-two__text">“Adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labored etos dolore magna aliquant. Ut enim ad minim veniam nostrud exercitation
-                            ullamco laboris nisi ut aliquip</p>
+                <div class="finact-method__step" data-aos="fade-up">
+                    <div class="finact-method__step-content">
+                        <span class="finact-method__step-letter">A</span>
+                        <h3 class="finact-method__step-title">Architecture</h3>
+                        <p class="finact-method__step-text">Designing practical, scalable solutions tailored to your unique workflow and business needs.</p>
                     </div>
+                    <div class="finact-method__step-number">3</div>
                 </div>
-                <!--Testimonial Two Single End-->
+                <div class="finact-method__step" data-aos="fade-up">
+                    <div class="finact-method__step-content">
+                        <span class="finact-method__step-letter">D</span>
+                        <h3 class="finact-method__step-title">Deployment</h3>
+                        <p class="finact-method__step-text">Execution with technical clarity, professional discipline, and minimal disruption to operations.</p>
+                    </div>
+                    <div class="finact-method__step-number">4</div>
+                </div>
+                <div class="finact-method__step" data-aos="fade-up">
+                    <div class="finact-method__step-content">
+                        <span class="finact-method__step-letter">A</span>
+                        <h3 class="finact-method__step-title">Advisory</h3>
+                        <p class="finact-method__step-text">Ongoing strategic guidance to ensure long-term operational excellence and continuous improvement.</p>
+                    </div>
+                    <div class="finact-method__step-number">5</div>
+                </div>
             </div>
         </div>
     </section>
-    <!--Testimonial Two End-->
 
-    <!-- Blog One Start -->
-    <section class="blog-one">
-        <div class="blog-one__shape-1"></div>
-        <div class="blog-one__shape-2"></div>
-        <div class="blog-one__shape-3 float-bob">
-            <img src="assets/images/shapes/blog-one-shape-3.png" alt="">
-        </div>
+    {{-- Our Team Section --}}
+    <section class="our-team">
         <div class="container">
-            <div class="section-title text-center sec-title-animation animation-style1">
-                <div class="section-title__tagline-box">
-                    <span class="section-title__tagline">Our Blogs</span>
-                </div>
-                <h2 class="section-title__title title-animation">Latest News & Articles From
-                    <br> The <span>Blog Posts</span>
-                </h2>
-            </div>
-            <div class="row">
-                <!--Blog One Single Start-->
-                <div class="col-xl-6 wow fadeInLeft" data-wow-delay="100ms">
-                    <div class="blog-one__single">
-                        <div class="blog-one__img">
-                            <img src="assets/images/blog/blog-1-1.jpg" alt="">
-                            <div class="blog-one__tags">
-                                <span>Digital</span>
-                                <span>Technology</span>
-                            </div>
-                        </div>
-                        <div class="blog-one__content">
-                            <div class="blog-one__user">
-                                <div class="blog-one__user-img">
-                                    <img src="assets/images/blog/blog-one-user-1.jpg" alt="">
-                                </div>
-                                <p class="blog-one__user-title">Malaika alise</p>
-                            </div>
-                            <ul class="blog-one__meta list-unstyled">
-                                <li>
-                                    <a href="blog-details.html"><span class="far fa-calendar-alt"></span>April 5,
-                                        2025</a>
-                                </li>
-                                <li>
-                                    <a href="blog-details.html"><span class="fal fa-comments"></span>80
-                                        Comments</a>
-                                </li>
-                            </ul>
-                            <h3 class="blog-one__title"><a href="blog-details.html">Improving Business Growth with
-                                    New<br> Technology</a></h3>
-                            <p class="blog-one__text">Winning the Digital business The 2025 Transformation
-                                Roadmap. Holisticly leverage existing magnetic. Next-Gen Digital Transformation</p>
-                            <div class="blog-one__btn-box">
-                                <a href="blog-details.html" class="thm-btn">Reed More
-                                    <span class="fas fa-arrow-right"></span>
-                                </a>
-                            </div>
-                        </div>
+            <div class="our-team__content" data-aos="fade-up">
+                <div class="our-team__header">
+                    <div class="our-team__icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="our-team__header-text">
+                        <h2>Our <span>Team</span></h2>
+                        <p>Experienced professionals delivering excellence in finance and compliance</p>
                     </div>
                 </div>
-                <!--Blog One Single End-->
-                <div class="col-xl-6">
-                    <!-- Blog One Single Two Start -->
-                    <div class="blog-one__single-two wow fadeInUp" data-wow-delay="200ms">
-                        <div class="blog-one__img-two">
-                            <img src="assets/images/blog/blog-1-2.jpg" alt="">
-                            <div class="blog-one__tags-two">
-                                <span>Digital</span>
-                                <span>Technology</span>
-                            </div>
+                <p class="our-team__intro">
+                    <strong>FINACT Advisory & Training</strong> is supported by a team of experienced finance professionals with extensive industry experience across multiple sectors, delivering structured finance, compliance, and advisory support. The team brings practical expertise in financial management, tax, VAT, and corporate governance within structured and compliance-driven environments.
+                </p>
+                <div class="our-team__features">
+                    <div class="our-team__feature">
+                        <div class="our-team__feature-icon">
+                            <i class="fas fa-briefcase"></i>
                         </div>
-                        <div class="blog-one__content-two">
-                            <div class="blog-one__user-two">
-                                <div class="blog-one__user-two-img">
-                                    <img src="assets/images/blog/blog-one-user-2.jpg" alt="">
-                                </div>
-                                <p class="blog-one__user-two-title">John Smith</p>
-                            </div>
-                            <ul class="blog-one__meta-two list-unstyled">
-                                <li>
-                                    <a href="blog-details.html"><span class="far fa-calendar-alt"></span>Feb 25,
-                                        2025</a>
-                                </li>
-                                <li>
-                                    <a href="blog-details.html"><span class="fal fa-comments"></span>22
-                                        Comments</a>
-                                </li>
-                            </ul>
-                            <h3 class="blog-one__title-two"><a href="blog-details.html">Regional Manager & limited
-                                    management.</a></h3>
-                            <p class="blog-one__text-two">Winning the Digital business The 2025 Transformation
-                                Roadmap.</p>
-                            <div class="blog-one__btn-box-two">
-                                <a href="blog-details.html" class="thm-btn">Reed More
-                                    <span class="fas fa-arrow-right"></span>
-                                </a>
-                            </div>
+                        <div>
+                            <h4>Industry Experience</h4>
+                            <p>Practical expertise in financial management, tax, VAT, and corporate governance</p>
                         </div>
                     </div>
-                    <!-- Blog One Single Two End -->
-                    <!-- Blog One Single Two Start -->
-                    <div class="blog-one__single-two wow fadeInUp" data-wow-delay="300ms">
-                        <div class="blog-one__img-two">
-                            <img src="assets/images/blog/blog-1-3.jpg" alt="">
-                            <div class="blog-one__tags-two">
-                                <span>Digital</span>
-                                <span>Technology</span>
-                            </div>
+                    <div class="our-team__feature">
+                        <div class="our-team__feature-icon">
+                            <i class="fas fa-certificate"></i>
                         </div>
-                        <div class="blog-one__content-two">
-                            <div class="blog-one__user-two">
-                                <div class="blog-one__user-two-img">
-                                    <img src="assets/images/blog/blog-one-user-3.jpg" alt="">
-                                </div>
-                                <p class="blog-one__user-two-title">Jerin jara</p>
-                            </div>
-                            <ul class="blog-one__meta-two list-unstyled">
-                                <li>
-                                    <a href="blog-details.html"><span class="far fa-calendar-alt"></span>May 19,
-                                        2025</a>
-                                </li>
-                                <li>
-                                    <a href="blog-details.html"><span class="fal fa-comments"></span>15
-                                        Comments</a>
-                                </li>
-                            </ul>
-                            <h3 class="blog-one__title-two"><a href="blog-details.html">Easy and Most Powerful
-                                    Server and Platform.</a></h3>
-                            <p class="blog-one__text-two">Winning the Digital business The 2025 Transformation
-                                Roadmap.</p>
-                            <div class="blog-one__btn-box-two">
-                                <a href="blog-details.html" class="thm-btn">Reed More
-                                    <span class="fas fa-arrow-right"></span>
-                                </a>
-                            </div>
+                        <div>
+                            <h4>Professional Background</h4>
+                            <p>Experience with leading audit firms and regulatory authorities including NBR & BIDA</p>
                         </div>
                     </div>
-                    <!-- Blog One Single Two End -->
+                    <div class="our-team__feature">
+                        <div class="our-team__feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h4>Technical Proficiency</h4>
+                            <p>Experience with SAP (S/4HANA) and cloud-based accounting platforms</p>
+                        </div>
+                    </div>
+                    <div class="our-team__feature">
+                        <div class="our-team__feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div>
+                            <h4>Implementation Focus</h4>
+                            <p>Ensuring systems and controls are effectively applied in daily operations</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Blog One End -->
 
-    <!-- Newsletter One Start -->
-    <section class="newsletter-two">
+    {{-- Vision, Mission & Core Values Section --}}
+    <section class="vision-mission">
         <div class="container">
-            <div class="newsletter-two__inner">
-                <div class="newsletter-two__shape-1" style="background-image: url(assets/images/shapes/newsletter-two-shape-1.png);"></div>
-                <div class="newsletter-two__img-1">
-                    <img src="assets/images/resources/newsletter-two-img-1.png" alt="">
-                </div>
-                <div class="newsletter-two__left">
-                    <h2 class="newsletter-two__title">Subcribe to Our Newsletter</h2>
-                    <p class="newsletter-two__text">Get the latest SEO tips and software insights straight to your
-                        inbox.</p>
-                </div>
-                <div class="newsletter-two__right">
-                    <form class="contact-form-validated newsletter-two__form" action="assets/inc/sendemail.php" method="post">
-                        <div class="newsletter-two__input">
-                            <input type="email" placeholder="Enter email address" name="email" required>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-header__subtitle">What Drives Us</span>
+                <h2 class="section-header__title">Vision, Mission & Core Values</h2>
+            </div>
+            <div class="vision-mission__tabs" data-aos="fade-up">
+                <button class="vision-mission__tab active" onclick="showPanel('vision', this)">
+                    <i class="fas fa-eye"></i> Vision
+                </button>
+                <button class="vision-mission__tab" onclick="showPanel('mission', this)">
+                    <i class="fas fa-bullseye"></i> Mission
+                </button>
+                <button class="vision-mission__tab" onclick="showPanel('values', this)">
+                    <i class="fas fa-heart"></i> Core Values
+                </button>
+            </div>
+            <div class="vision-mission__content" data-aos="fade-up">
+                <div id="vision" class="vision-mission__panel active">
+                    <div class="vision-mission__panel-header">
+                        <div class="vision-mission__panel-icon">
+                            <i class="fas fa-eye"></i>
                         </div>
-                        <button type="submit" class="thm-btn">Subscribe Now <span class="fas fa-arrow-right"></span>
-                        </button>
-                        <div class="result"></div>
-                    </form>
+                        <h3 class="vision-mission__panel-title">Our Vision</h3>
+                    </div>
+                    <p class="vision-mission__panel-text">
+                        To be a trusted finance and compliance partner, enabling businesses to operate with clarity, control, and confidence. We envision a business landscape where every organization, regardless of size, has access to professional financial guidance and structured compliance support that drives sustainable growth.
+                    </p>
+                </div>
+                <div id="mission" class="vision-mission__panel">
+                    <div class="vision-mission__panel-header">
+                        <div class="vision-mission__panel-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="vision-mission__panel-title">Our Mission</h3>
+                    </div>
+                    <ul class="vision-mission__list">
+                        <li>
+                            <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
+                            <p class="vision-mission__list-text">Deliver accurate and reliable accounting, tax, and advisory services</p>
+                        </li>
+                        <li>
+                            <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
+                            <p class="vision-mission__list-text">Support businesses with structured and secure finance operations, including remote capabilities</p>
+                        </li>
+                        <li>
+                            <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
+                            <p class="vision-mission__list-text">Build long-term relationships through consistent, quality-driven service delivery</p>
+                        </li>
+                        <li>
+                            <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
+                            <p class="vision-mission__list-text">Develop practical skills through implementation-focused training and professional development</p>
+                        </li>
+                    </ul>
+                </div>
+                <div id="values" class="vision-mission__panel">
+                    <div class="vision-mission__panel-header">
+                        <div class="vision-mission__panel-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="vision-mission__panel-title">Our Core Values</h3>
+                    </div>
+                    <ul class="vision-mission__list">
+                        <li>
+                            <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
+                            <p class="vision-mission__list-text"><strong>Integrity:</strong> Maintaining professional ethics, independence, and transparency in every engagement</p>
+                        </li>
+                        <li>
+                            <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
+                            <p class="vision-mission__list-text"><strong>Accuracy:</strong> Ensuring precision, consistency, and compliance in all financial work</p>
+                        </li>
+                        <li>
+                            <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
+                            <p class="vision-mission__list-text"><strong>Implementation:</strong> Delivering practical, structured, and sustainable solutions</p>
+                        </li>
+                        <li>
+                            <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
+                            <p class="vision-mission__list-text"><strong>Accountability:</strong> Committing to reliable delivery and professional responsibility</p>
+                        </li>
+                        <li>
+                            <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
+                            <p class="vision-mission__list-text"><strong>Client Focus:</strong> Aligning services with the specific needs and context of each client</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Newsletter One End -->
+
+    {{-- Technology & Data Security Section --}}
+    <section class="technology-section">
+        <div class="container">
+            <div class="technology__wrapper">
+                <div class="technology__image" data-aos="fade-right">
+                    <div class="technology__image-main">
+                        <img src="{{ asset('frontend/assets/images/resources/about-three-img-1.jpg') }}" alt="Technology">
+                    </div>
+                    <div class="technology__floating-card technology__floating-card--1">
+                        <div class="technology__floating-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="technology__floating-text">
+                            <h5>Cloud-Based</h5>
+                            <p>Secure & Accessible</p>
+                        </div>
+                    </div>
+                    <div class="technology__floating-card technology__floating-card--2">
+                        <div class="technology__floating-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="technology__floating-text">
+                            <h5>Data Security</h5>
+                            <p>Enterprise Grade</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="technology__content" data-aos="fade-left">
+                    <h2><span>Technology</span> & Data Security</h2>
+                    <p>
+                        Financial information today must be both accessible and securely managed. FINACT supports the use of cloud-based accounting platforms such as QuickBooks and Xero, where appropriate, based on client requirements and operational needs.
+                    </p>
+                    <p>
+                        We assist in the implementation and effective use of these systems to improve financial visibility, reporting, and process efficiency, particularly in remote and multi-location environments.
+                    </p>
+                    <div class="technology__features">
+                        <div class="technology__feature-item">
+                            <div class="technology__feature-check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>QuickBooks & Xero Implementation</span>
+                        </div>
+                        <div class="technology__feature-item">
+                            <div class="technology__feature-check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>Data Confidentiality & Integrity</span>
+                        </div>
+                        <div class="technology__feature-item">
+                            <div class="technology__feature-check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>Controlled Access Management</span>
+                        </div>
+                        <div class="technology__feature-item">
+                            <div class="technology__feature-check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>Remote Finance Operations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Strategic Direction Section --}}
+    <section class="strategic-direction">
+        <div class="container">
+            <div class="strategic-direction__wrapper">
+                <div class="strategic-direction__content" data-aos="fade-right">
+                    <span class="strategic-direction__badge">
+                        <i class="fas fa-compass"></i> Looking Forward
+                    </span>
+                    <h2 class="strategic-direction__title">
+                        Our <span>Strategic Direction</span>
+                    </h2>
+                    <p class="strategic-direction__text">
+                        <strong>FINACT Advisory & Training</strong> is focused on strengthening finance functions through structured systems, disciplined processes, and improved financial visibility.
+                    </p>
+                    <p class="strategic-direction__text">
+                        The firm promotes the adoption of system-based financial management and standardized workflows where they enhance control, reporting quality, and decision support.
+                    </p>
+                    <p class="strategic-direction__text">
+                        At the same time, <strong>FINACT</strong> maintains a pragmatic approach—adapting to the operational realities of each business and ensuring reliable, compliant, and well-structured financial practices across all engagements.
+                    </p>
+                </div>
+                <div class="strategic-direction__image" data-aos="fade-left">
+                    <div class="strategic-direction__image-main">
+                        <img src="{{ asset('frontend/assets/images/resources/about-three-img-1.jpg') }}" alt="Strategic Direction">
+                    </div>
+                    <div class="strategic-direction__stats">
+                        <div class="strategic-direction__stat">
+                            <h3>100+</h3>
+                            <p>Clients Served</p>
+                        </div>
+                        <div class="strategic-direction__stat">
+                            <h3>50+</h3>
+                            <p>Projects Done</p>
+                        </div>
+                        <div class="strategic-direction__stat">
+                            <h3>99%</h3>
+                            <p>Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- CTA Section --}}
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta__content" data-aos="fade-up">
+                <div class="cta__icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h2 class="cta__title">Ready to Transform Your Finance Function?</h2>
+                <p class="cta__text">
+                    Let us help you build reliable financial foundations with clarity, compliance, and control. Partner with FINACT today.
+                </p>
+                <div class="cta__buttons">
+                    <a href="{{ route('frontend.contact.us') }}" class="cta__btn cta__btn--primary">
+                        <i class="fas fa-envelope"></i> Contact Us
+                    </a>
+                    <a href="{{ route('frontend.all.services.list') }}" class="cta__btn cta__btn--secondary">
+                        <i class="fas fa-th-list"></i> Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Tab functionality for Vision/Mission/Values
+        function showPanel(panelId, clickedTab) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.vision-mission__tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove active class from all panels
+            document.querySelectorAll('.vision-mission__panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Add active class to clicked tab
+            clickedTab.classList.add('active');
+
+            // Add active class to corresponding panel
+            document.getElementById(panelId).classList.add('active');
+        }
+
+        // Initialize AOS if available
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-out',
+                    once: true,
+                    offset: 50
+                });
+            }
+        });
+    </script>
 
 @endsection

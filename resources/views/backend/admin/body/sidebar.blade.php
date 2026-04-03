@@ -20,7 +20,7 @@
                 </a>
             </li>
 
-            <li class="dropdown {{ request()->routeIs('admin.slider.list') ? 'active' : '' }}">
+            {{-- <li class="dropdown {{ request()->routeIs('admin.slider.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="image"></i>
                     <span>Home Sliders</span>
@@ -28,9 +28,9 @@
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.slider.list') }}">Slider</a></li>
                 </ul>
-            </li>
+            </li> --}}
 
-            <li class="dropdown {{ request()->routeIs(['admin.about-us.list', 'admin.enlistment.list', 'admin.successful_portfolios.list', 'admin.about-message.list', 'admin.our-team.list']) ? 'active' : '' }}">
+            {{-- <li class="dropdown {{ request()->routeIs(['admin.about-us.list', 'admin.enlistment.list', 'admin.successful_portfolios.list', 'admin.about-message.list', 'admin.our-team.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>
                     <span>About Us</span>
@@ -43,7 +43,7 @@
                     <li><a class="nav-link" href="{{ route('admin.about-message.list') }}">Managing Partner Message</a></li>
                     <li><a class="nav-link" href="{{ route('admin.our-team.list') }}">Our Team</a></li>
                 </ul>
-            </li>
+            </li> --}}
 
             <li class="dropdown {{ request()->routeIs(['admin.service.list', 'admin.client.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
