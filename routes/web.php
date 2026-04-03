@@ -193,6 +193,7 @@ Route::group(
         );
 
         // Contact Message All Routes
+        // Contact Message All Routes
         Route::group(
             [
                 'prefix' => 'contact',
@@ -202,7 +203,7 @@ Route::group(
             function () {
                 Route::get('/list', 'ContactList')->name('list');
                 Route::get('/delete/{id}', 'ContactDelete')->name('delete');
-                Route::post('/contact/delete-selected', 'deleteSelected')->name('deleteSelected');
+                Route::post('/delete-selected', 'deleteSelected')->name('deleteSelected'); // ✅ fixed
             },
         );
 
