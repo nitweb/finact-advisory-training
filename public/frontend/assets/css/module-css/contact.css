@@ -370,7 +370,7 @@
 }
 
 .contact-three__contact-list li:hover .icon {
-    background-color: var(--itzone-black);
+    background-color: #b89867;
 }
 
 .contact-three__contact-list li .icon span {

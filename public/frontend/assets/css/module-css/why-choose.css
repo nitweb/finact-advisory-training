@@ -612,7 +612,7 @@
     justify-content: center;
     width: 30px;
     height: 30px;
-    background-color: var(--itzone-base);
+    background-color: #b89867;
     border-radius: var(--itzone-bdr-radius);
 }
 
@@ -655,7 +655,7 @@
     position: relative;
     display: inline-block;
     font-size: 16px;
-    color: var(--itzone-base);
+    color: #b89867;
 }
 
 .why-choose-three__points li p {

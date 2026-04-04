@@ -310,11 +310,11 @@
 }
 
 .services-two__title a {
-    color: var(--itzone-black);
+    color: #163355;
 }
 
 .services-two__title a:hover {
-    color: var(--itzone-base);
+    color: #b89867;
 }
 
 .services-two__plus {

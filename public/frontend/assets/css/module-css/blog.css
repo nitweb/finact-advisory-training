@@ -230,11 +230,11 @@
 }
 
 .blog-one__title a {
-    color: var(--itzone-black);
+    color: #163355;
 }
 
 .blog-one__title a:hover {
-    color: var(--itzone-base);
+    color: #b89867;
 }
 
 .blog-one__text {

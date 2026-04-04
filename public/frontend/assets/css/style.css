@@ -1120,7 +1120,7 @@ xs sidebar
 }
 
 .section-title__title {
-  color: var(--itzone-black);
+  color: #163355;
   font-size: 40px;
   line-height: 50px;
   font-weight: 800;
@@ -1129,7 +1129,7 @@ xs sidebar
 }
 
 .section-title__title span {
-  color: var(--itzone-base);
+  color: #b89867;
 }
 
 .section-title__title .split-line {

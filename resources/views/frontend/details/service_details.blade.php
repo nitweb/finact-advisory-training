@@ -47,91 +47,44 @@
 
                         <div class="service-details__get-started">
                             <h3 class="service-details__get-started-title">Get Started Today</h3>
-                            <p class="service-details__get-started-text">Pianissimos of dulcimers qui therefore
-                                always
-                                holds in these matters to this principle</p>
+                            <p class="service-details__get-started-text">
+                                We would be pleased to discuss your requirements and explore how we can support your business.
+                            </p>
                             <ul class="service-details__get-started-points list-unstyled">
                                 <li>
                                     <div class="icon">
                                         <span class="icon-call"></span>
                                     </div>
-                                    <p><a href="tel:585858575084">+58 585 857 5084</a></p>
+                                    <p>
+                                        <a href="tel:{{ siteSetting()->site_phone }}">{{ siteSetting()->site_phone }}</a>
+                                        <br>
+                                        <a href="tel:{{ siteSetting()->site_phone_alter }}">{{ siteSetting()->site_phone_alter }}</a>
+                                    </p>
                                 </li>
                                 <li>
                                     <div class="icon">
                                         <span class="icon-email"></span>
                                     </div>
-                                    <p><a href="mailto:example@gmail.com">example@gmail.com</a></p>
+                                    <p>
+                                        <a href="mailto:{{ siteSetting()->site_email }}">{{ siteSetting()->site_email }}</a>
+                                        <br>
+                                        <a href="mailto:{{ siteSetting()->site_email_alter }}">{{ siteSetting()->site_email_alter }}</a>
+                                    </p>
                                 </li>
                                 <li>
                                     <div class="icon">
                                         <span class="icon-pin"></span>
                                     </div>
-                                    <p>4517 Washington Ave. Manchester,<br> Kentucky 39495</p>
+                                    <p>{{ siteSetting()->head_address }}</p>
                                 </li>
                             </ul>
                             <div class="service-details__get-started-btn-box">
-                                <a href="contact.html" class="thm-btn">get in
-                                    touch <span class="fas fa-arrow-right"></span></a>
+                                <a href="{{ route('frontend.contact.us') }}" class="thm-btn">get in touch <span class="fas fa-arrow-right"></span></a>
                             </div>
                         </div>
 
-                        <div class="service-details__sidebar-download-box">
-                            <h3 class="service-details__services-title">Download</h3>
-                            <div class="service-details__sidebar-single-download">
-
-                                <ul class="clearfix list-unstyled">
-                                    <li>
-                                        <div class="content-box">
-                                            <div class="icon">
-                                                <span class="far fa-file-pdf"></span>
-                                            </div>
-                                            <div class="text-box">
-                                                <h5><a href="#">Pdf Download</a></h5>
-                                                <p><a href="#">Download</a></p>
-                                            </div>
-                                        </div>
-
-                                        <div class="btn-box">
-                                            <a href="#"><span class="far fa-cloud-download"></span></a>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="content-box">
-                                            <div class="icon">
-                                                <span class="far fa-file-pdf"></span>
-                                            </div>
-                                            <div class="text-box">
-                                                <h5><a href="#">Pdf Download</a></h5>
-                                                <p><a href="#">Download</a></p>
-                                            </div>
-                                        </div>
-
-                                        <div class="btn-box">
-                                            <a href="#"><span class="far fa-cloud-download"></span></a>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="content-box">
-                                            <div class="icon">
-                                                <span class="far fa-file-pdf"></span>
-                                            </div>
-                                            <div class="text-box">
-                                                <h5><a href="#">Pdf Download</a></h5>
-                                                <p><a href="#">Download</a></p>
-                                            </div>
-                                        </div>
-
-                                        <div class="btn-box">
-                                            <a href="#"><span class="far fa-cloud-download"></span></a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
+
                 </div>
 
                 <div class="col-xl-8 col-lg-7">
