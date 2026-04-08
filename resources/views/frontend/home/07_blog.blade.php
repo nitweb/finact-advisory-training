@@ -15,10 +15,6 @@
                 <span class="section-title__tagline">Insights & Updates</span>
             </div>
 
-            <h2 class="section-title__title title-animation">
-                <span>Latest</span> insights, updates, and <span>practical guidance</span> on accounting, tax, VAT, and financial management.
-            </h2>
-
         </div>
 
         <ul class="row list-unstyled">

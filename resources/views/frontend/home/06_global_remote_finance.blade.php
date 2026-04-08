@@ -27,7 +27,7 @@
 
             <div class="col-xl-6">
 
-                <div class="about-one__left">
+                <div class="about-three__right">
 
                     <div class="section-title text-left sec-title-animation animation-style2">
 
@@ -36,7 +36,7 @@
                         </div>
 
                         <h2 class="section-title__title title-animation">
-                            Reliable <span>Finance Operations</span> Across Locations
+                            <span>Reliable</span> Finance Operations Across <span>Locations</span>
                         </h2>
 
                     </div>
@@ -76,7 +76,7 @@
 
                     <div class="about-one__btn-and-client-info">
                         <div class="about-one__btn-box">
-                            <a href="{{ route('frontend.all.services.list') }}" class="thm-btn">Explore Global Services
+                            <a href="{{ route('frontend.remote.support') }}" class="thm-btn">Explore Global Services
                                 <span class="fas fa-arrow-right"></span>
                             </a>
                         </div>

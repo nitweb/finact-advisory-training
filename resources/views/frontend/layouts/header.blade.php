@@ -38,9 +38,11 @@
                                 </ul>
                             </li>
 
-                            <li class="{{ request()->routeIs('frontend.finance.support') ? 'active' : '' }}"><a href="{{ route('frontend.finance.support') }}">Finance Support</a></li>
+                            <li class="{{ request()->routeIs('frontend.remote.support') ? 'active' : '' }}"><a href="{{ route('frontend.remote.support') }}">Remote Support</a></li>
 
                             <li class="{{ request()->routeIs('frontend.training.development') ? 'active' : '' }}"><a href="{{ route('frontend.training.development') }}">Training & Development</a></li>
+
+                            <li class="{{ request()->routeIs('frontend.training.development') ? 'active' : '' }}"><a href="{{ route('frontend.training.development') }}">Gallery</a></li>
 
                             <li class="{{ request()->routeIs('frontend.blog.list') ? 'active' : '' }}"><a href="{{ route('frontend.blog.list') }}">Blog</a></li>
 
