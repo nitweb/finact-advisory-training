@@ -112,7 +112,7 @@
                                     </div>
 
                                     <div class="col-xl-6 col-lg-6 col-md-6">
-                                        <h4 class="contact-one__input-title">Phone Number</h4>
+                                        <h4 class="contact-one__input-title">Phone / WhatsApp</h4>
                                         <div class="contact-one__input-box">
                                             <div class="contact-one__input-icon">
                                                 <span class="icon-phone-call"></span>
@@ -146,7 +146,7 @@
                                 </div>
 
                                 <div class="col-xl-12">
-                                    <h4 class="contact-one__input-title">Inquiry about </h4>
+                                    <h4 class="contact-one__input-title">Message</h4>
                                     <div class="contact-one__input-box text-message-box">
                                         <div class="contact-one__input-icon">
                                             <span class="icon-edit"></span>

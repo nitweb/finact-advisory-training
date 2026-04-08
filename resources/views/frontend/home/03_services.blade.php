@@ -12,7 +12,7 @@
                 <span class="section-title__tagline">Core Services</span>
             </div>
             <h2 class="section-title__title title-animation">
-                Strategic Solutions for <span>Financial Excellence</span>
+                Strategic <span>Solutions</span> for Financial <span>Excellence</span>
             </h2>
         </div>
 

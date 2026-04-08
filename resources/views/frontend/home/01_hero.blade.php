@@ -47,19 +47,19 @@
                 </h2>
 
                 <p class="banner-one__text" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
-                    We support businesses in establishing reliable financial systems, maintaining regulatory
+                    We help businesses build disciplined financial processes, strengthen internal controls, and use
                     <br>
-                    compliance, and improving decision-making through practical, implementation-focused solutions.
+                    financial information to support both daily operations and long-term decisions.
                 </p>
 
                 <div class="banner-one__btn-box" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
                     <div class="banner-one__btn">
-                        <a href="{{ route('frontend.contact.us') }}" class="thm-btn">Book a Consultation
+                        <a href="{{ route('frontend.contact.us') }}" class="thm-btn">Schedule a Consultation
                             <span class="fas fa-arrow-right"></span>
                         </a>
                     </div>
                     <div class="banner-one__btn">
-                        <a href="{{ route('frontend.all.services.list') }}" class="thm-btn">Explore Services
+                        <a href="{{ route('frontend.all.services.list') }}" class="thm-btn">View Our Services
                             <span class="fas fa-arrow-right"></span>
                         </a>
                     </div>

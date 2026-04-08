@@ -29,9 +29,21 @@
 
                 <div class="col-xl-12 col-lg-7">
 
+                    <h2 class="section-title__title title-animation" style="text-align: center;">
+                        <span>Structured,</span> Transparent and <span>Reliable Execution</span>
+                    </h2>
+
+                    <br><br>
+
                     <div class="service-details__left">
 
                         <div class="service-details__text-1" style="text-align: justify;">{!! $finance_info->long_description !!}</div>
+
+                        <div class="banner-one__btn mt-3">
+                            <a href="{{ route('frontend.contact.us') }}" class="thm-btn">Schedule a meeting
+                                <span class="fas fa-arrow-right"></span>
+                            </a>
+                        </div>
 
                     </div>
                 </div>
