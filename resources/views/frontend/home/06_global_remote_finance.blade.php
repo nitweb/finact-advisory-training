@@ -19,7 +19,7 @@
                             <img src="{{ asset('frontend/assets/images/shapes/about-one-shape-1.png') }}" alt="">
                         </div>
                         <div class="about-three__img">
-                            <img src="{{ asset('frontend/assets/images/resources/about-three-img-1.jpg') }}" alt="">
+                            <img src="{{ asset('uploads/static_images/finace_support.jpg') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -55,22 +55,20 @@
 
                     <ul class="why-choose-three__points list-unstyled">
                         <li>
-                            <div class="icon">
-                                <span class="icon-check-1"></span>
-                            </div>
-                            <p>Dramatically re-engineer value added IT systems via mission</p>
+                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <p>Structured accounting and reporting.</p>
                         </li>
                         <li>
-                            <div class="icon">
-                                <span class="icon-check-1"></span>
-                            </div>
-                            <p>We provide 24/7 monitoring and support to ensure your systems.</p>
+                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <p>Cloud-based system support (QuickBooks, Xero).</p>
                         </li>
                         <li>
-                            <div class="icon">
-                                <span class="icon-check-1"></span>
-                            </div>
-                            <p>Professional User Experince & Interface researching</p>
+                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <p>Consistent process and reporting discipline.</p>
+                        </li>
+                        <li>
+                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <p>Support for international operations.</p>
                         </li>
                     </ul>
 

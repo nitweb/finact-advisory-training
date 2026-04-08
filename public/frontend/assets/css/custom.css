@@ -472,14 +472,14 @@
 .section-header__desc {
     font-size: 17px;
     color: #666;
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto;
     line-height: 1.8;
 }
 
 .what-we-do__cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
     gap: 30px;
 }
 
@@ -587,7 +587,7 @@
 
 .who-we-serve__wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
     gap: 25px;
     position: relative;
     z-index: 1;
@@ -1712,4 +1712,9 @@
         right: -6px;
         bottom: -6px;
     }
+}
+
+.why-choose-three__shape-1 {
+	left: inherit;
+	right: -53px;
 }

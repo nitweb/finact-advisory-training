@@ -37,26 +37,17 @@
                             Who <span>We Are</span>
                         </h2>
                         <p class="who-we-are__text">
-                            <strong>FINACT Advisory & Training</strong> is a professional services practice focused on bridging the gap between technical complexity and practical business needs. We provide structured support across advisory, tax and VAT, and corporate compliance, alongside capability development initiatives.
+                            <strong>FINACT Advisory &amp; Training</strong> is a professional services practice focused on bridging the gap between technical complexity and practical business needs. We provide integrated support across advisory, tax and VAT, and corporate compliance, alongside capability development initiatives.
                         </p>
                         <p class="who-we-are__text">
-                            We support entrepreneurs, investors, and organizations in building reliable financial foundations. Our objective is to deliver disciplined financial practices that enable clarity, regulatory compliance, and sustainable business operations.
+                            We support entrepreneurs, investors, and organizations in building reliable financial foundations. Our objective is to promote disciplined financial practices that enable clarity, regulatory compliance, and sustainable business operations.
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="who-we-are__image-wrapper" data-aos="fade-left">
                         <div class="who-we-are__image">
-                            <img src="{{ asset('frontend/assets/images/resources/about-three-img-1.jpg') }}" alt="Who We Are">
-                        </div>
-                        <div class="who-we-are__image-badge">
-                            <div class="who-we-are__image-badge-icon">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <div class="who-we-are__image-badge-text">
-                                <h4>10+</h4>
-                                <p>Years Experience</p>
-                            </div>
+                            <img src="{{ asset('uploads/static_images/who_we_are.png') }}" alt="Who We Are">
                         </div>
                     </div>
                 </div>
@@ -65,20 +56,30 @@
     </section>
 
     {{-- Our Philosophy Section --}}
-    <section class="philosophy-section">
+    <section class="who-we-are">
+        <div class="floating-shape floating-shape-1"></div>
+        <div class="floating-shape floating-shape-2"></div>
+        <div class="floating-shape floating-shape-3"></div>
         <div class="container">
-            <div class="philosophy__content" data-aos="fade-up">
-                <div class="philosophy__icon">
-                    <i class="fas fa-lightbulb"></i>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="who-we-are__image-wrapper" data-aos="fade-left">
+                        <div class="who-we-are__image">
+                            <img src="{{ asset('uploads/static_images/our_philosophy.png') }}" alt="Who We Are">
+                        </div>
+                    </div>
                 </div>
-                <span class="philosophy__tagline">Our Philosophy</span>
-                <h2 class="philosophy__quote">
-                    <span>Finance</span> is not merely a record of the past; it is the <span>basis for informed</span> decisions.
-                </h2>
-                <p class="philosophy__text">
-                    A high-performing finance function should go beyond compliance to support decision-making and operational control. Our approach focuses on practical, implementation-led solutions that align financial discipline with business objectives.
-                </p>
-                <div class="philosophy__divider"></div>
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="who-we-are__content" data-aos="fade-right">
+                        <span class="philosophy__tagline">Our Philosophy</span>
+                        <h2 class="who-we-are__title">
+                            <span>Finance</span> is not merely a <span>record</span> of the <span>past</span>, it is the basis for informed <span>decisions</span>.
+                        </h2>
+                        <p class="philosophy__text">
+                            A well-functioning finance system should go beyond compliance to support decision-making and operational control. Our approach emphasizes implementation-led solutions that align financial discipline with business objectives.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -87,38 +88,47 @@
     <section class="what-we-do">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-header__subtitle">Our Expertise</span>
+                {{-- <span class="section-header__subtitle">Our Expertise</span> --}}
                 <h2 class="section-header__title">What We <span>Do</span></h2>
-                <p class="section-header__desc">We provide structured support across the key financial and compliance functions of a business.</p>
+                <p class="section-header__desc">We provide integrated support across core finance and compliance functions, including accounting, financial reporting, tax and VAT, regulatory compliance, and advisory services.</p>
+                <br>
+                <p class="section-header__desc">Our work focuses on helping organizations maintain accurate records, meet regulatory requirements, strengthen financial control, and use financial information to support effective decision-making.</p>
             </div>
             <div class="what-we-do__cards">
                 <div class="what-we-do__card" data-aos="fade-up" data-aos-delay="100">
                     <div class="what-we-do__card-icon">
                         <i class="fas fa-calculator"></i>
                     </div>
-                    <h3 class="what-we-do__card-title">Accounting Services</h3>
-                    <p class="what-we-do__card-text">Comprehensive accounting support including bookkeeping, financial reporting, and maintaining accurate records aligned with standards.</p>
+                    <h3 class="what-we-do__card-title">Accounting &amp; Financial Systems</h3>
+                    <p class="what-we-do__card-text">Structured accounting and system support for accurate records and reliable reporting.</p>
                 </div>
                 <div class="what-we-do__card" data-aos="fade-up" data-aos-delay="200">
                     <div class="what-we-do__card-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 class="what-we-do__card-title">Tax & VAT Services</h3>
-                    <p class="what-we-do__card-text">Expert guidance on tax planning, VAT compliance, and regulatory requirements to ensure your business meets all obligations.</p>
+                    <h3 class="what-we-do__card-title">Strategic Advisory &amp; CFO Support</h3>
+                    <p class="what-we-do__card-text">Financial insight and advisory support to strengthen control and decision-making.</p>
                 </div>
                 <div class="what-we-do__card" data-aos="fade-up" data-aos-delay="300">
                     <div class="what-we-do__card-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-file-invoice-dollar"></i>
                     </div>
-                    <h3 class="what-we-do__card-title">Advisory Services</h3>
-                    <p class="what-we-do__card-text">Strategic financial advisory to strengthen control, improve decision-making, and support sustainable business growth.</p>
+                    <h3 class="what-we-do__card-title">Tax &amp; VAT Compliance</h3>
+                    <p class="what-we-do__card-text">Practical solutions to manage tax, VAT, and regulatory compliance effectively.</p>
                 </div>
                 <div class="what-we-do__card" data-aos="fade-up" data-aos-delay="400">
                     <div class="what-we-do__card-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="what-we-do__card-title">Compliance Support</h3>
-                    <p class="what-we-do__card-text">Ensuring your organization meets all regulatory requirements with robust compliance frameworks and internal controls.</p>
+                    <h3 class="what-we-do__card-title">Corporate &amp; Regulatory Affairs</h3>
+                    <p class="what-we-do__card-text">End-to-end support for business setup, approvals, and statutory compliance.</p>
+                </div>
+                <div class="what-we-do__card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="what-we-do__card-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="what-we-do__card-title">Training &amp; Capability Development</h3>
+                    <p class="what-we-do__card-text">Practical training programs to build financial and compliance capability.</p>
                 </div>
             </div>
         </div>
@@ -128,9 +138,9 @@
     <section class="who-we-serve">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-header__subtitle">Our Clients</span>
+                {{-- <span class="section-header__subtitle">Our Clients</span> --}}
                 <h2 class="section-header__title">Who We <span>Serve</span></h2>
-                <p class="section-header__desc">We provide tailored expertise for a diverse portfolio of clients across various sectors.</p>
+                <p class="section-header__desc">We work with a diverse range of businesses and stakeholders, providing practical support tailored to their stage of growth, operational needs, and compliance requirements.</p>
             </div>
             <div class="who-we-serve__wrapper">
                 <div class="who-we-serve__item" data-aos="fade-up" data-aos-delay="100">
@@ -139,7 +149,7 @@
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h4 class="who-we-serve__item-title">Scaling SMEs</h4>
-                    <p class="who-we-serve__item-text">Businesses requiring structured financial oversight and flexible CFO-level support for growth.</p>
+                    <p class="who-we-serve__item-text">Businesses seeking structured processes, improved control, and flexible CFO-level support for growth.</p>
                 </div>
                 <div class="who-we-serve__item" data-aos="fade-up" data-aos-delay="150">
                     <span class="who-we-serve__item-number">02</span>
@@ -147,7 +157,7 @@
                         <i class="fas fa-seedling"></i>
                     </div>
                     <h4 class="who-we-serve__item-title">High-Growth Startups</h4>
-                    <p class="who-we-serve__item-text">Founders building compliant and investment-ready financial foundations for success.</p>
+                    <p class="who-we-serve__item-text">Founders building disciplined, compliant, and investment-ready business foundations.</p>
                 </div>
                 <div class="who-we-serve__item" data-aos="fade-up" data-aos-delay="200">
                     <span class="who-we-serve__item-number">03</span>
@@ -155,7 +165,7 @@
                         <i class="fas fa-building"></i>
                     </div>
                     <h4 class="who-we-serve__item-title">Corporate Organizations</h4>
-                    <p class="who-we-serve__item-text">Entities seeking to strengthen financial control and compliance frameworks.</p>
+                    <p class="who-we-serve__item-text">Entities aiming to strengthen control, improve reporting quality, and maintain robust compliance frameworks.</p>
                 </div>
                 <div class="who-we-serve__item" data-aos="fade-up" data-aos-delay="250">
                     <span class="who-we-serve__item-number">04</span>
@@ -163,7 +173,7 @@
                         <i class="fas fa-globe"></i>
                     </div>
                     <h4 class="who-we-serve__item-title">Foreign Investors</h4>
-                    <p class="who-we-serve__item-text">Organizations establishing or expanding operations within Bangladesh.</p>
+                    <p class="who-we-serve__item-text">Organizations establishing or expanding operations within Bangladesh, requiring reliable regulatory and operational support.</p>
                 </div>
                 <div class="who-we-serve__item" data-aos="fade-up" data-aos-delay="300">
                     <span class="who-we-serve__item-number">05</span>
@@ -171,7 +181,7 @@
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h4 class="who-we-serve__item-title">International Partners</h4>
-                    <p class="who-we-serve__item-text">Businesses seeking reliable remote finance support and cloud-based solutions.</p>
+                    <p class="who-we-serve__item-text">Businesses seeking dependable remote support and cloud-based solutions to manage finance and compliance across locations.</p>
                 </div>
             </div>
         </div>
@@ -183,48 +193,50 @@
             <div class="section-header" data-aos="fade-up">
                 <span class="section-header__subtitle">Our Approach</span>
                 <h2 class="section-header__title">The <span>FINACT</span> Method</h2>
-                <p class="section-header__desc">Our structured methodology ensures comprehensive and effective financial solutions.</p>
+                <p class="section-header__desc">A Practical Approach to Structured Finance and Compliance. We follow a clear and structured approach to ensure reliable and effective financial operations.</p>
             </div>
             <div class="finact-method__timeline">
                 <div class="finact-method__step" data-aos="fade-up">
                     <div class="finact-method__step-content">
-                        <span class="finact-method__step-letter">D</span>
-                        <h3 class="finact-method__step-title">Diagnostic</h3>
-                        <p class="finact-method__step-text">A deep dive into your current financial health and efficiency gaps to understand where improvements are needed.</p>
+                        <h3 class="finact-method__step-title">Assessment of Current Position</h3>
+                        <p class="finact-method__step-text">Review of existing accounting records, reporting practices, and compliance status.</p>
                     </div>
                     <div class="finact-method__step-number">1</div>
                 </div>
                 <div class="finact-method__step" data-aos="fade-up">
                     <div class="finact-method__step-content">
-                        <span class="finact-method__step-letter">E</span>
-                        <h3 class="finact-method__step-title">Evaluation</h3>
-                        <p class="finact-method__step-text">Rigorous review of systems, records, and regulatory compliance status to identify opportunities.</p>
+                        <h3 class="finact-method__step-title">Identification of Gaps</h3>
+                        <p class="finact-method__step-text">Identification of gaps, weaknesses, and areas requiring improvement in processes and controls.</p>
                     </div>
                     <div class="finact-method__step-number">2</div>
                 </div>
                 <div class="finact-method__step" data-aos="fade-up">
                     <div class="finact-method__step-content">
-                        <span class="finact-method__step-letter">A</span>
-                        <h3 class="finact-method__step-title">Architecture</h3>
-                        <p class="finact-method__step-text">Designing practical, scalable solutions tailored to your unique workflow and business needs.</p>
+                        <h3 class="finact-method__step-title">Planning &amp; Structuring</h3>
+                        <p class="finact-method__step-text">Development of a practical plan covering accounting processes, controls, reporting, and responsibilities.</p>
                     </div>
                     <div class="finact-method__step-number">3</div>
                 </div>
                 <div class="finact-method__step" data-aos="fade-up">
                     <div class="finact-method__step-content">
-                        <span class="finact-method__step-letter">D</span>
-                        <h3 class="finact-method__step-title">Deployment</h3>
-                        <p class="finact-method__step-text">Execution with technical clarity, professional discipline, and minimal disruption to operations.</p>
+                        <h3 class="finact-method__step-title">Implementation &amp; Execution</h3>
+                        <p class="finact-method__step-text">Execution of agreed processes with proper setup, coordination, and workflow alignment.</p>
                     </div>
                     <div class="finact-method__step-number">4</div>
                 </div>
                 <div class="finact-method__step" data-aos="fade-up">
                     <div class="finact-method__step-content">
-                        <span class="finact-method__step-letter">A</span>
-                        <h3 class="finact-method__step-title">Advisory</h3>
-                        <p class="finact-method__step-text">Ongoing strategic guidance to ensure long-term operational excellence and continuous improvement.</p>
+                        <h3 class="finact-method__step-title">Review &amp; Monitoring</h3>
+                        <p class="finact-method__step-text">Ongoing review of work, reporting accuracy, and process effectiveness.</p>
                     </div>
                     <div class="finact-method__step-number">5</div>
+                </div>
+                <div class="finact-method__step" data-aos="fade-up">
+                    <div class="finact-method__step-content">
+                        <h3 class="finact-method__step-title">Reporting &amp; Support</h3>
+                        <p class="finact-method__step-text">Regular reporting, communication, and continuous support for improved financial management.</p>
+                    </div>
+                    <div class="finact-method__step-number">6</div>
                 </div>
             </div>
         </div>
@@ -244,7 +256,19 @@
                     </div>
                 </div>
                 <p class="our-team__intro">
-                    <strong>FINACT Advisory & Training</strong> is supported by a team of experienced finance professionals with extensive industry experience across multiple sectors, delivering structured finance, compliance, and advisory support. The team brings practical expertise in financial management, tax, VAT, and corporate governance within structured and compliance-driven environments.
+                    <strong>FINACT Advisory &amp; Training</strong> is supported by experienced professionals with strong technical capability and practical industry exposure across accounting, tax, VAT, and corporate governance. The structure combines strategic oversight with effective execution, ensuring each engagement is delivered with clarity, discipline, and professional accountability.
+                </p>
+                <p class="our-team__intro">
+                    A structured three-tier engagement model is followed. The Lead Consultant provides overall direction, oversees the engagement, and ensures quality and consistency in all deliverables. Senior Consultants and Consultants review work, validate outputs, and ensure alignment with regulatory and business requirements. Associates focus on detailed execution, including analysis, identifying gaps, and developing practical, actionable solutions. This approach ensures both depth of insight and reliability in outcomes.
+                </p>
+                <p class="our-team__intro">
+                    Strong exposure to the Pharmaceutical and Manufacturing sectors is a key strength. Consultants bring significant industry exposure, with senior members having over 20 years of experience within leading pharmaceutical organizations, including hands-on involvement in financial reporting, product costing, regulatory compliance, and operational finance, including complex tax and VAT matters. Associates bring relevant professional experience and are actively involved in execution, analysis, and process support. This provides a grounded understanding of how finance functions operate in compliance-driven environments where accuracy, control, and regulatory alignment are critical.
+                </p>
+                <p class="our-team__intro">
+                    Experience gained from leading audit firms contributes structured thinking, technical discipline, and familiarity with statutory audits and financial reporting standards. Practical exposure to regulatory environments such as BIDA and RJSC supports effective handling of compliance requirements within real operational contexts.
+                </p>
+                <p class="our-team__intro">
+                    Experience with enterprise platforms such as SAP (including S/4HANA) supports advisory roles during implementation, particularly within the FICO module, with focus on design alignment and process integration. For operational execution, cloud-based platforms such as QuickBooks and Xero are utilized where appropriate, enabling efficient workflows, improved visibility, and structured operations. The overall approach emphasizes practical implementation—ensuring that processes, controls, and frameworks are effectively applied and consistently maintained in day-to-day operations.
                 </p>
                 <div class="our-team__features">
                     <div class="our-team__feature">
@@ -262,7 +286,7 @@
                         </div>
                         <div>
                             <h4>Professional Background</h4>
-                            <p>Experience with leading audit firms and regulatory authorities including NBR & BIDA</p>
+                            <p>Experience with leading audit firms and regulatory environments including BIDA and RJSC</p>
                         </div>
                     </div>
                     <div class="our-team__feature">
@@ -271,7 +295,7 @@
                         </div>
                         <div>
                             <h4>Technical Proficiency</h4>
-                            <p>Experience with SAP (S/4HANA) and cloud-based accounting platforms</p>
+                            <p>Experience with SAP (S/4HANA) and cloud-based accounting platforms such as QuickBooks and Xero</p>
                         </div>
                     </div>
                     <div class="our-team__feature">
@@ -280,7 +304,7 @@
                         </div>
                         <div>
                             <h4>Implementation Focus</h4>
-                            <p>Ensuring systems and controls are effectively applied in daily operations</p>
+                            <p>Ensuring processes, controls, and frameworks are effectively applied and consistently maintained in day-to-day operations</p>
                         </div>
                     </div>
                 </div>
@@ -293,7 +317,7 @@
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-header__subtitle">What Drives Us</span>
-                <h2 class="section-header__title">Vision, Mission & Core Values</h2>
+                <h2 class="section-header__title">Vision, Mission &amp; Core Values</h2>
             </div>
             <div class="vision-mission__tabs" data-aos="fade-up">
                 <button class="vision-mission__tab active" onclick="showPanel('vision', this)">
@@ -315,7 +339,7 @@
                         <h3 class="vision-mission__panel-title">Our Vision</h3>
                     </div>
                     <p class="vision-mission__panel-text">
-                        To be a trusted finance and compliance partner, enabling businesses to operate with clarity, control, and confidence. We envision a business landscape where every organization, regardless of size, has access to professional financial guidance and structured compliance support that drives sustainable growth.
+                        To be a trusted finance and compliance partner, enabling businesses to operate with clarity, control, and confidence.
                     </p>
                 </div>
                 <div id="mission" class="vision-mission__panel">
@@ -328,19 +352,19 @@
                     <ul class="vision-mission__list">
                         <li>
                             <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
-                            <p class="vision-mission__list-text">Deliver accurate and reliable accounting, tax, and advisory services</p>
+                            <p class="vision-mission__list-text">Deliver accurate and reliable accounting, tax, and advisory services.</p>
                         </li>
                         <li>
                             <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
-                            <p class="vision-mission__list-text">Support businesses with structured and secure finance operations, including remote capabilities</p>
+                            <p class="vision-mission__list-text">Support businesses with structured and secure finance operations, including remote capabilities.</p>
                         </li>
                         <li>
                             <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
-                            <p class="vision-mission__list-text">Build long-term relationships through consistent, quality-driven service delivery</p>
+                            <p class="vision-mission__list-text">Build long-term relationships through consistent, quality-driven service delivery.</p>
                         </li>
                         <li>
                             <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
-                            <p class="vision-mission__list-text">Develop practical skills through implementation-focused training and professional development</p>
+                            <p class="vision-mission__list-text">Develop practical skills through implementation-focused training and professional development.</p>
                         </li>
                     </ul>
                 </div>
@@ -354,23 +378,23 @@
                     <ul class="vision-mission__list">
                         <li>
                             <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
-                            <p class="vision-mission__list-text"><strong>Integrity:</strong> Maintaining professional ethics, independence, and transparency in every engagement</p>
+                            <p class="vision-mission__list-text"><strong>Integrity:</strong> Maintaining professional ethics, independence, and transparency in every engagement.</p>
                         </li>
                         <li>
                             <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
-                            <p class="vision-mission__list-text"><strong>Accuracy:</strong> Ensuring precision, consistency, and compliance in all financial work</p>
+                            <p class="vision-mission__list-text"><strong>Accuracy:</strong> Ensuring precision, consistency, and compliance in all financial work.</p>
                         </li>
                         <li>
                             <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
-                            <p class="vision-mission__list-text"><strong>Implementation:</strong> Delivering practical, structured, and sustainable solutions</p>
+                            <p class="vision-mission__list-text"><strong>Implementation:</strong> Delivering practical, structured, and sustainable solutions.</p>
                         </li>
                         <li>
                             <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
-                            <p class="vision-mission__list-text"><strong>Accountability:</strong> Committing to reliable delivery and professional responsibility</p>
+                            <p class="vision-mission__list-text"><strong>Accountability:</strong> Committing to reliable delivery and professional responsibility.</p>
                         </li>
                         <li>
                             <div class="vision-mission__list-icon"><i class="fas fa-check"></i></div>
-                            <p class="vision-mission__list-text"><strong>Client Focus:</strong> Aligning services with the specific needs and context of each client</p>
+                            <p class="vision-mission__list-text"><strong>Client Focus:</strong> Aligning services with the specific needs and context of each client.</p>
                         </li>
                     </ul>
                 </div>
@@ -392,7 +416,7 @@
                         </div>
                         <div class="technology__floating-text">
                             <h5>Cloud-Based</h5>
-                            <p>Secure & Accessible</p>
+                            <p>Secure &amp; Accessible</p>
                         </div>
                     </div>
                     <div class="technology__floating-card technology__floating-card--2">
@@ -406,25 +430,28 @@
                     </div>
                 </div>
                 <div class="technology__content" data-aos="fade-left">
-                    <h2><span>Technology</span> & Data Security</h2>
+                    <h2><span>Technology</span> &amp; Data Security</h2>
                     <p>
                         Financial information today must be both accessible and securely managed. FINACT supports the use of cloud-based accounting platforms such as QuickBooks and Xero, where appropriate, based on client requirements and operational needs.
                     </p>
                     <p>
                         We assist in the implementation and effective use of these systems to improve financial visibility, reporting, and process efficiency, particularly in remote and multi-location environments.
                     </p>
+                    <p>
+                        A strong focus is maintained on data confidentiality, integrity, and controlled access. Finance processes—whether delivered locally or remotely—are structured to ensure secure handling of financial information in line with accepted professional practices.
+                    </p>
                     <div class="technology__features">
                         <div class="technology__feature-item">
                             <div class="technology__feature-check">
                                 <i class="fas fa-check"></i>
                             </div>
-                            <span>QuickBooks & Xero Implementation</span>
+                            <span>QuickBooks &amp; Xero Implementation</span>
                         </div>
                         <div class="technology__feature-item">
                             <div class="technology__feature-check">
                                 <i class="fas fa-check"></i>
                             </div>
-                            <span>Data Confidentiality & Integrity</span>
+                            <span>Data Confidentiality &amp; Integrity</span>
                         </div>
                         <div class="technology__feature-item">
                             <div class="technology__feature-check">
@@ -456,13 +483,16 @@
                         Our <span>Strategic Direction</span>
                     </h2>
                     <p class="strategic-direction__text">
-                        <strong>FINACT Advisory & Training</strong> is focused on strengthening finance functions through structured systems, disciplined processes, and improved financial visibility.
+                        <strong>FINACT Advisory &amp; Training</strong> is focused on strengthening finance functions through structured systems, disciplined processes, and improved financial visibility.
                     </p>
                     <p class="strategic-direction__text">
                         The firm promotes the adoption of system-based financial management and standardized workflows where they enhance control, reporting quality, and decision support.
                     </p>
                     <p class="strategic-direction__text">
                         At the same time, <strong>FINACT</strong> maintains a pragmatic approach—adapting to the operational realities of each business and ensuring reliable, compliant, and well-structured financial practices across all engagements.
+                    </p>
+                    <p class="strategic-direction__text">
+                        Its strategic direction is centered on applying structured methods and appropriate technology where they add value, while maintaining consistency, quality, and professional integrity in all circumstances.
                     </p>
                 </div>
                 <div class="strategic-direction__image" data-aos="fade-left">
