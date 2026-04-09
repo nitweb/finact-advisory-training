@@ -58,7 +58,7 @@ class GalleryController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
                 $image = $manager->read($image);
-                $image->resize(370, 370);
+                // $image->resize(370, 370);
                 $image->toJpeg(80)->save(base_path('public/uploads/gallery/' . $name_gen));
                 $data->image = 'uploads/gallery/' . $name_gen;
             }
@@ -129,7 +129,7 @@ class GalleryController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
                 $image = $manager->read($image);
-                $image->resize(370, 370);
+                // $image->resize(370, 370);
                 $image->toJpeg(80)->save(base_path('public/uploads/gallery/' . $name_gen));
                 $data->image = 'uploads/gallery/' . $name_gen;
             }

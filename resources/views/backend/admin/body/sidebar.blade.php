@@ -87,17 +87,15 @@
                 </ul>
             </li>
 
-            {{-- <li class="dropdown {{ request()->routeIs(['admin.publications.list', 'admin.circular.list', 'admin.gallery.list']) ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs(['admin.gallery.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>
-                    <span>Resources</span>
+                    <span>Gallery</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('admin.publications.list') }}">Publications</a></li>
-                    <li><a class="nav-link" href="{{ route('admin.circular.list') }}">Notice/Circular</a></li>
-                    <li><a class="nav-link" href="{{ route('admin.gallery.list') }}">Gallery</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.gallery.list') }}">Gallery List</a></li>
                 </ul>
-            </li> --}}
+            </li>
 
             {{-- <li class="dropdown {{ request()->routeIs('admin.career.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">

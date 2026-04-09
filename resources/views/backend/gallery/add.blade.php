@@ -33,7 +33,7 @@
 
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
-                                            <label class="col-form-label">Image [370px by 370px]</label>
+                                            <label class="col-form-label">Image [Any Resolution]</label>
                                             <div id="image-preview" class="image-preview">
                                                 <label for="image-upload" id="image-label">Choose File</label>
                                                 <input type="file" name="image" id="image-upload" data-parsley-required-message="Image is required*" required />
@@ -48,12 +48,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row mb-4">
+                                    {{-- <div class="form-group row mb-4">
                                         <div class="col-md-8">
                                             <label class="col-form-label">Description</label>
                                             <textarea class="summernote" name="description" required data-parsley-required-message="Description is required*">{{ old('description') }}</textarea>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
