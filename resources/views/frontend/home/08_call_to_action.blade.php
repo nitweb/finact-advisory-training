@@ -7,7 +7,7 @@
             <div class="newsletter-two__shape-1" style="background-image: url({{ asset('frontend/assets/images/shapes/newsletter-two-shape-1.png') }});"></div>
 
             <div class="newsletter-two__img-1">
-                <img src="{{ asset('frontend/assets/images/resources/newsletter-two-img-1.png') }}" alt="">
+                <img src="{{ asset('uploads/static_images/call_to_action.png') }}" alt="">
             </div>
 
             <div class="newsletter-two__left">
@@ -35,7 +35,7 @@
                         <span class="fas fa-arrow-right"></span>
                     </a>
                 </div>
-                
+
             </div>
 
         </div>

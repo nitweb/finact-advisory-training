@@ -240,14 +240,14 @@
     $(".services-two__carousel").owlCarousel({
       loop: true,
       margin: 30,
-      nav: false,
+      nav: true,  // এটা true করুন
       dots: false,
       smartSpeed: 500,
       autoplay: true,
       autoplayTimeout: 7000,
       navText: [
-        '<span class="icon-right-up"></span>',
-        '<span class="icon-right-up"></span>',
+        '<span class="fa fa-angle-left"></span>',  // Left arrow
+        '<span class="fa fa-angle-right"></span>'   // Right arrow
       ],
       responsive: {
         0: {
@@ -576,7 +576,7 @@
           elm.val(Math.ceil(this.value)).trigger('change');
         }
       });
-      $(this).append(function () {});
+      $(this).append(function () { });
     }, {
       accY: 20
     });
@@ -677,8 +677,8 @@
         var percent = el.data("percent");
         $(el).css("width", percent).addClass("counted");
       }, {
-        accY: -50
-      }
+      accY: -50
+    }
     );
   }
 
@@ -691,8 +691,8 @@
           $(this).css("width", progressWidth + "%");
         });
       }, {
-        accY: 0
-      }
+      accY: 0
+    }
     );
   }
 
@@ -722,8 +722,8 @@
           });
         }
       }, {
-        accY: 0
-      }
+      accY: 0
+    }
     );
   }
 
@@ -1058,8 +1058,8 @@
         $("html, body")
           .stop()
           .animate({
-              scrollTop: $(target.attr("href")).offset().top - headerH + "px"
-            },
+            scrollTop: $(target.attr("href")).offset().top - headerH + "px"
+          },
             200,
             "easeInOutExpo"
           );
@@ -1222,8 +1222,8 @@
     if ($(this).next().val() > 1) {
       if ($(this).next().val() > 1)
         $(this)
-        .next()
-        .val(+$(this).next().val() - 1);
+          .next()
+          .val(+$(this).next().val() - 1);
     }
   });
 
