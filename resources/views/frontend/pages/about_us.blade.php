@@ -30,10 +30,10 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="who-we-are__content" data-aos="fade-right">
-                        <span class="who-we-are__badge">
-                            <i class="fas fa-building"></i> About FINACT
-                        </span>
-                        <h2 class="who-we-are__title">
+                        <div class="section-title__tagline-box">
+                            <span class="section-title__tagline">About FINACT</span>
+                        </div>
+                        <h2 class="section-title__title title-animation mb-4">
                             Who <span>We Are</span>
                         </h2>
                         <p class="who-we-are__text">
@@ -71,8 +71,10 @@
                 </div>
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="who-we-are__content" data-aos="fade-right">
-                        <span class="philosophy__tagline">Our Philosophy</span>
-                        <h2 class="who-we-are__title">
+                        <div class="section-title__tagline-box">
+                            <span class="section-title__tagline">Our Philosophy</span>
+                        </div>
+                        <h2 class="section-title__title title-animation mb-4">
                             <span>Finance</span> is not merely a <span>record</span> of the <span>past</span>, it is the basis for informed <span>decisions</span>.
                         </h2>
                         <p class="philosophy__text">
@@ -88,8 +90,12 @@
     <section class="what-we-do">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                {{-- <span class="section-header__subtitle">Our Expertise</span> --}}
-                <h2 class="section-header__title">What We <span>Do</span></h2>
+                <div class="section-title__tagline-box">
+                    <span class="section-title__tagline">Our Expertise</span>
+                </div>
+                <h2 class="section-title__title title-animation mb-4">
+                    What We <span>Do</span>
+                </h2>
                 <p class="section-header__desc">We provide integrated support across core finance and compliance functions, including accounting, financial reporting, tax and VAT, regulatory compliance, and advisory services.</p>
                 <br>
                 <p class="section-header__desc">Our work focuses on helping organizations maintain accurate records, meet regulatory requirements, strengthen financial control, and use financial information to support effective decision-making.</p>
@@ -138,8 +144,12 @@
     <section class="who-we-serve">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                {{-- <span class="section-header__subtitle">Our Clients</span> --}}
-                <h2 class="section-header__title">Who We <span>Serve</span></h2>
+                <div class="section-title__tagline-box">
+                    <span class="section-title__tagline">Our Clients</span>
+                </div>
+                <h2 class="section-title__title title-animation mb-4">
+                    Who We <span>Serve</span>
+                </h2>
                 <p class="section-header__desc">We work with a diverse range of businesses and stakeholders, providing practical support tailored to their stage of growth, operational needs, and compliance requirements.</p>
             </div>
             <div class="who-we-serve__wrapper">
@@ -191,8 +201,12 @@
     <section class="finact-method">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-header__subtitle">Our Approach</span>
-                <h2 class="section-header__title">The <span>FINACT</span> Method</h2>
+                <div class="section-title__tagline-box">
+                    <span class="section-title__tagline">Our Approach</span>
+                </div>
+                <h2 class="section-title__title title-animation mb-4">
+                    The <span>FINACT</span> Method
+                </h2>
                 <p class="section-header__desc">A Practical Approach to Structured Finance and Compliance. We follow a clear and structured approach to ensure reliable and effective financial operations.</p>
             </div>
             <div class="finact-method__timeline">
@@ -258,19 +272,23 @@
                 <p class="our-team__intro">
                     <strong>FINACT Advisory &amp; Training</strong> is supported by experienced professionals with strong technical capability and practical industry exposure across accounting, tax, VAT, and corporate governance. The structure combines strategic oversight with effective execution, ensuring each engagement is delivered with clarity, discipline, and professional accountability.
                 </p>
+                <br>
                 <p class="our-team__intro">
                     A structured three-tier engagement model is followed. The Lead Consultant provides overall direction, oversees the engagement, and ensures quality and consistency in all deliverables. Senior Consultants and Consultants review work, validate outputs, and ensure alignment with regulatory and business requirements. Associates focus on detailed execution, including analysis, identifying gaps, and developing practical, actionable solutions. This approach ensures both depth of insight and reliability in outcomes.
                 </p>
+                <br>
                 <p class="our-team__intro">
                     Strong exposure to the Pharmaceutical and Manufacturing sectors is a key strength. Consultants bring significant industry exposure, with senior members having over 20 years of experience within leading pharmaceutical organizations, including hands-on involvement in financial reporting, product costing, regulatory compliance, and operational finance, including complex tax and VAT matters. Associates bring relevant professional experience and are actively involved in execution, analysis, and process support. This provides a grounded understanding of how finance functions operate in compliance-driven environments where accuracy, control, and regulatory alignment are critical.
                 </p>
+                <br>
                 <p class="our-team__intro">
                     Experience gained from leading audit firms contributes structured thinking, technical discipline, and familiarity with statutory audits and financial reporting standards. Practical exposure to regulatory environments such as BIDA and RJSC supports effective handling of compliance requirements within real operational contexts.
                 </p>
+                <br>
                 <p class="our-team__intro">
                     Experience with enterprise platforms such as SAP (including S/4HANA) supports advisory roles during implementation, particularly within the FICO module, with focus on design alignment and process integration. For operational execution, cloud-based platforms such as QuickBooks and Xero are utilized where appropriate, enabling efficient workflows, improved visibility, and structured operations. The overall approach emphasizes practical implementation—ensuring that processes, controls, and frameworks are effectively applied and consistently maintained in day-to-day operations.
                 </p>
-                <div class="our-team__features">
+                {{-- <div class="our-team__features">
                     <div class="our-team__feature">
                         <div class="our-team__feature-icon">
                             <i class="fas fa-briefcase"></i>
@@ -307,7 +325,7 @@
                             <p>Ensuring processes, controls, and frameworks are effectively applied and consistently maintained in day-to-day operations</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -316,8 +334,12 @@
     <section class="vision-mission">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-header__subtitle">What Drives Us</span>
-                <h2 class="section-header__title">Vision, Mission &amp; Core Values</h2>
+                <div class="section-title__tagline-box">
+                    <span class="section-title__tagline" style="color:#b89867;">What Drives Us</span>
+                </div>
+                <h2 class="section-header__title">
+                    Vision, Mission &amp; Core Values
+                </h2>
             </div>
             <div class="vision-mission__tabs" data-aos="fade-up">
                 <button class="vision-mission__tab active" onclick="showPanel('vision', this)">
@@ -403,84 +425,44 @@
     </section>
 
     {{-- Technology & Data Security Section --}}
-    <section class="technology-section">
+    <section class="philosophy-section">
         <div class="container">
-            <div class="technology__wrapper">
-                <div class="technology__image" data-aos="fade-right">
-                    <div class="technology__image-main">
-                        <img src="{{ asset('frontend/assets/images/resources/about-three-img-1.jpg') }}" alt="Technology">
-                    </div>
-                    <div class="technology__floating-card technology__floating-card--1">
-                        <div class="technology__floating-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <div class="technology__floating-text">
-                            <h5>Cloud-Based</h5>
-                            <p>Secure &amp; Accessible</p>
-                        </div>
-                    </div>
-                    <div class="technology__floating-card technology__floating-card--2">
-                        <div class="technology__floating-icon">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div class="technology__floating-text">
-                            <h5>Data Security</h5>
-                            <p>Enterprise Grade</p>
-                        </div>
-                    </div>
+            <div class="philosophy__content" data-aos="fade-up">
+                <div class="philosophy__icon">
+                    <i class="fas fa-lightbulb"></i>
                 </div>
-                <div class="technology__content" data-aos="fade-left">
-                    <h2><span>Technology</span> &amp; Data Security</h2>
-                    <p>
-                        Financial information today must be both accessible and securely managed. FINACT supports the use of cloud-based accounting platforms such as QuickBooks and Xero, where appropriate, based on client requirements and operational needs.
-                    </p>
-                    <p>
-                        We assist in the implementation and effective use of these systems to improve financial visibility, reporting, and process efficiency, particularly in remote and multi-location environments.
-                    </p>
-                    <p>
-                        A strong focus is maintained on data confidentiality, integrity, and controlled access. Finance processes—whether delivered locally or remotely—are structured to ensure secure handling of financial information in line with accepted professional practices.
-                    </p>
-                    <div class="technology__features">
-                        <div class="technology__feature-item">
-                            <div class="technology__feature-check">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <span>QuickBooks &amp; Xero Implementation</span>
-                        </div>
-                        <div class="technology__feature-item">
-                            <div class="technology__feature-check">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <span>Data Confidentiality &amp; Integrity</span>
-                        </div>
-                        <div class="technology__feature-item">
-                            <div class="technology__feature-check">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <span>Controlled Access Management</span>
-                        </div>
-                        <div class="technology__feature-item">
-                            <div class="technology__feature-check">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <span>Remote Finance Operations</span>
-                        </div>
-                    </div>
+                <div class="section-title__tagline-box">
+                    <span class="section-title__tagline">Technology & Data Security</span>
                 </div>
+                <h2 class="section-title__title title-animation mb-4">
+                    <span>Technology</span> &amp; Data Security
+                </h2>
+                <p class="philosophy__text">
+                    Financial information today must be both accessible and securely managed. FINACT supports the use of cloud-based accounting platforms such as QuickBooks and Xero, where appropriate, based on client requirements and operational needs.
+                </p>
+                <br>
+                <p class="philosophy__text">
+                    We assist in the implementation and effective use of these systems to improve financial visibility, reporting, and process efficiency, particularly in remote and multi-location environments.
+                </p>
+                <br>
+                <p class="philosophy__text">
+                    A strong focus is maintained on data confidentiality, integrity, and controlled access. Finance processes—whether delivered locally or remotely—are structured to ensure secure handling of financial information in line with accepted professional practices.
+                </p>
+                <div class="philosophy__divider"></div>
             </div>
         </div>
     </section>
 
     {{-- Strategic Direction Section --}}
-    <section class="strategic-direction">
+    <section class="technology-section">
         <div class="container">
-            <div class="strategic-direction__wrapper">
-                <div class="strategic-direction__content" data-aos="fade-right">
-                    <span class="strategic-direction__badge">
-                        <i class="fas fa-compass"></i> Looking Forward
-                    </span>
-                    <h2 class="strategic-direction__title">
-                        Our <span>Strategic Direction</span>
+            <div class="technology__wrapper">
+                <div class="technology__content" data-aos="fade-left">
+                    <div class="section-title__tagline-box">
+                        <span class="section-title__tagline">Looking Forward</span>
+                    </div>
+                    <h2 class="section-title__title title-animation">
+                       Our <span>Strategic</span> Direction
                     </h2>
                     <p class="strategic-direction__text">
                         <strong>FINACT Advisory &amp; Training</strong> is focused on strengthening finance functions through structured systems, disciplined processes, and improved financial visibility.
@@ -495,47 +477,10 @@
                         Its strategic direction is centered on applying structured methods and appropriate technology where they add value, while maintaining consistency, quality, and professional integrity in all circumstances.
                     </p>
                 </div>
-                <div class="strategic-direction__image" data-aos="fade-left">
-                    <div class="strategic-direction__image-main">
-                        <img src="{{ asset('frontend/assets/images/resources/about-three-img-1.jpg') }}" alt="Strategic Direction">
+                <div class="technology__image" data-aos="fade-right">
+                    <div class="technology__image-main">
+                        <img src="{{ asset('uploads/static_images/strategic_direction.jpg') }}" alt="Strategic Direction">
                     </div>
-                    <div class="strategic-direction__stats">
-                        <div class="strategic-direction__stat">
-                            <h3>100+</h3>
-                            <p>Clients Served</p>
-                        </div>
-                        <div class="strategic-direction__stat">
-                            <h3>50+</h3>
-                            <p>Projects Done</p>
-                        </div>
-                        <div class="strategic-direction__stat">
-                            <h3>99%</h3>
-                            <p>Satisfaction</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- CTA Section --}}
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta__content" data-aos="fade-up">
-                <div class="cta__icon">
-                    <i class="fas fa-handshake"></i>
-                </div>
-                <h2 class="cta__title">Ready to Transform Your Finance Function?</h2>
-                <p class="cta__text">
-                    Let us help you build reliable financial foundations with clarity, compliance, and control. Partner with FINACT today.
-                </p>
-                <div class="cta__buttons">
-                    <a href="{{ route('frontend.contact.us') }}" class="cta__btn cta__btn--primary">
-                        <i class="fas fa-envelope"></i> Contact Us
-                    </a>
-                    <a href="{{ route('frontend.all.services.list') }}" class="cta__btn cta__btn--secondary">
-                        <i class="fas fa-th-list"></i> Our Services
-                    </a>
                 </div>
             </div>
         </div>

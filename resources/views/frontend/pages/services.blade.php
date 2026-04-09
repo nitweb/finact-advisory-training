@@ -22,7 +22,20 @@
 
     <!--Services Page Start -->
     <section class="services-page">
+
         <div class="container">
+
+            <div class="technology__content" data-aos="fade-up" style="margin-bottom: 50px;">
+                <p class="strategic-direction__text">
+                    In today’s complex business environment, organizations require more than traditional accounting support. They need structured finance functions that strengthen control, ensure compliance, and support informed decision-making.
+                </p>
+                <p class="strategic-direction__text">
+                    <strong>FINACT Advisory & Training</strong> provides integrated bookkeeping, accounting, finance, compliance, and advisory services designed to improve financial processes, strengthen operational discipline, and support effective business management. Our approach is practical and implementation-focused—ensuring that financial systems, controls, compliances and reporting processes work reliably in day-to-day operations.
+                </p>
+            </div>
+
+
+
             <div class="row">
                 @foreach ($services as $item)
                     <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInLeft d-flex" data-wow-delay="100ms">

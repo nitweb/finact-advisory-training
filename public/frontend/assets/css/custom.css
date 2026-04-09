@@ -111,7 +111,7 @@
 
 /* ===== Who We Are Section ===== */
 .who-we-are {
-    padding: 100px 0;
+    padding: 80px 0;
     background: linear-gradient(180deg, #ffffff 0%, var(--light-bg) 100%);
     position: relative;
     overflow: hidden;
@@ -188,6 +188,7 @@
     line-height: 1.9;
     color: #555;
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 .who-we-are__text strong {
@@ -320,7 +321,7 @@
 
 /* ===== Philosophy Section ===== */
 .philosophy-section {
-    padding: 120px 0;
+    padding: 80px 0;
     background: var(--cream-bg);
     position: relative;
     overflow: hidden;
@@ -349,7 +350,7 @@
 
 .philosophy__content {
     text-align: center;
-    max-width: 950px;
+    max-width: 1030px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -418,8 +419,8 @@
     font-size: 18px;
     color: #666;
     line-height: 1.9;
-    max-width: 750px;
     margin: 0 auto;
+    text-align: justify;
 }
 
 .philosophy__divider {
@@ -432,7 +433,7 @@
 
 /* ===== What We Do Section ===== */
 .what-we-do {
-    padding: 100px 0;
+    padding: 80px 0;
     background: #fff;
     position: relative;
 }
@@ -573,7 +574,7 @@
 
 /* ===== Who We Serve Section ===== */
 .who-we-serve {
-    padding: 100px 0;
+    padding: 80px 0;
     background: var(--light-bg);
     position: relative;
 }
@@ -676,11 +677,12 @@
     color: #666;
     line-height: 1.7;
     margin: 0;
+    text-align: justify;
 }
 
 /* ===== FINACT Method Section ===== */
 .finact-method {
-    padding: 100px 0;
+    padding: 80px 0;
     background: #fff;
     position: relative;
 }
@@ -706,7 +708,6 @@
 .finact-method__step {
     display: flex;
     align-items: center;
-    margin-bottom: 50px;
     position: relative;
 }
 
@@ -801,7 +802,7 @@
 
 /* ===== Our Team Section ===== */
 .our-team {
-    padding: 100px 0;
+    padding: 80px 0;
     background: var(--cream-bg);
     position: relative;
 }
@@ -884,6 +885,7 @@
     line-height: 1.9;
     position: relative;
     z-index: 1;
+    text-align: justify;
 }
 
 .our-team__intro strong {
@@ -946,7 +948,7 @@
 
 /* ===== Vision Mission Section ===== */
 .vision-mission {
-    padding: 100px 0;
+    padding: 80px 0;
     background: var(--primary-color);
     position: relative;
     overflow: hidden;
@@ -1139,7 +1141,7 @@
 
 /* ===== Technology Section ===== */
 .technology-section {
-    padding: 100px 0;
+    padding: 80px 0;
     background: #fff;
     position: relative;
 }
@@ -1246,6 +1248,7 @@
     color: #666;
     line-height: 1.9;
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 .technology__features {
@@ -1880,6 +1883,62 @@
 
 .services-three .owl-nav button.owl-next {
     margin-right: -25px;
+}
+
+.finact-hero__text {
+    text-align: justify;
+}
+
+.about-three__right p {
+    text-align: justify;
+}
+
+.blog-one__text {
+    text-align: justify;
+}
+
+.services-page {
+    padding: 80px 0;
+}
+
+.services-three {
+    padding: 80px 0;
+}
+
+.about-one {
+    padding: 80px 0;
+}
+
+.blog-three {
+    padding: 80px 0;
+}
+
+.service-details {
+    padding: 80px 0;
+}
+
+.service-details__get-started-text {
+    text-align: justify;
+}
+
+.contact-page {
+    padding: 80px 0;
+}
+
+.blog-page {
+    padding: 80px 0;
+}
+
+.service-details__text-1 {
+    text-align: justify;
+}
+
+.blog-details__text-1 {
+    text-align: justify;
+}
+
+.blog-details {
+    padding: 80px 0;
 }
 
 /* Responsive adjustments */

@@ -45,7 +45,7 @@
                                 </a>
                             </h3>
 
-                            <div class="blog-one__text" style="text-align: justify;">
+                            <div class="blog-one__text">
                                 {{ Str::limit($item->blogDetail->short_description, 120) }}
                             </div>
 

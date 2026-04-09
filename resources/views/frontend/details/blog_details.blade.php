@@ -5,7 +5,7 @@
 
     <!--Page Header Start-->
     <section class="page-header">
-        <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);">
+        <div class="page-header__bg" style="background-image: url({{ asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }});">
         </div>
         <div class="container">
             <div class="page-header__inner">
@@ -62,7 +62,7 @@
 
                             <h3 class="blog-details__title">{{ $blog->title }}</h3>
 
-                            <div class="blog-details__text-1" style="text-align: justify;">
+                            <div class="blog-details__text-1">
                                 {!! $blog->blogDetail->long_description !!}
                             </div>
 
@@ -123,7 +123,7 @@
                         <div class="service-details__get-started">
                             <h3 class="service-details__get-started-title">Get Started Today</h3>
                             <p class="service-details__get-started-text">
-                                We would be pleased to discuss your requirements and explore how we can support your business.
+                                Whether you require structured financial support, compliance management, or capability development, we are ready to assist.
                             </p>
                             <ul class="service-details__get-started-points list-unstyled">
                                 <li>
@@ -221,8 +221,8 @@
                             ${blog.title}
                         </div>
                         <div style="font-size:11px;color:#888;display:flex;flex-wrap:wrap;gap:8px;">
-                            <span><i class="fas fa-tag" style="margin-right:3px;color:#6a49f2;"></i>${blog.category}</span>
-                            <span><i class="icon-calendar" style="margin-right:3px;color:#6a49f2;"></i>${blog.date}</span>
+                            <span><i class="fas fa-tag" style="margin-right:3px;color:#163355;"></i>${blog.category}</span>
+                            <span><i class="icon-calendar" style="margin-right:3px;color:#163355;"></i>${blog.date}</span>
                         </div>
                     </div>
                 `;

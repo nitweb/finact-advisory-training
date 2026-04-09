@@ -48,7 +48,7 @@
                         <div class="service-details__get-started">
                             <h3 class="service-details__get-started-title">Get Started Today</h3>
                             <p class="service-details__get-started-text">
-                                We would be pleased to discuss your requirements and explore how we can support your business.
+                                Whether you require structured financial support, compliance management, or capability development, we are ready to assist.
                             </p>
                             <ul class="service-details__get-started-points list-unstyled">
                                 <li>
@@ -97,9 +97,24 @@
 
                         <h3 class="service-details__title-1">{{ $service->title }}</h3>
 
-                        <div class="service-details__text-1" style="text-align: justify;">{!! $service->serviceDetail->long_description !!}</div>
+
+                        <div class="service-details__text-1">{!! $service->serviceDetail->long_description !!}</div>
+
+                        @if ($service->slug == 'training-capability-development')
+                            <br><br>
+
+                            <div class="service-details__text-1" style="text-align: justify;">
+                                For upcoming programs and schedules, please visit our Training & Development page
+                                <div class="service-details__get-started-btn-box" style="margin-top: 10px;">
+                                    <a href="{{ route('frontend.training.development') }}" class="thm-btn" style="width: inherit; font-size: 15px; padding: 5px 15px;">
+                                        Training Programs Details <span class="fas fa-arrow-right"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        @endif
 
                     </div>
+
                 </div>
 
             </div>
