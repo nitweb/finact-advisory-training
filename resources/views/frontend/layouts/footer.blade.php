@@ -45,15 +45,24 @@
 
                     <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                         <div class="footer-widget__services">
-                            <h4 class="footer-widget__title">Services</h4>
-                            <ul class="footer-widget__links-list list-unstyled">
-                                @php
-                                    $footerServices = \App\Models\Service::where('status', 'active')->orderBy('id', 'asc')->take(5)->get();
-                                @endphp
-                                @foreach ($footerServices as $item)
-                                    <li><a href="{{ route('frontend.service.details', $item->slug) }}">{{ $item->title }}</a></li>
-                                @endforeach
-                            </ul>
+                            <h4 class="footer-widget__title">Useful Links</h4>
+                            <div style="display: flex; gap: 0;">
+                                <ul class="footer-widget__links-list list-unstyled" style="flex: 0 0 35%;">
+                                    <li><a href="https://bidaquickserv.org/" target="_blank">BIDA</a></li>
+                                    <li><a href="https://nbr.gov.bd/" target="_blank">NBR</a></li>
+                                    <li><a href="https://app.roc.gov.bd/" target="_blank">RJSC</a></li>
+                                    <li><a href="https://frc.gov.bd/" target="_blank">FRC</a></li>
+                                    <li><a href="https://www.icab.org.bd/" target="_blank">ICAB</a></li>
+                                    <li><a href="https://icmab.gov.bd/" target="_blank">ICMA</a></li>
+                                </ul>
+                                <ul class="footer-widget__links-list list-unstyled" style="flex: 0 0 65%;">
+                                    <li><a href="https://www.icsb.edu.bd/" target="_blank">ICSB</a></li>
+                                    <li><a href="https://acca.com.bd/" target="_blank">ACCA</a></li>
+                                    <li><a href="https://www.bb.org.bd/en/index.php" target="_blank">Bangladesh Bank</a></li>
+                                    <li><a href="https://www.dch.gov.bd/" target="_blank">Customs House (Dhaka, CTG. Beanpole)</a></li>
+                                    <li><a href="https://www.sec.gov.bd/" target="_blank">BSEC</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

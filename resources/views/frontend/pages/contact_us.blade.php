@@ -21,7 +21,7 @@
     <!--Page Header End-->
 
     <!--Contact Page Start-->
-    <section class="contact-page" style="padding: 120px 0;">
+    <section class="contact-page">
 
         <div class="container">
 

@@ -26,14 +26,17 @@
 
                             <li class="{{ request()->routeIs('frontend.about.us') ? 'active' : '' }}"><a href="{{ route('frontend.about.us') }}">About</a></li>
 
-                            <li class="dropdown {{ request()->routeIs('frontend.all.services.list') || request()->routeIs('frontend.service.details.*') ? 'active' : '' }}">
+                            <li class="dropdown {{ request()->routeIs('frontend.all.services.list') || request()->routeIs('frontend.service.details*') ? 'active' : '' }}">
                                 <a href="{{ route('frontend.all.services.list') }}">Services</a>
                                 <ul class="shadow-box">
                                     @php
                                         $navServices = \App\Models\Service::where('status', 'active')->orderBy('id', 'asc')->get();
+                                        $currentSlug = request()->route('slug');
                                     @endphp
                                     @foreach ($navServices as $item)
-                                        <li class="{{ request()->routeIs('frontend.service.details', $item->slug) ? 'active' : '' }}"><a href="{{ route('frontend.service.details', $item->slug) }}">{{ $item->title }}</a></li>
+                                        <li class="{{ $currentSlug == $item->slug ? 'active' : '' }}">
+                                            <a href="{{ route('frontend.service.details', $item->slug) }}">{{ $item->title }}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -42,7 +45,7 @@
 
                             <li class="{{ request()->routeIs('frontend.training.development') ? 'active' : '' }}"><a href="{{ route('frontend.training.development') }}">Training & Development</a></li>
 
-                            <li class="{{ request()->routeIs('frontend.training.development') ? 'active' : '' }}"><a href="{{ route('frontend.training.development') }}">Gallery</a></li>
+                            <li class="{{ request()->routeIs('frontend.gallery') ? 'active' : '' }}"><a href="{{ route('frontend.gallery') }}">Gallery</a></li>
 
                             <li class="{{ request()->routeIs('frontend.blog.list') ? 'active' : '' }}"><a href="{{ route('frontend.blog.list') }}">Blog</a></li>
 

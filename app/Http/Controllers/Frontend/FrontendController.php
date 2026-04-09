@@ -240,10 +240,10 @@ class FrontendController extends Controller
         return view('frontend.pages.circular', compact('circular_data'));
     } // End Method
 
-    public function FinanceSupport()
+    public function RemoteSupport()
     {
         $finance_info = Finance::first();
-        return view('frontend.pages.finance_support', compact('finance_info'));
+        return view('frontend.pages.remote_support', compact('finance_info'));
     } // End Method
 
     public function TrainingDevelopment()
