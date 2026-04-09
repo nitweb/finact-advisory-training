@@ -81,7 +81,7 @@ Route::group(
                 Route::get('/blog/{slug}', 'BlogDetails')->name('blog.details');
 
                 // Global Remote Finance Support
-                Route::get('/global-remote-finance-support', 'FinanceSupport')->name('remote.support');
+                Route::get('/global-remote-finance-support', 'RemoteSupport')->name('remote.support');
 
                 // Training & Development
                 Route::get('/training-and-development', 'TrainingDevelopment')->name('training.development');

@@ -629,6 +629,10 @@
     border-bottom-color: var(--primary-color);
 }
 
+.who-we-serve__item:nth-child(6) {
+    border-bottom-color: var(--accent-dark);
+}
+
 .who-we-serve__item:hover {
     transform: translateY(-8px);
     box-shadow: 0 25px 60px rgba(22, 51, 85, 0.15);
