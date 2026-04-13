@@ -55,19 +55,19 @@
 
                     <ul class="why-choose-three__points list-unstyled">
                         <li>
-                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <div class="icon"><i class="fas fa-check-circle"></i></div>
                             <p>Structured accounting and reporting.</p>
                         </li>
                         <li>
-                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <div class="icon"><i class="fas fa-check-circle"></i></div>
                             <p>Cloud-based system support (QuickBooks, Xero).</p>
                         </li>
                         <li>
-                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <div class="icon"><i class="fas fa-check-circle"></i></div>
                             <p>Consistent process and reporting discipline.</p>
                         </li>
                         <li>
-                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <div class="icon"><i class="fas fa-check-circle"></i></div>
                             <p>Support for international operations.</p>
                         </li>
                     </ul>
