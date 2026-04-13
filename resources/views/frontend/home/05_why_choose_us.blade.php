@@ -29,37 +29,37 @@
                     <ul class="why-choose-three__points list-unstyled">
 
                         <li>
-                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <div class="icon"><i class="fas fa-check-circle"></i></div>
                             <p><strong style="color: #000;">Experienced Team:</strong> Finance professionals with extensive industry experience, including strong exposure to pharmaceutical and manufacturing environments.</p>
                         </li>
 
                         <li>
-                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <div class="icon"><i class="fas fa-check-circle"></i></div>
                             <p><strong style="color: #000;">Implementation-Focused Approach:</strong> Emphasis on execution—ensuring systems, processes, and controls work effectively in day-to-day operations.</p>
                         </li>
 
                         <li>
-                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <div class="icon"><i class="fas fa-check-circle"></i></div>
                             <p><strong style="color: #000;">Support Across Business Stages:</strong> From businesses without formal accounting systems to structured organizations requiring advanced financial oversight.</p>
                         </li>
 
                         <li>
-                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <div class="icon"><i class="fas fa-check-circle"></i></div>
                             <p><strong style="color: #000;">Integrated Perspective:</strong> Coordinated support across accounting, tax, VAT, compliance, and financial processes.</p>
                         </li>
 
                         <li>
-                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <div class="icon"><i class="fas fa-check-circle"></i></div>
                             <p><strong style="color: #000;">Regulatory Understanding:</strong> Practical experience in dealing with tax, VAT, and corporate regulatory requirements, including NBR, BIDA, and RJSC.</p>
                         </li>
 
                         <li>
-                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <div class="icon"><i class="fas fa-check-circle"></i></div>
                             <p><strong style="color: #000;">System-Oriented Thinking:</strong> Structured workflows supported by appropriate accounting systems and appropriate use of technology.</p>
                         </li>
 
                         <li>
-                            <div class="icon"><span class="icon-check-1"></span></div>
+                            <div class="icon"><i class="fas fa-check-circle"></i></div>
                             <p><strong style="color: #000;">Reliable Delivery:</strong> Consistent, timely, and process-driven service aligned with professional standards.</p>
                         </li>
 
@@ -78,7 +78,7 @@
                 <div class="about-three__left wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
                     <div class="about-three__img-box">
                         <div class="about-three__img">
-                            <img src="{{ asset('uploads/static_images/why_choose_us.jpeg') }}" alt="">
+                            <img src="{{ asset('uploads/static_images/why_choose_us.png') }}" alt="">
                         </div>
                     </div>
                 </div>

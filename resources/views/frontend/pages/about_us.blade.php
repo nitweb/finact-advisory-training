@@ -136,6 +136,13 @@
                     <h3 class="what-we-do__card-title">Training &amp; Capability Development</h3>
                     <p class="what-we-do__card-text">Practical training programs to build financial and compliance capability.</p>
                 </div>
+                <div class="what-we-do__card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="what-we-do__card-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="what-we-do__card-title">Global Remote Finance Support</h3>
+                    <p class="what-we-do__card-text">Reliable remote finance support for international clients with structured reporting and coordinated delivery.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -192,6 +199,14 @@
                     </div>
                     <h4 class="who-we-serve__item-title">International Partners</h4>
                     <p class="who-we-serve__item-text">Businesses seeking dependable remote support and cloud-based solutions to manage finance and compliance across locations.</p>
+                </div>
+                <div class="who-we-serve__item" data-aos="fade-up" data-aos-delay="300">
+                    <span class="who-we-serve__item-number">06</span>
+                    <div class="who-we-serve__item-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h4 class="who-we-serve__item-title">Special Assignments & Technical Support</h4>
+                    <p class="who-we-serve__item-text">Focused support for special finance reviews, investigations, and assignment-based technical requirements requiring independent analysis, technical expertise, and disciplined execution.</p>
                 </div>
             </div>
         </div>
@@ -288,44 +303,25 @@
                 <p class="our-team__intro">
                     Experience with enterprise platforms such as SAP (including S/4HANA) supports advisory roles during implementation, particularly within the FICO module, with focus on design alignment and process integration. For operational execution, cloud-based platforms such as QuickBooks and Xero are utilized where appropriate, enabling efficient workflows, improved visibility, and structured operations. The overall approach emphasizes practical implementation—ensuring that processes, controls, and frameworks are effectively applied and consistently maintained in day-to-day operations.
                 </p>
-                {{-- <div class="our-team__features">
-                    <div class="our-team__feature">
-                        <div class="our-team__feature-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div>
-                            <h4>Industry Experience</h4>
-                            <p>Practical expertise in financial management, tax, VAT, and corporate governance</p>
-                        </div>
-                    </div>
-                    <div class="our-team__feature">
-                        <div class="our-team__feature-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <div>
-                            <h4>Professional Background</h4>
-                            <p>Experience with leading audit firms and regulatory environments including BIDA and RJSC</p>
-                        </div>
-                    </div>
-                    <div class="our-team__feature">
-                        <div class="our-team__feature-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div>
-                            <h4>Technical Proficiency</h4>
-                            <p>Experience with SAP (S/4HANA) and cloud-based accounting platforms such as QuickBooks and Xero</p>
-                        </div>
-                    </div>
-                    <div class="our-team__feature">
-                        <div class="our-team__feature-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <div>
-                            <h4>Implementation Focus</h4>
-                            <p>Ensuring processes, controls, and frameworks are effectively applied and consistently maintained in day-to-day operations</p>
-                        </div>
-                    </div>
-                </div> --}}
+
+                {{-- Team Composition --}}
+                <div class="our-team__composition" data-aos="fade-up">
+                    <h3 class="our-team__composition-title">Team Composition</h3>
+                    <p class="our-team__composition-intro">Our multidisciplinary team includes:</p>
+                    <ul class="our-team__composition-list">
+                        <li><i class="fas fa-check-circle"></i> Chartered Accountants (CA)</li>
+                        <li><i class="fas fa-check-circle"></i> Chartered Secretaries (CS)</li>
+                        <li><i class="fas fa-check-circle"></i> Part-Qualified Chartered Accountants</li>
+                        <li><i class="fas fa-check-circle"></i> Panel of Advocates</li>
+                        <li><i class="fas fa-check-circle"></i> Income Tax Practitioners (ITP)</li>
+                        <li><i class="fas fa-check-circle"></i> NBR-Approved VAT Consultants</li>
+                        <li><i class="fas fa-check-circle"></i> BBA and MBA Graduates from Reputed Universities</li>
+                    </ul>
+                    <p class="our-team__composition-closing">
+                        This diverse professional combination enables <strong>FINACT</strong> to deliver practical, reliable, and well-coordinated solutions across finance, compliance, regulatory, and advisory engagements.
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -462,7 +458,7 @@
                         <span class="section-title__tagline">Looking Forward</span>
                     </div>
                     <h2 class="section-title__title title-animation">
-                       Our <span>Strategic</span> Direction
+                        Our <span>Strategic</span> Direction
                     </h2>
                     <p class="strategic-direction__text">
                         <strong>FINACT Advisory &amp; Training</strong> is focused on strengthening finance functions through structured systems, disciplined processes, and improved financial visibility.

@@ -1,11 +1,8 @@
 <section class="finact-hero">
-    <!-- Full Width AI/Motion Background -->
     <div class="finact-hero__bg">
         <div class="bg-shape bg-shape-1"></div>
         <div class="bg-shape bg-shape-2"></div>
         <div class="bg-shape bg-shape-3"></div>
-        <!-- Place your AI Generated Accounting Light Mesh Image Here -->
-        <img src="{{ asset('uploads/static_images/hero_section.png') }}" alt="AI Finance background" class="finact-hero__bg-img">
     </div>
 
     <div class="container-fluid h-100">
@@ -15,22 +12,17 @@
             <div class="col-xl-6 col-lg-7">
                 <div class="finact-hero__content" data-aos="fade-right" data-aos-duration="1200">
 
-                    <div class="finact-hero__badge">
-                        <span class="pulse-dot"></span> Modern Accounting & Finance
-                    </div>
-
                     <h1 class="finact-hero__title">
-                        FINACT — Where
-                        <span class="text-gradient-gold blink-gold">Precision</span> <br>
-                        Meets
-                        <span class="text-gradient-gold blink-gold">Excellence</span>.
+                        <span class="title-shimmer-wrap">
+                            <span class="title-shimmer">FINACT — Where Precision Meets Excellence</span>
+                        </span>
                     </h1>
 
                     <h2 class="finact-hero__subtitle">
                         Bringing
-                        <span class="text-gradient-blue pulse-grow">Clarity</span>,
+                        <span class="text-gradient-blue">Clarity</span>,
                         Control &
-                        <span class="text-gradient-blue pulse-grow">Confidence</span>
+                        <span class="text-gradient-blue">Confidence</span>
                         to Your Finance
                     </h2>
 
@@ -49,58 +41,73 @@
                         </a>
                     </div>
 
-                    <div class="finact-hero__trust">
-                        <div class="trust-item"><i class="fas fa-shield-halved"></i> Bank-Level Security</div>
-                        <div class="trust-item"><i class="fas fa-chart-line"></i> Real-time Analytics</div>
-                        <div class="trust-item"><i class="fas fa-check-circle"></i> ISO Certified</div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Right Side: Eye-catching Abstract AI & Data Graphics (No Humans) -->
+            <!-- Right Side: Eye-Catching Finance Visual -->
             <div class="col-xl-6 col-lg-5 d-none d-lg-block">
                 <div class="finact-hero__visual" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="300">
 
-                    <!-- Glassmorphism Main Chart Card -->
-                    <div class="glass-card main-stats float-bob-y">
-                        <div class="card-header-glass">
-                            <span>Financial Growth Metrics</span>
-                            <span class="badge-success">+24.8%</span>
-                        </div>
-                        <div class="chart-visual">
-                            <div class="bar" style="height: 40%"></div>
-                            <div class="bar" style="height: 60%"></div>
-                            <div class="bar" style="height: 50%"></div>
-                            <div class="bar" style="height: 90%"></div>
-                            <div class="bar active" style="height: 75%"></div>
+                    <!-- Central Glowing Ring -->
+                    <div class="hero-ring-wrap">
+                        <div class="hero-ring ring-outer"></div>
+                        <div class="hero-ring ring-mid"></div>
+                        <div class="hero-ring ring-inner"></div>
+
+                        <!-- Center Icon -->
+                        <div class="hero-center-badge">
+                            <i class="fas fa-landmark"></i>
+                            <span>FINACT</span>
                         </div>
                     </div>
 
-                    <!-- Floating 3D Elements -->
-                    <div class="floating-element element-coin float-bob-y">
-                        <img src="{{ asset('uploads/static_images/gold-coin.png') }}" alt="Gold Coin" class="rotate-me" style="width: 100px;">
-                    </div>
-
-                    <div class="floating-element element-pie float-bob-x">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-
-                    <div class="floating-element element-calc float-bob-y">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-
-                    <div class="floating-element element-report float-bob-y-reverse">
-                        <div class="report-content">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                            <div>
-                                <strong>Audit Ready</strong>
-                                <span>Verification Passed</span>
-                            </div>
+                    <!-- Orbiting Stat Cards -->
+                    <div class="orbit-card orbit-card--1 float-bob-y">
+                        <div class="orbit-card__icon"><i class="fas fa-chart-line"></i></div>
+                        <div>
+                            <strong>Revenue Growth</strong>
+                            <span>+24.8% YoY</span>
                         </div>
                     </div>
 
+                    <div class="orbit-card orbit-card--2 float-bob-y-reverse">
+                        <div class="orbit-card__icon orbit-card__icon--gold"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <strong>Compliance Rate</strong>
+                            <span>100% Audit Ready</span>
+                        </div>
+                    </div>
+
+                    <div class="orbit-card orbit-card--3 float-bob-y">
+                        <div class="orbit-card__icon"><i class="fas fa-coins"></i></div>
+                        <div>
+                            <strong>Tax Savings</strong>
+                            <span>Optimized Filing</span>
+                        </div>
+                    </div>
+
+                    <div class="orbit-card orbit-card--4 float-bob-y-reverse">
+                        <div class="orbit-card__icon orbit-card__icon--gold"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <div>
+                            <strong>VAT Advisory</strong>
+                            <span>NBR Approved</span>
+                        </div>
+                    </div>
+
+                    <!-- Mini Bar Chart -->
+                    <div class="hero-chart-mini float-bob-y">
+                        <div class="hero-chart-mini__label">Financial Performance</div>
+                        <div class="hero-chart-mini__bars">
+                            <div class="hcm-bar" style="height:45%"><span>Q1</span></div>
+                            <div class="hcm-bar" style="height:62%"><span>Q2</span></div>
+                            <div class="hcm-bar" style="height:54%"><span>Q3</span></div>
+                            <div class="hcm-bar hcm-bar--active" style="height:88%"><span>Q4</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Decorative Dashed Circle -->
                     <div class="glass-circle circle-1"></div>
-                    <div class="glass-circle circle-2"></div>
+
                 </div>
             </div>
 
@@ -109,27 +116,21 @@
 </section>
 
 <style>
-    /* ==========================================================================
-     FINACT PREMIUM FULL-WIDTH HERO SECTION - REDESIGNED
-     ========================================================================== */
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-    /* Palette Variables */
     :root {
         --color-primary: #163355;
-        /* Deep Navy */
         --color-accent: #b89867;
-        /* Muted Gold */
         --color-light-bg: #ffffff;
         --color-text-body: #4b5563;
-        --color-border: rgba(22, 51, 85, 0.1);
     }
 
     .finact-hero {
         position: relative;
         width: 100vw;
-        height: 100vh;
-        min-height: 800px;
+        height: 85vh;
+        min-height: 620px;
+        max-height: 820px;
         background: var(--color-light-bg);
         font-family: 'Plus Jakarta Sans', sans-serif;
         overflow: hidden;
@@ -137,25 +138,12 @@
         align-items: center;
     }
 
-    /* Full Width Background Layer */
     .finact-hero__bg {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        inset: 0;
         z-index: 1;
     }
 
-    .finact-hero__bg-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.15;
-        mix-blend-mode: multiply;
-    }
-
-    /* LIGHT Blurred Background Shapes (Updated for Light Theme) */
     .bg-shape {
         position: absolute;
         border-radius: 50%;
@@ -167,7 +155,6 @@
     .bg-shape-1 {
         width: 500px;
         height: 500px;
-        /* Tinted Light Blue using RGBA for softness */
         background: rgba(22, 51, 85, 0.08);
         top: -100px;
         right: -100px;
@@ -176,7 +163,6 @@
     .bg-shape-2 {
         width: 400px;
         height: 400px;
-        /* Tinted Warm Beige */
         background: rgba(184, 152, 103, 0.15);
         bottom: -100px;
         left: 20%;
@@ -189,82 +175,63 @@
         top: 30%;
         right: 30%;
         mix-blend-mode: overlay;
-        /* Softens against other shapes */
     }
 
-    /* Content Area inside Container */
     .finact-hero .container-fluid {
         position: relative;
         z-index: 5;
         padding-left: 8%;
-        padding-right: 8%;
+        padding-right: 5%;
     }
 
-    /* Updated Badge Styles */
-    .finact-hero__badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        background: rgba(184, 152, 103, 0.1);
-        /* Light Gold Tint */
-        color: var(--color-primary);
-        padding: 8px 16px;
-        border-radius: 30px;
-        font-weight: 600;
-        font-size: 14px;
-        border: 1px solid rgba(184, 152, 103, 0.3);
-        margin-bottom: 25px;
+    /* ── Title shimmer animation (always moving) ── */
+    .finact-hero__title {
+        font-size: clamp(28px, 3.5vw, 46px);
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 18px;
+        letter-spacing: -0.5px;
     }
 
-    .pulse-dot {
-        width: 8px;
-        height: 8px;
-        background-color: var(--color-accent);
-        border-radius: 50%;
+    .title-shimmer-wrap {
         display: inline-block;
-        animation: pulse-dot-anime 1.5s infinite;
+        position: relative;
+        overflow: hidden;
     }
 
-    @keyframes pulse-dot-anime {
-        0% {
-            transform: scale(0.95);
-            box-shadow: 0 0 0 0 rgba(184, 152, 103, 0.7);
-        }
+    .title-shimmer {
+        display: inline-block;
+        background: linear-gradient(270deg,
+                #163355 0%,
+                #163355 30%,
+                #b89867 45%,
+                #d4b070 50%,
+                #b89867 55%,
+                #163355 70%,
+                #163355 100%);
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shimmerSlide 3s linear infinite;
+    }
 
-        70% {
-            transform: scale(1);
-            box-shadow: 0 0 0 10px rgba(184, 152, 103, 0);
+    @keyframes shimmerSlide {
+        0% {
+            background-position: 200% center;
         }
 
         100% {
-            transform: scale(0.95);
-            box-shadow: 0 0 0 0 rgba(184, 152, 103, 0);
+            background-position: -200% center;
         }
     }
 
-    .finact-hero__title {
-        font-size: 45px;
-        font-weight: 800;
-        line-height: 1.2;
-        color: var(--color-primary);
-        /* Navy Headlines */
-        margin-bottom: 15px;
-        letter-spacing: -1px;
-    }
-
     .finact-hero__subtitle {
-        font-size: clamp(24px, 3vw, 32px);
+        font-size: clamp(18px, 2.2vw, 26px);
         font-weight: 700;
-        line-height: 1.3;
+        line-height: 1.4;
         color: #475569;
-        margin-bottom: 25px;
-    }
-
-    /* Typography Gradients */
-    .text-gradient-gold {
-        background: linear-gradient(135deg, #b89867 0%, #a3885c 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        margin-bottom: 20px;
     }
 
     .text-gradient-blue {
@@ -273,82 +240,43 @@
         -webkit-text-fill-color: transparent;
     }
 
-    /* Animation for Gold Text */
-    .blink-gold {
-        animation: textGlowGold 3s infinite alternate;
-    }
-
-    @keyframes textGlowGold {
-        0% {
-            filter: drop-shadow(0 0 0px rgba(184, 152, 103, 0.2));
-        }
-
-        50% {
-            filter: drop-shadow(0 0 10px rgba(184, 152, 103, 0.4));
-            opacity: 0.9;
-        }
-
-        100% {
-            filter: drop-shadow(0 0 0px rgba(184, 152, 103, 0.2));
-        }
-    }
-
-    .pulse-grow {
-        display: inline-block;
-        animation: textPulse 3s infinite ease-in-out;
-    }
-
-    @keyframes textPulse {
-
-        0%,
-        100% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.03);
-        }
-    }
-
     .finact-hero__text {
-        font-size: clamp(16px, 1.5vw, 18px);
+        font-size: clamp(15px, 1.3vw, 17px);
         line-height: 1.8;
         color: #64748b;
-        max-width: 600px;
-        margin-bottom: 40px;
+        max-width: 560px;
+        margin-bottom: 32px;
+        text-align: justify;
     }
 
-    /* Buttons - Updated Colors */
     .finact-hero__buttons {
         display: flex;
-        gap: 20px;
-        margin-bottom: 50px;
+        gap: 16px;
+        flex-wrap: wrap;
     }
 
     .btn-finact {
         display: inline-flex;
         align-items: center;
-        gap: 12px;
-        padding: 18px 36px;
+        gap: 10px;
+        padding: 15px 30px;
         border-radius: 50px;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 15px;
         text-decoration: none;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .btn-finact-primary {
         background: var(--color-primary);
-        /* Navy Button */
         color: white;
         box-shadow: 0 10px 25px rgba(22, 51, 85, 0.2);
     }
 
     .btn-finact-primary:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 35px rgba(22, 51, 85, 0.3);
+        transform: translateY(-4px);
+        box-shadow: 0 18px 32px rgba(22, 51, 85, 0.3);
         background: #0f223a;
-        /* Slightly darker navy on hover */
         color: white;
     }
 
@@ -362,192 +290,241 @@
         background: #fdfdfd;
         border-color: var(--color-accent);
         color: var(--color-primary);
-        transform: translateY(-5px);
+        transform: translateY(-4px);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     }
 
-    /* Trust Elements */
-    .finact-hero__trust {
-        display: flex;
-        gap: 30px;
-        flex-wrap: wrap;
-    }
-
-    .trust-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 14px;
-        color: #475569;
-        font-weight: 600;
-    }
-
-    /* Change checkmark colors to accent */
-    .trust-item i {
-        color: var(--color-accent);
-        /* Gold checks */
-        font-size: 16px;
-    }
-
-    /* Right Side Abstract Visual Display */
+    /* ── Right Side Visual ── */
     .finact-hero__visual {
         position: relative;
-        height: 600px;
+        height: 520px;
         width: 100%;
     }
 
-    .glass-card {
+    /* Rings */
+    .hero-ring-wrap {
         position: absolute;
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(22, 51, 85, 0.05);
-        /* Very subtle navy border */
-        border-radius: 24px;
-        box-shadow: 0 20px 50px rgba(22, 51, 85, 0.05);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .hero-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px dashed rgba(184, 152, 103, 0.3);
+    }
+
+    .ring-outer {
+        width: 380px;
+        height: 380px;
+        animation: spin-cw 25s linear infinite;
+        border-color: rgba(22, 51, 85, 0.12);
+    }
+
+    .ring-mid {
+        width: 270px;
+        height: 270px;
+        animation: spin-ccw 18s linear infinite;
+        border-color: rgba(184, 152, 103, 0.25);
+    }
+
+    .ring-inner {
+        width: 160px;
+        height: 160px;
+        animation: spin-cw 12s linear infinite;
+        border-color: rgba(22, 51, 85, 0.2);
+        border-style: solid;
+    }
+
+    @keyframes spin-cw {
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+
+    @keyframes spin-ccw {
+        to {
+            transform: translate(-50%, -50%) rotate(-360deg);
+        }
+    }
+
+    /* Center badge */
+    .hero-center-badge {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 110px;
+        height: 110px;
+        background: linear-gradient(135deg, #163355 0%, #1e4a7a 100%);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        box-shadow: 0 15px 40px rgba(22, 51, 85, 0.35);
         z-index: 10;
-        padding: 24px;
     }
 
-    .main-stats {
-        width: 420px;
-        height: 280px;
-        top: 15%;
-        left: 10%;
+    .hero-center-badge i {
+        color: #b89867;
+        font-size: 28px;
     }
 
-    .card-header-glass {
-        display: flex;
-        justify-content: space-between;
-        font-weight: 700;
-        color: var(--color-primary);
-        margin-bottom: 30px;
-        font-size: 16px;
+    .hero-center-badge span {
+        color: #fff;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
     }
 
-    .badge-success {
-        background: rgba(184, 152, 103, 0.15);
-        color: var(--color-primary);
-        padding: 4px 10px;
-        border-radius: 20px;
-        font-size: 12px;
-        border: 1px solid rgba(184, 152, 103, 0.2);
-    }
-
-    .chart-visual {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        height: 140px;
-    }
-
-    .chart-visual .bar {
-        width: 40px;
-        background: #e2e8f0;
-        border-radius: 8px;
-        transition: all 0.5s ease;
-    }
-
-    .chart-visual .bar.active {
-        /* Gradient from Navy to Lighter Navy */
-        background: linear-gradient(to top, #163355, #3b6fa8);
-    }
-
-    .floating-element {
+    /* Orbit cards */
+    .orbit-card {
         position: absolute;
+        background: #fff;
+        border-radius: 14px;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 10px 30px rgba(22, 51, 85, 0.10);
+        border: 1px solid rgba(22, 51, 85, 0.07);
         z-index: 15;
-        background: white;
-        box-shadow: 0 10px 30px rgba(22, 51, 85, 0.06);
+        min-width: 185px;
+    }
+
+    .orbit-card__icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #163355 0%, #1e4a7a 100%);
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 16px;
+        color: #b89867;
+        font-size: 18px;
+        flex-shrink: 0;
     }
 
-    .element-pie {
-        width: 70px;
-        height: 70px;
-        top: 5%;
-        right: 20%;
-        color: var(--color-accent);
-        /* Gold Icon */
-        font-size: 28px;
-        border: 1px solid rgba(184, 152, 103, 0.2);
+    .orbit-card__icon--gold {
+        background: linear-gradient(135deg, #b89867 0%, #d4b070 100%);
+        color: #fff;
     }
 
-    .element-calc {
-        width: 80px;
-        height: 80px;
-        bottom: 10%;
-        left: 15%;
-        color: var(--color-primary);
-        /* Navy Icon */
-        font-size: 32px;
+    .orbit-card strong {
+        display: block;
+        font-size: 13px;
+        font-weight: 700;
+        color: #163355;
+        line-height: 1.2;
     }
 
-    .element-report {
-        width: 250px;
-        height: 80px;
-        bottom: 25%;
-        right: 5%;
-        background: rgba(255, 255, 255, 0.95);
-        padding: 15px;
-        border-left: 4px solid var(--color-accent);
-    }
-
-    .report-content {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        width: 100%;
-    }
-
-    .report-content i {
-        font-size: 30px;
-        color: var(--color-primary);
-        /* Navy Icon */
-    }
-
-    .report-content div {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .report-content strong {
-        color: var(--color-primary);
-        font-size: 14px;
-    }
-
-    .report-content span {
+    .orbit-card span {
+        font-size: 11.5px;
         color: #64748b;
-        font-size: 12px;
+        font-weight: 500;
     }
 
+    /* Card positions */
+    .orbit-card--1 {
+        top: 4%;
+        left: 2%;
+    }
+
+    .orbit-card--2 {
+        top: 4%;
+        right: 2%;
+    }
+
+    .orbit-card--3 {
+        bottom: 10%;
+        left: 0%;
+    }
+
+    .orbit-card--4 {
+        bottom: 10%;
+        right: 0%;
+    }
+
+    /* Mini bar chart */
+    .hero-chart-mini {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        border-radius: 16px;
+        padding: 16px 20px;
+        box-shadow: 0 12px 35px rgba(22, 51, 85, 0.10);
+        border: 1px solid rgba(22, 51, 85, 0.07);
+        z-index: 15;
+        width: 210px;
+    }
+
+    .hero-chart-mini__label {
+        font-size: 11px;
+        font-weight: 700;
+        color: #163355;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 10px;
+    }
+
+    .hero-chart-mini__bars {
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
+        height: 60px;
+    }
+
+    .hcm-bar {
+        flex: 1;
+        background: rgba(22, 51, 85, 0.12);
+        border-radius: 4px 4px 0 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 3px;
+        transition: all 0.4s ease;
+    }
+
+    .hcm-bar--active {
+        background: linear-gradient(to top, #163355, #2a5a9a);
+    }
+
+    .hcm-bar span {
+        font-size: 9px;
+        color: #888;
+        font-weight: 600;
+    }
+
+    .hcm-bar--active span {
+        color: #fff;
+    }
+
+    /* Decorative dashed circle */
     .glass-circle {
         position: absolute;
         border-radius: 50%;
-        border: 1px solid rgba(184, 152, 103, 0.15);
         z-index: 1;
     }
 
     .circle-1 {
-        width: 350px;
-        height: 350px;
-        top: 5%;
-        right: 15%;
-        border: 2px dashed rgba(184, 152, 103, 0.3);
-        animation: rotate-ani 20s infinite linear reverse;
+        width: 420px;
+        height: 420px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1.5px dashed rgba(184, 152, 103, 0.15);
     }
 
-    .circle-2 {
-        width: 200px;
-        height: 200px;
-        bottom: 5%;
-        left: 30%;
-        opacity: 0.5;
-        box-shadow: 0 0 20px rgba(184, 152, 103, 0.1);
-    }
-
-    /* Animations */
+    /* Float animations */
     .float-bob-y {
         animation: float-y 5s infinite ease-in-out;
     }
@@ -556,23 +533,15 @@
         animation: float-y-reverse 5s infinite ease-in-out;
     }
 
-    .float-bob-x {
-        animation: float-x 6s infinite ease-in-out;
-    }
-
-    .rotate-me {
-        animation: rotate-ani 15s infinite linear;
-    }
-
     @keyframes float-y {
 
         0%,
         100% {
-            transform: translateY(0);
+            transform: translateY(0)
         }
 
         50% {
-            transform: translateY(-20px);
+            transform: translateY(-14px)
         }
     }
 
@@ -580,34 +549,22 @@
 
         0%,
         100% {
-            transform: translateY(0);
+            transform: translateY(0)
         }
 
         50% {
-            transform: translateY(20px);
+            transform: translateY(14px)
         }
     }
 
-    @keyframes float-x {
-
-        0%,
-        100% {
-            transform: translateX(0);
-        }
-
-        50% {
-            transform: translateX(-20px);
-        }
-    }
-
-    @keyframes rotate-ani {
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    /* Responsive Overrides */
+    /* ── Responsive ── */
     @media (max-width: 991px) {
+        .finact-hero {
+            height: auto;
+            min-height: 560px;
+            padding: 60px 0;
+        }
+
         .finact-hero .container-fluid {
             padding-left: 5%;
             padding-right: 5%;
