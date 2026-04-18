@@ -2320,5 +2320,8 @@
     .stricky-header .main-menu__list>li>a {
         font-size: 15px;
     }
+}
 
+.newsletter-two__inner {
+	border-radius: 0;
 }
