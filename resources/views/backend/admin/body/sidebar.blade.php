@@ -4,7 +4,7 @@
 
         <div class="sidebar-brand">
             <a href="{{ route('admin.dashboard') }}">
-                <img alt="image" src="{{ asset(siteSetting()->header_logo) }}" class="header-logo" alt="Site Logo" style="height: 45px;"/>
+                <img alt="image" src="{{ asset(siteSetting()->header_logo) }}" class="header-logo" alt="Site Logo" style="height: 45px;" />
                 {{-- <span class="logo-name">Rahman Anis & Co</span> --}}
             </a>
         </div>
@@ -63,6 +63,16 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.finance.list') }}">Finance Support</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown {{ request()->routeIs('admin.trainer.list') ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="list"></i>
+                    <span>Trainers</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.trainer.list') }}">Trainer List</a></li>
                 </ul>
             </li>
 

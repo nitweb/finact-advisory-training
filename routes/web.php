@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\ServiceSubCategoryController;
 use App\Http\Controllers\Backend\Settings\SettingController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SuccessfulPortfoliosController;
+use App\Http\Controllers\Backend\TrainerController;
 use App\Http\Controllers\Backend\TrainingController;
 use App\Http\Controllers\Backend\WhoWeAreController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -452,6 +453,23 @@ Route::group(
                 Route::get('/list', 'FinanceList')->name('list');
                 Route::get('/edit/{id}', 'FinanceEdit')->name('edit');
                 Route::post('/update', 'FinanceUpdate')->name('update');
+            },
+        );
+
+        // Trainer All Routes
+        Route::group(
+            [
+                'prefix' => 'trainer',
+                'controller' => TrainerController::class,
+                'as' => 'trainer.',
+            ],
+            function () {
+                Route::get('/list', 'TrainerList')->name('list');
+                Route::get('/add', 'TrainerAdd')->name('add');
+                Route::post('/store', 'TrainerStore')->name('store');
+                Route::get('/edit/{id}', 'TrainerEdit')->name('edit');
+                Route::post('/update', 'TrainerUpdate')->name('update');
+                Route::get('/delete/{id}', 'TrainerDelete')->name('delete');
             },
         );
 
