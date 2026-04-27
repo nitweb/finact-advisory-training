@@ -1,4 +1,4 @@
-{{-- resources/views/backend/training/edit.blade.php --}}
+{{-- resources/views/backend/training/add.blade.php --}}
 
 @extends('backend.admin.master')
 
@@ -29,9 +29,8 @@
                                 @include('widgets.errors')
                                 @include('widgets.success')
 
-                                <form id="form" action="{{ route('admin.training.update') }}" method="post" enctype="multipart/form-data" data-parsley-validate>
+                                <form id="form" action="{{ route('admin.training.store') }}" method="post" enctype="multipart/form-data" data-parsley-validate>
                                     @csrf
-                                    <input type="hidden" name="id" value="{{ $training_info->id }}">
 
                                     <div class="form-group row">
 
@@ -40,15 +39,14 @@
                                             <label class="col-form-label">Training Image [850px by 400px]</label>
                                             <div id="image-preview" class="image-preview">
                                                 <label for="image-upload" id="image-label">Choose File</label>
-                                                <input type="file" name="training_image" id="image-upload">
-                                                <div class="table_slider_update_image" style="background-image: url({{ asset($training_info->training_image) }}); background-size: cover; background-position: center;" id="imageShow"></div>
+                                                <input type="file" name="training_image" id="image-upload" required data-parsley-required-message="Training Image is required*" />
                                             </div>
                                         </div>
 
                                         {{-- Title --}}
                                         <div class="col-md-6 mb-3">
                                             <label class="col-form-label">Title</label>
-                                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title', $training_info->title) }}" required data-parsley-required-message="Title is required*">
+                                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required data-parsley-required-message="Title is required*">
                                             @error('title')
                                                 <span class="invalid-feedback">{{ $message }}</span>
                                             @enderror
@@ -57,47 +55,47 @@
                                         {{-- Slug --}}
                                         <div class="col-md-6 mb-3">
                                             <label class="col-form-label">Slug</label>
-                                            <input type="text" class="form-control" name="slug" value="{{ old('slug', $training_info->slug) }}">
+                                            <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ old('slug') }}">
                                         </div>
 
                                         {{-- Type --}}
                                         <div class="col-md-6 mb-3">
                                             <label class="col-form-label">Training Type</label>
                                             <select class="form-control selectric" name="type">
-                                                <option value="" disabled>— Select Type —</option>
-                                                <option value="online" {{ old('type', $training_info->type) == 'online' ? 'selected' : '' }}>Online</option>
-                                                <option value="offline" {{ old('type', $training_info->type) == 'offline' ? 'selected' : '' }}>Offline</option>
+                                                <option value="" disabled selected>— Select Type —</option>
+                                                <option value="online" {{ old('type') == 'online' ? 'selected' : '' }}>Online</option>
+                                                <option value="offline" {{ old('type') == 'offline' ? 'selected' : '' }}>Offline</option>
                                             </select>
                                         </div>
 
                                         {{-- Certification --}}
                                         <div class="col-md-6 mb-3">
                                             <label class="col-form-label">Certification</label>
-                                            <input type="text" class="form-control" name="certification" value="{{ old('certification', $training_info->certification) }}" placeholder="Industry-recognized credential">
+                                            <input type="text" class="form-control" name="certification" value="{{ old('certification') }}" placeholder="Industry-recognized credential">
                                         </div>
 
                                         {{-- Course Start --}}
                                         <div class="col-md-6 mb-3">
                                             <label class="col-form-label">Course Start</label>
-                                            <input type="date" class="form-control" name="course_start" value="{{ old('course_start', $training_info->course_start) }}">
+                                            <input type="date" class="form-control" name="course_start" value="{{ old('course_start') }}">
                                         </div>
 
                                         {{-- Registration Deadline --}}
                                         <div class="col-md-6 mb-3">
                                             <label class="col-form-label">Registration Deadline</label>
-                                            <input type="date" class="form-control" name="registration_deadline" value="{{ old('registration_deadline', $training_info->registration_deadline) }}">
+                                            <input type="date" class="form-control" name="registration_deadline" value="{{ old('registration_deadline') }}">
                                         </div>
 
                                         {{-- Duration --}}
                                         <div class="col-md-6 mb-3">
                                             <label class="col-form-label">Duration (Hours)</label>
-                                            <input type="number" min="0" class="form-control" name="duration" value="{{ old('duration', $training_info->duration) }}">
+                                            <input type="number" min="0" class="form-control" name="duration" value="{{ old('duration') }}">
                                         </div>
 
                                         {{-- No. of Classes --}}
                                         <div class="col-md-6 mb-3">
                                             <label class="col-form-label">No. of Classes</label>
-                                            <input type="number" min="1" class="form-control" name="no_of_classes" value="{{ old('no_of_classes', $training_info->no_of_classes) }}">
+                                            <input type="number" min="1" class="form-control" name="no_of_classes" value="{{ old('no_of_classes') }}">
                                         </div>
 
                                         {{-- Regular Fee --}}
@@ -105,25 +103,22 @@
                                             <label class="col-form-label">
                                                 Regular Fee <span style="color:red;">(leave empty if no discount)</span>
                                             </label>
-                                            <input type="number" min="0" class="form-control" name="regular_fee" value="{{ old('regular_fee', $training_info->regular_fee) }}">
+                                            <input type="number" min="0" class="form-control" name="regular_fee" value="{{ old('regular_fee') }}">
                                         </div>
 
                                         {{-- Registration Fee --}}
                                         <div class="col-md-6 mb-3">
                                             <label class="col-form-label">Registration Fee</label>
-                                            <input type="number" min="0" class="form-control" name="registration_fee" value="{{ old('registration_fee', $training_info->registration_fee) }}">
+                                            <input type="number" min="0" class="form-control" name="registration_fee" value="{{ old('registration_fee') }}">
                                         </div>
 
                                         {{-- Trainers --}}
                                         <div class="col-md-12 mb-3">
                                             <label class="col-form-label">Trainer(s)</label>
-                                            @php
-                                                $selectedTrainerIds = old('trainer_ids', $training_info->trainers->pluck('id')->toArray());
-                                            @endphp
                                             <select class="form-control selectric @error('trainer_ids') is-invalid @enderror" name="trainer_ids[]" multiple style="height: 130px;">
                                                 <option value="" disabled>— Select Trainer(s) —</option>
                                                 @foreach ($trainers as $trainer)
-                                                    <option value="{{ $trainer->id }}" {{ in_array($trainer->id, $selectedTrainerIds) ? 'selected' : '' }}>
+                                                    <option value="{{ $trainer->id }}" {{ is_array(old('trainer_ids')) && in_array($trainer->id, old('trainer_ids')) ? 'selected' : '' }}>
                                                         {{ $trainer->name }}
                                                     </option>
                                                 @endforeach
@@ -139,7 +134,7 @@
                                         {{-- Short Description --}}
                                         <div class="col-md-12 mb-3">
                                             <label class="col-form-label">Short Description</label>
-                                            <textarea name="short_description" rows="4" class="form-control @error('short_description') is-invalid @enderror" required>{{ old('short_description', $training_info->short_description) }}</textarea>
+                                            <textarea name="short_description" rows="4" class="form-control @error('short_description') is-invalid @enderror" required data-parsley-required-message="Short description is required*">{{ old('short_description') }}</textarea>
                                             @error('short_description')
                                                 <span class="invalid-feedback">{{ $message }}</span>
                                             @enderror
@@ -148,16 +143,7 @@
                                         {{-- Long Description --}}
                                         <div class="col-md-12 mb-3">
                                             <label class="col-form-label">Long Description</label>
-                                            <textarea class="summernote" name="long_description" required>{{ old('long_description', $training_info->long_description) }}</textarea>
-                                        </div>
-
-                                        {{-- Status --}}
-                                        <div class="col-md-12 mb-3">
-                                            <label class="col-form-label">Status</label>
-                                            <select class="form-control selectric" name="status">
-                                                <option value="active" {{ old('status', $training_info->status) == 'active' ? 'selected' : '' }}>Active</option>
-                                                <option value="inactive" {{ old('status', $training_info->status) == 'inactive' ? 'selected' : '' }}>Inactive</option>
-                                            </select>
+                                            <textarea class="summernote" name="long_description" required data-parsley-required-message="Long description is required*">{{ old('long_description') }}</textarea>
                                         </div>
 
                                     </div>
@@ -169,23 +155,23 @@
                                         {{-- Meta Title --}}
                                         <div class="col-md-12 mb-3">
                                             <label class="col-form-label">Meta Title</label>
-                                            <input type="text" class="form-control" name="meta_title" value="{{ old('meta_title', $training_info->meta_title) }}">
+                                            <input type="text" class="form-control" name="meta_title" value="{{ old('meta_title') }}">
                                         </div>
 
                                         {{-- Meta Description --}}
                                         <div class="col-md-12 mb-3">
                                             <label class="col-form-label">Meta Description</label>
-                                            <textarea name="meta_description" rows="4" class="form-control">{{ old('meta_description', $training_info->meta_description) }}</textarea>
+                                            <textarea name="meta_description" rows="4" class="form-control">{{ old('meta_description') }}</textarea>
                                         </div>
 
                                         {{-- Meta Keyword --}}
                                         <div class="col-md-12 mb-3">
                                             <label class="col-form-label">Meta Keyword</label>
-                                            <input type="text" class="form-control" name="meta_keyword" value="{{ old('meta_keyword', $training_info->meta_keyword) }}">
+                                            <input type="text" class="form-control" name="meta_keyword" value="{{ old('meta_keyword') }}">
                                         </div>
 
                                         <div class="col-md-12 mb-3">
-                                            <button class="btn btn-primary">Update</button>
+                                            <button class="btn btn-primary">Create</button>
                                         </div>
 
                                     </div>
@@ -200,14 +186,4 @@
         </section>
     </div>
 
-@endsection
-
-@section('footer_script')
-    <script>
-        $(document).ready(function() {
-            $('#image-upload').change(function(e) {
-                $('#imageShow').css('background-image', `url(${URL.createObjectURL(e.target.files[0])})`);
-            });
-        });
-    </script>
 @endsection

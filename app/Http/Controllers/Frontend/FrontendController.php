@@ -19,6 +19,7 @@ use App\Models\ServiceCategory;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\SuccessfulPortfolios;
+use App\Models\Trainer;
 use App\Models\Training;
 use App\Models\User;
 use App\Models\WhoWeAre;
@@ -248,7 +249,22 @@ class FrontendController extends Controller
 
     public function TrainingDevelopment()
     {
-        $training_info = Training::first();
-        return view('frontend.pages.training_development', compact('training_info'));
+        $training_list = Training::where('status', 'active')->latest()->paginate(9);
+        return view('frontend.pages.training_development', compact('training_list'));
     } // End Method
+
+    public function TrainingDevelopmentDetails($slug)
+    {
+        $training_details = Training::with('trainers')->where('slug', $slug)->firstOrFail();
+        return view('frontend.details.training_details', compact('training_details'));
+    }
+
+    public function trainerDetails($slug)
+    {
+        $trainer = Trainer::where('slug', $slug)->where('status', 'active')->firstOrFail();
+
+        $trainings = $trainer->trainings()->where('status', 'active')->get();
+
+        return view('frontend.details.trainer_details', compact('trainer', 'trainings'));
+    }
 }

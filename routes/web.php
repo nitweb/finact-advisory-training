@@ -86,6 +86,10 @@ Route::group(
 
                 // Training & Development
                 Route::get('/training-and-development', 'TrainingDevelopment')->name('training.development');
+                Route::get('/training-and-development/{slug}', 'TrainingDevelopmentDetails')->name('training.development.details');
+
+                // Trainer
+                Route::get('/trainer/{slug}', 'trainerDetails')->name('trainer.details');
 
                 // Route::get('/who-we-are', 'WhoWeAre')->name('who.we.are');
             },
@@ -474,18 +478,14 @@ Route::group(
         );
 
         // Training & Development All Routes
-        Route::group(
-            [
-                'prefix' => 'training',
-                'controller' => TrainingController::class,
-                'as' => 'training.',
-            ],
-            function () {
-                Route::get('/list', 'TrainingList')->name('list');
-                Route::get('/edit/{id}', 'TrainingEdit')->name('edit');
-                Route::post('/update', 'TrainingUpdate')->name('update');
-            },
-        );
+        Route::prefix('training')->name('training.')->group(function () {
+            Route::get('/list',            [TrainingController::class, 'TrainingList'])->name('list');
+            Route::get('/add',             [TrainingController::class, 'TrainingAdd'])->name('add');
+            Route::post('/store',          [TrainingController::class, 'TrainingStore'])->name('store');
+            Route::get('/edit/{id}',       [TrainingController::class, 'TrainingEdit'])->name('edit');
+            Route::post('/update',         [TrainingController::class, 'TrainingUpdate'])->name('update');
+            Route::get('/delete/{id}',     [TrainingController::class, 'TrainingDelete'])->name('delete');
+        });
     },
 );
 

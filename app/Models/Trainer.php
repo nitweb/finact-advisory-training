@@ -8,8 +8,8 @@ class Trainer extends Model
 {
     protected $guarded = [];
 
-    public function services()
+    public function trainings()
     {
-        return $this->belongsToMany(Service::class, 'service_trainer', 'trainer_id', 'service_id');
+        return $this->belongsToMany(Training::class, 'training_trainer', 'trainer_id', 'training_id');
     }
 }
