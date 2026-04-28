@@ -102,7 +102,7 @@
 
                                 <div class="bkash-number-display">
                                     <i class="fas fa-phone-alt"></i>
-                                    {{ siteSetting()->bkash_number ?? '01XXXXXXXXX' }}
+                                    {{ siteSetting()->bkash_number ?? '01325221133' }}
                                 </div>
 
                                 <div class="enroll-row" style="margin-bottom:0;">
