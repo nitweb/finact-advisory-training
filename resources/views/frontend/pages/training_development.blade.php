@@ -86,23 +86,30 @@
                             @endif
 
                             {{-- Fee row --}}
-                            <div class="t-fee-row">
-                                <div class="t-fee-block">
-                                    <span class="t-fee-lbl">Regular Fee</span>
-                                    @if ($item->regular_fee)
+                            @if ($item->regular_fee)
+                                <div class="t-fee-row">
+                                    <div class="t-fee-block">
+                                        <span class="t-fee-lbl">Regular Fee</span>
                                         <span class="t-fee-reg">৳ {{ number_format($item->regular_fee) }}</span>
-                                    @else
-                                        <span class="t-fee-main">—</span>
-                                    @endif
+                                    </div>
+                                    <div class="t-fee-divider"></div>
+                                    <div class="t-fee-block">
+                                        <span class="t-fee-lbl">Registration Fee</span>
+                                        <span class="t-fee-main">
+                                            {{ $item->registration_fee ? '৳ ' . number_format($item->registration_fee) : '—' }}
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="t-fee-divider"></div>
-                                <div class="t-fee-block">
-                                    <span class="t-fee-lbl">Registration Fee</span>
-                                    <span class="t-fee-main">
-                                        {{ $item->registration_fee ? '৳ ' . number_format($item->registration_fee) : '—' }}
-                                    </span>
+                            @else
+                                <div class="t-fee-row">
+                                    <div class="t-fee-block">
+                                        <span class="t-fee-lbl">Registration Fee</span>
+                                        <span class="t-fee-main">
+                                            {{ $item->registration_fee ? '৳ ' . number_format($item->registration_fee) : '—' }}
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
 
                             {{-- Buttons --}}
                             <div class="t-actions">

@@ -56,7 +56,7 @@
                 </ul>
             </li>
 
-            <li class="dropdown {{ request()->routeIs(['admin.finance.list']) ? 'active' : '' }}">
+            {{-- <li class="dropdown {{ request()->routeIs(['admin.finance.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>
                     <span>Finance Support</span>
@@ -64,7 +64,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.finance.list') }}">Finance Support</a></li>
                 </ul>
-            </li>
+            </li> --}}
 
             <li class="dropdown {{ request()->routeIs('admin.trainer.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
@@ -144,7 +144,7 @@
                     <span>Settings</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('admin.setting.font-awesome') }}">FontAwesome</a></li>
+                    {{-- <li><a class="nav-link" href="{{ route('admin.setting.font-awesome') }}">FontAwesome</a></li> --}}
                     <li><a class="nav-link" href="{{ route('admin.setting.edit', siteSetting()->id) }}">Site Setting</a></li>
                 </ul>
             </li>

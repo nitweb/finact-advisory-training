@@ -78,7 +78,7 @@ class TrainingEnrollmentController extends Controller
         $title = 'Training Enrollment List';
 
         $enrollment_info = Enrollment::with(['training'])
-            ->orderBy('id', 'desc')
+            ->orderBy('id', 'asc')
             ->get();
 
         return view('backend.training_enrollment.list', compact('title', 'enrollment_info'));

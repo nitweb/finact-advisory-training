@@ -19,7 +19,7 @@ class TrainerController extends Controller
     {
         $title = 'Trainer';
 
-        $trainer_list = Trainer::latest()->get();
+        $trainer_list = Trainer::orderBy('id', 'asc')->get();
 
         return view('backend.trainer.list', compact('title', 'trainer_list'));
     } // End Method

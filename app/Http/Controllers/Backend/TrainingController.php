@@ -21,7 +21,7 @@ class TrainingController extends Controller
     public function TrainingList()
     {
         $title         = 'Training List';
-        $training_list = Training::latest()->get();
+        $training_list = Training::orderBy('id', 'asc')->get();
         return view('backend.training.list', compact('title', 'training_list'));
     }
 

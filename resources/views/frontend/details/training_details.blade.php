@@ -89,20 +89,25 @@
                             {{-- Fee --}}
                             @if ($training_details->regular_fee || $training_details->registration_fee)
                                 <div class="td-fee-box">
-                                    <div class="td-fee-half">
-                                        <span class="td-fee-lbl">Regular Fee</span>
-                                        @if ($training_details->regular_fee)
+                                    @if ($training_details->regular_fee)
+                                        <div class="td-fee-half">
+                                            <span class="td-fee-lbl">Regular Fee</span>
                                             <span class="td-fee-reg">৳ {{ number_format($training_details->regular_fee) }}</span>
-                                        @else
-                                            <span class="td-fee-main">—</span>
-                                        @endif
-                                    </div>
-                                    <div class="td-fee-half">
-                                        <span class="td-fee-lbl">Registration Fee</span>
-                                        <span class="td-fee-main">
-                                            {{ $training_details->registration_fee ? '৳ ' . number_format($training_details->registration_fee) : '—' }}
-                                        </span>
-                                    </div>
+                                        </div>
+                                        <div class="td-fee-half">
+                                            <span class="td-fee-lbl">Registration Fee</span>
+                                            <span class="td-fee-main">
+                                                {{ $training_details->registration_fee ? '৳ ' . number_format($training_details->registration_fee) : '—' }}
+                                            </span>
+                                        </div>
+                                    @else
+                                        <div class="td-fee-half">
+                                            <span class="td-fee-lbl">Registration Fee</span>
+                                            <span class="td-fee-main">
+                                                {{ $training_details->registration_fee ? '৳ ' . number_format($training_details->registration_fee) : '—' }}
+                                            </span>
+                                        </div>
+                                    @endif
                                 </div>
                             @endif
 
