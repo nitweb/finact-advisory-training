@@ -186,4 +186,38 @@
         </section>
     </div>
 
+    <script>
+        document.getElementById('form').addEventListener('submit', function(e) {
+
+            const regularFee = parseFloat(document.querySelector('[name="regular_fee"]').value) || 0;
+            const registrationFee = parseFloat(document.querySelector('[name="registration_fee"]').value) || 0;
+            const regFeeInput = document.querySelector('[name="registration_fee"]');
+
+            // আগের error সরাও
+            regFeeInput.classList.remove('is-invalid');
+            const oldErr = document.getElementById('reg-fee-error');
+            if (oldErr) oldErr.remove();
+
+            // Check: Registration Fee > Regular Fee হলে block করো
+            if (regularFee > 0 && registrationFee > regularFee) {
+                e.preventDefault();
+
+                regFeeInput.classList.add('is-invalid');
+
+                const err = document.createElement('span');
+                err.id = 'reg-fee-error';
+                err.className = 'invalid-feedback d-block';
+                err.textContent = '⚠️ Registration Fee cannot be greater than Regular Fee (' + regularFee + ').';
+                regFeeInput.parentNode.appendChild(err);
+
+                regFeeInput.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                regFeeInput.focus();
+            }
+
+        });
+    </script>
+
 @endsection
