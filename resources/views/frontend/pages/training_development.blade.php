@@ -109,7 +109,7 @@
                                 <a href="{{ route('frontend.training.development.details', $item->slug) }}" class="t-btn-outline">
                                     View Details
                                 </a>
-                                <a href="{{ route('frontend.training.development.details', $item->slug) }}" class="t-btn-fill">
+                                <a href="{{ route('frontend.training.enroll', $item->slug) }}" class="t-btn-fill">
                                     Enroll Now
                                 </a>
                             </div>

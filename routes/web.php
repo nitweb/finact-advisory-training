@@ -26,6 +26,7 @@ use App\Http\Controllers\Backend\TrainingController;
 use App\Http\Controllers\Backend\WhoWeAreController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TrainingEnrollmentController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -90,6 +91,12 @@ Route::group(
 
                 // Trainer
                 Route::get('/trainer/{slug}', 'trainerDetails')->name('trainer.details');
+
+                // Training Enroll
+                Route::get('/training/enroll/{slug}', [TrainingEnrollmentController::class, 'EnrollPage'])->name('training.enroll');
+                Route::post('/training/enroll/submit', [TrainingEnrollmentController::class, 'EnrollSubmit'])->name('training.enroll.submit');
+                Route::get('/training/enroll/success/{invoice}', [TrainingEnrollmentController::class, 'EnrollSuccess'])->name('training.enroll.success');
+                Route::get('/training/enroll/invoice/{invoice}', [TrainingEnrollmentController::class, 'downloadInvoice'])->name('training.enroll.invoice');
 
                 // Route::get('/who-we-are', 'WhoWeAre')->name('who.we.are');
             },
@@ -478,14 +485,26 @@ Route::group(
         );
 
         // Training & Development All Routes
-        Route::prefix('training')->name('training.')->group(function () {
-            Route::get('/list',            [TrainingController::class, 'TrainingList'])->name('list');
-            Route::get('/add',             [TrainingController::class, 'TrainingAdd'])->name('add');
-            Route::post('/store',          [TrainingController::class, 'TrainingStore'])->name('store');
-            Route::get('/edit/{id}',       [TrainingController::class, 'TrainingEdit'])->name('edit');
-            Route::post('/update',         [TrainingController::class, 'TrainingUpdate'])->name('update');
-            Route::get('/delete/{id}',     [TrainingController::class, 'TrainingDelete'])->name('delete');
-        });
+        Route::prefix('training')
+            ->name('training.')
+            ->group(function () {
+                Route::get('/list', [TrainingController::class, 'TrainingList'])->name('list');
+                Route::get('/add', [TrainingController::class, 'TrainingAdd'])->name('add');
+                Route::post('/store', [TrainingController::class, 'TrainingStore'])->name('store');
+                Route::get('/edit/{id}', [TrainingController::class, 'TrainingEdit'])->name('edit');
+                Route::post('/update', [TrainingController::class, 'TrainingUpdate'])->name('update');
+                Route::get('/delete/{id}', [TrainingController::class, 'TrainingDelete'])->name('delete');
+            });
+
+        Route::prefix('training/enrollment')
+            ->controller(TrainingEnrollmentController::class)
+            ->name('training.enrollment.')
+            ->group(function () {
+                Route::get('/list', 'index')->name('list');
+                Route::get('/show/{enrollment}', 'show')->name('show');
+                Route::delete('/delete/{enrollment}', 'destroy')->name('delete');
+                Route::patch('/status/{enrollment}', 'updateStatus')->name('status');
+            });
     },
 );
 

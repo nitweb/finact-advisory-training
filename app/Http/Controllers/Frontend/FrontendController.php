@@ -267,4 +267,9 @@ class FrontendController extends Controller
 
         return view('frontend.details.trainer_details', compact('trainer', 'trainings'));
     }
+
+    public function EnrollPage()
+    {
+        return view('frontend.pages.enroll');
+    }
 }

@@ -13,4 +13,9 @@ class Training extends Model
     {
         return $this->belongsToMany(Trainer::class, 'training_trainer', 'training_id', 'trainer_id');
     }
+
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class, 'training_id', 'id');
+    }
 }

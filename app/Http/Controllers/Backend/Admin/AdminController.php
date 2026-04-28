@@ -6,10 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
 use App\Models\Blog;
 use App\Models\Contact;
+use App\Models\Enrollment;
 use App\Models\Gallery;
 use App\Models\OurTeam;
 use App\Models\Service;
 use App\Models\Slider;
+use App\Models\Trainer;
+use App\Models\Training;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,22 +27,16 @@ class AdminController extends Controller
 {
     public function AdminDashboard()
     {
-        $slider = Slider::where('status', 'active')->latest()->get();
-
-        $about_us = AboutUs::where('id', 1)->latest()->get();
-
-        $chairman_message = AboutUs::where('id', 2)->latest()->get();
-
-        $our_team = OurTeam::where('status', 'active')->latest()->get();
-
-        $service = Service::where('status', 'active')->latest()->get();
-
+        $services = Service::where('status', 'active')->latest()->get();
+        $trainers = Trainer::where('status', 'active')->latest()->get();
+        $trainings = Training::where('status', 'active')->latest()->get();
+        $enrollments = Enrollment::latest()->get();
+        $blogs = Blog::where('status', 'active')->latest()->get();
         $galleries = Gallery::all();
+        $contacts = Contact::latest()->get();
 
-        $contact_message = Contact::latest()->get();
-
-        return view('backend.admin.index', compact('slider', 'about_us', 'chairman_message', 'our_team', 'service', 'galleries', 'contact_message'));
-    } // End Method
+        return view('backend.admin.index', compact('services', 'trainers', 'trainings', 'enrollments', 'blogs', 'galleries', 'contacts'));
+    }
 
     public function AdminLogout(Request $request)
     {

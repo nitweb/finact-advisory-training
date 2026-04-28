@@ -107,7 +107,7 @@
                             @endif
 
                             {{-- Enroll --}}
-                            <a href="#" class="td-enroll-btn">
+                            <a href="{{ route('frontend.training.enroll', $training_details->slug) }}" class="td-enroll-btn">
                                 Enroll Now <i class="fas fa-arrow-right" style="font-size:12px; margin-left:4px;"></i>
                             </a>
 
