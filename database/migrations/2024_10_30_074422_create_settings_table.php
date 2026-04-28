@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('site_phone_alter')->nullable();
             $table->string('site_email')->nullable();
             $table->string('site_email_alter')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
             $table->timestamps();
         });
     }

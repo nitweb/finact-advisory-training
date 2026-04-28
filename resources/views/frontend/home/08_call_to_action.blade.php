@@ -24,7 +24,7 @@
 
             <div class="newsletter-two__right">
 
-                <div class="contact-two__btn-box">
+                <div class="contact-two__btn-box mb-3">
                     <a href="{{ route('frontend.contact.us') }}" class="thm-btn">Contact Us
                         <span class="fas fa-arrow-right"></span>
                     </a>

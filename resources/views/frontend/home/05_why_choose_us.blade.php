@@ -6,6 +6,22 @@
 
         <div class="row">
 
+            <div class="col-xl-6 show_mobile" style="display: flex; align-items: center;">
+
+                <div class="why-choose-three__shape-1 rotate-me">
+                    <img src="{{ asset('frontend/assets/images/shapes/why-choose-three-shape-1.png') }}" alt="">
+                </div>
+
+                <div class="about-three__left wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
+                    <div class="about-three__img-box">
+                        <div class="about-three__img">
+                            <img src="{{ asset('uploads/static_images/why_choose_us.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <div class="col-xl-6" style="display: flex; align-items: center;">
 
                 <div class="about-three__right">
@@ -69,7 +85,7 @@
 
             </div>
 
-            <div class="col-xl-6" style="display: flex; align-items: center;">
+            <div class="col-xl-6 show_desktop" style="display: flex; align-items: center;">
 
                 <div class="why-choose-three__shape-1 rotate-me">
                     <img src="{{ asset('frontend/assets/images/shapes/why-choose-three-shape-1.png') }}" alt="">

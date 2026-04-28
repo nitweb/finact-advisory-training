@@ -26,7 +26,7 @@ class EnlistmentController extends Controller
     {
         $title = 'Important Enlistment Edit';
 
-        $enlistment = Enlistment::get()->first();
+        $enlistment = Enlistment::get()->firstOrFail();
 
         return view('backend.enlistment.edit', compact('title', 'enlistment'));
     } // End Method

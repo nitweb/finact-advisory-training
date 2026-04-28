@@ -38,7 +38,7 @@
 
             <div class="row">
                 @foreach ($services as $item)
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInLeft d-flex" data-wow-delay="100ms">
+                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInLeft d-flex custom_mobile_margin" data-wow-delay="100ms">
                         <div class="services-two__single w-100 d-flex flex-column">
                             <div class="services-two__img-box">
                                 <div class="services-two__img" style="height: 250px; overflow: hidden;">

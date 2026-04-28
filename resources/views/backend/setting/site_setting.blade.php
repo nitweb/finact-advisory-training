@@ -119,6 +119,16 @@
                                             <input type="text" class="form-control" name="instagram" value="{{ $site_setting->instagram }}">
                                         </div>
 
+                                        <div class="col-md-12 mb-3">
+                                            <label class="col-form-label">Meta Title</label>
+                                            <input type="text" class="form-control" name="meta_title" value="{{ old('meta_title', $site_setting->meta_title) }}">
+                                        </div>
+
+                                        <div class="col-md-12 mb-4">
+                                            <label class="col-form-label">Meta Description</label>
+                                            <textarea name="meta_description" rows="4" class="form-control">{{ old('meta_description', $site_setting->meta_description) }}</textarea>
+                                        </div>
+
                                     </div>
 
                                 </div>

@@ -49,6 +49,10 @@
 
                             <li class="{{ request()->routeIs('frontend.blog.list') ? 'active' : '' }}"><a href="{{ route('frontend.blog.list') }}">Blog</a></li>
 
+                            <li class="d-lg-none {{ request()->routeIs('frontend.contact.us') ? 'active' : '' }}">
+                                <a href="{{ route('frontend.contact.us') }}">Contact Us</a>
+                            </li>
+
                         </ul>
 
                     </div>

@@ -107,7 +107,9 @@
                                         </div>
                                         <div class="sidebar__post-content">
                                             <h3 class="sidebar__post-title">
-                                                <a href="{{ route('frontend.blog.details', $item->slug) }}">{{ $item->title }}</a>
+                                                <a href="{{ route('frontend.blog.details', $item->slug) }}" title="{{ $item->title }}">
+                                                    {{ Str::limit($item->title, 50) }}
+                                                </a>
                                             </h3>
                                             <div style="display: flex;gap: 20px;">
                                                 <p class="sidebar__post-date"><span class="icon-calendar"></span>{{ \Carbon\Carbon::parse($blog->date)->format('F j, Y') }}</p>

@@ -178,7 +178,7 @@
                     Our <span>Operating</span> Principles
                 </h2>
             </div>
-            <div class="what-we-do__cards" style="grid-template-columns: repeat(2, minmax(280px, 1fr));">
+            <div class="what-we-do__cards what-we-do__cards--2col">
                 <div class="what-we-do__card" data-aos="fade-up" data-aos-delay="100">
                     <div class="what-we-do__card-icon"><i class="fas fa-user-shield"></i></div>
                     <h3 class="what-we-do__card-title">Professional Oversight &amp; Periodic Review</h3>

@@ -96,7 +96,7 @@
                                 <div class="bkash-instruction">
                                     <strong>How to pay:</strong>
                                     Send <strong>৳ {{ number_format($training->registration_fee ?? 0) }}</strong>
-                                    to the bKash number below using <strong>Send Money</strong>,
+                                    to the bKash number below using <strong>Send Money</strong>
                                     then enter your bKash number and Transaction ID below.
                                 </div>
 
@@ -106,13 +106,15 @@
                                 </div>
 
                                 <div class="enroll-row" style="margin-bottom:0;">
+
                                     <div class="enroll-field" style="margin-bottom:0;">
                                         <label>Your bKash Number *</label>
-                                        <input type="text" name="bkash_number" value="{{ old('bkash_number') }}" placeholder="01XXXXXXXXX" required>
+                                        <input type="text" name="bkash_number" value="{{ old('bkash_number') }}" placeholder="01XXXXXXXXX" pattern="^(?:\+?88)?01[3-9]\d{8}$" maxlength="14" required>
                                         @error('bkash_number')
                                             <small>{{ $message }}</small>
                                         @enderror
                                     </div>
+
                                     <div class="enroll-field" style="margin-bottom:0;">
                                         <label>Transaction ID *</label>
                                         <input type="text" name="bkash_trx_id" value="{{ old('bkash_trx_id') }}" placeholder="e.g. 8A7B6C5D4E" required>
@@ -120,6 +122,7 @@
                                             <small>{{ $message }}</small>
                                         @enderror
                                     </div>
+
                                 </div>
                             </div>
 

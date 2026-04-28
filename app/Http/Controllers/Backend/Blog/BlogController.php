@@ -163,7 +163,7 @@ class BlogController extends Controller
             $blog->updated_by = Auth::user()->id;
             $blog->save();
 
-            $blogDetails = BlogDetails::where('blog_id', $blog->id)->first();
+            $blogDetails = BlogDetails::where('blog_id', $blog->id)->firstOrFail();
             if (!$blogDetails) {
                 $blogDetails = new BlogDetails();
                 $blogDetails->blog_id = $blog->id;
@@ -206,7 +206,7 @@ class BlogController extends Controller
 
         try {
             $blog = Blog::findOrFail($id);
-            $blogDetails = BlogDetails::where('blog_id', $id)->first();
+            $blogDetails = BlogDetails::where('blog_id', $id)->firstOrFail();
 
             if (!$blog || !$blogDetails) {
                 abort(404);

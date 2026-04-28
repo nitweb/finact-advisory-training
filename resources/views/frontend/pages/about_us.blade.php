@@ -28,6 +28,13 @@
         <div class="floating-shape floating-shape-3"></div>
         <div class="container">
             <div class="row align-items-center">
+                <div class="col-lg-6 show_mobile mb-3">
+                    <div class="who-we-are__image-wrapper" data-aos="fade-left">
+                        <div class="who-we-are__image">
+                            <img src="{{ asset('uploads/static_images/who_we_are.png') }}" alt="Who We Are" style="width: 595px;">
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="who-we-are__content" data-aos="fade-right">
                         <div class="section-title__tagline-box">
@@ -44,10 +51,10 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 show_desktop">
                     <div class="who-we-are__image-wrapper" data-aos="fade-left">
                         <div class="who-we-are__image">
-                            <img src="{{ asset('uploads/static_images/who_we_are.png') }}" alt="Who We Are">
+                            <img src="{{ asset('uploads/static_images/who_we_are.png') }}" alt="Who We Are" style="width: 595px;">
                         </div>
                     </div>
                 </div>
@@ -62,7 +69,7 @@
         <div class="floating-shape floating-shape-3"></div>
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6 mb-3">
                     <div class="who-we-are__image-wrapper" data-aos="fade-left">
                         <div class="who-we-are__image">
                             <img src="{{ asset('uploads/static_images/our_philosophy.png') }}" alt="Who We Are">
@@ -453,6 +460,11 @@
     <section class="technology-section">
         <div class="container">
             <div class="technology__wrapper">
+                <div class="technology__image show_mobile" data-aos="fade-right">
+                    <div class="technology__image-main">
+                        <img src="{{ asset('uploads/static_images/strategic_direction.jpg') }}" alt="Strategic Direction" style="width: 595px;">
+                    </div>
+                </div>
                 <div class="technology__content" data-aos="fade-left">
                     <div class="section-title__tagline-box">
                         <span class="section-title__tagline">Looking Forward</span>
@@ -473,9 +485,9 @@
                         Its strategic direction is centered on applying structured methods and appropriate technology where they add value, while maintaining consistency, quality, and professional integrity in all circumstances.
                     </p>
                 </div>
-                <div class="technology__image" data-aos="fade-right">
+                <div class="technology__image show_desktop" data-aos="fade-right">
                     <div class="technology__image-main">
-                        <img src="{{ asset('uploads/static_images/strategic_direction.jpg') }}" alt="Strategic Direction">
+                        <img src="{{ asset('uploads/static_images/strategic_direction.jpg') }}" alt="Strategic Direction" style="width: 595px;">
                     </div>
                 </div>
             </div>

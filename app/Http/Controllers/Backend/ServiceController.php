@@ -156,7 +156,7 @@ class ServiceController extends Controller
             $service->updated_by = Auth::user()->id;
             $service->save();
 
-            $serviceDetails = ServiceDetails::where('service_id', $service->id)->first();
+            $serviceDetails = ServiceDetails::where('service_id', $service->id)->firstOrFail();
             if (!$serviceDetails) {
                 $serviceDetails = new ServiceDetails();
                 $serviceDetails->service_id = $service->id;
@@ -202,7 +202,7 @@ class ServiceController extends Controller
 
         try {
             $service = Service::findOrFail($id);
-            $serviceDetails = ServiceDetails::where('service_id', $id)->first();
+            $serviceDetails = ServiceDetails::where('service_id', $id)->firstOrFail();
 
             if (!$service || !$serviceDetails) {
                 abort(404);

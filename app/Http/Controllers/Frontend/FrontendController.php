@@ -31,7 +31,7 @@ class FrontendController extends Controller
     {
         $slider = Slider::where('status', 'active')->orderBy('id', 'desc')->get();
 
-        $about_us = AboutUs::where('id', 1)->latest()->get()->first();
+        $about_us = AboutUs::where('id', 1)->latest()->get()->firstOrFail();
 
         $services = Service::where('status', 'active')->orderBy('id', 'asc')->get();
 
@@ -53,7 +53,7 @@ class FrontendController extends Controller
     public function ServiceDetails($slug)
     {
         $service_list = Service::where('status', 'active')->orderBy('id', 'asc')->get();
-        $service = Service::where('slug', $slug)->first();
+        $service = Service::where('slug', $slug)->firstOrFail();
         return view('frontend.details.service_details', compact('service_list', 'service'));
     } // End Method
 
@@ -65,9 +65,9 @@ class FrontendController extends Controller
 
     public function AboutUs()
     {
-        $about_us = AboutUs::where('id', 1)->latest()->get()->first();
+        $about_us = AboutUs::where('id', 1)->latest()->get()->firstOrFail();
 
-        $about_message = AboutUs::where('id', 2)->latest()->get()->first();
+        $about_message = AboutUs::where('id', 2)->latest()->get()->firstOrFail();
 
         $team = OurTeam::where('status', 'active')->latest()->get();
 
@@ -81,19 +81,19 @@ class FrontendController extends Controller
             })
             ->sortBy('id');
 
-        $our_mission = OurContents::where('id', 1)->latest()->get()->first();
-        $our_vision = OurContents::where('id', 2)->latest()->get()->first();
-        $shared_beliefs = OurContents::where('id', 3)->latest()->get()->first();
-        $organizational_strength = OurContents::where('id', 4)->latest()->get()->first();
-        $operational_strength = OurContents::where('id', 5)->latest()->get()->first();
-        $commitment = OurContents::where('id', 6)->latest()->get()->first();
+        $our_mission = OurContents::where('id', 1)->latest()->get()->firstOrFail();
+        $our_vision = OurContents::where('id', 2)->latest()->get()->firstOrFail();
+        $shared_beliefs = OurContents::where('id', 3)->latest()->get()->firstOrFail();
+        $organizational_strength = OurContents::where('id', 4)->latest()->get()->firstOrFail();
+        $operational_strength = OurContents::where('id', 5)->latest()->get()->firstOrFail();
+        $commitment = OurContents::where('id', 6)->latest()->get()->firstOrFail();
 
         return view('frontend.pages.about_us', compact('about_us', 'about_message', 'team', 'top_level_team', 'student_level_team', 'our_mission', 'our_vision', 'shared_beliefs', 'organizational_strength', 'operational_strength', 'commitment'));
     } // End Method
 
     public function ImportantEnlistment()
     {
-        $enlistment = Enlistment::latest()->get()->first();
+        $enlistment = Enlistment::latest()->get()->firstOrFail();
         return view('frontend.pages.important_enlistment', compact('enlistment'));
     } // End Method
 
@@ -118,7 +118,7 @@ class FrontendController extends Controller
 
     public function ContactUs()
     {
-        $site_setting = Setting::first();
+        $site_setting = Setting::firstOrFail();
         $services = Service::where('status', 'active')->latest()->get();
         return view('frontend.pages.contact_us', compact('site_setting', 'services'));
     } // End Method
@@ -131,8 +131,8 @@ class FrontendController extends Controller
 
     public function BlogDetails($slug)
     {
-        $blog = Blog::where('slug', $slug)->first();
-        $author = User::where('id', $blog->created_by)->first()->name;
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+        $author = User::where('id', $blog->created_by)->firstOrFail()->name;
         $recent_blogs = Blog::where('status', 'active')->latest()->take(5)->get();
 
         return view('frontend.details.blog_details', compact('blog', 'author', 'recent_blogs'));
@@ -188,13 +188,13 @@ class FrontendController extends Controller
         $student_level_team = $team->filter(function ($item) {
             return $item->type == 'student_level';
         });
-        $team_founder = OurTeam::where('status', 'active')->where('type', 'founder')->get()->first();
+        $team_founder = OurTeam::where('status', 'active')->where('type', 'founder')->get()->firstOrFail();
         return view('frontend.pages.our_team', compact('team', 'top_level_team', 'middle_level_team', 'student_level_team', 'team_founder'));
     } // End Method
 
     public function TeamDetails($slug)
     {
-        $team = OurTeam::where('slug', $slug)->first();
+        $team = OurTeam::where('slug', $slug)->firstOrFail();
         return view('frontend.details.team_details', compact('team'));
     } // End Method
 
@@ -206,7 +206,7 @@ class FrontendController extends Controller
 
     public function CareerDetails($slug)
     {
-        $job_application = Career::where('slug', $slug)->first();
+        $job_application = Career::where('slug', $slug)->firstOrFail();
         return view('frontend.details.job_details', compact('job_application'));
     } // End Method
 
@@ -224,7 +224,7 @@ class FrontendController extends Controller
 
     public function showProfile()
     {
-        $successful_portfolios = SuccessfulPortfolios::first();
+        $successful_portfolios = SuccessfulPortfolios::firstOrFail();
         // dd($successful_portfolios);
         return view('frontend.pages.profile', compact('successful_portfolios'));
     }
@@ -243,7 +243,7 @@ class FrontendController extends Controller
 
     public function RemoteSupport()
     {
-        $finance_info = Finance::first();
+        $finance_info = Finance::firstOrFail();
         return view('frontend.pages.remote_support', compact('finance_info'));
     } // End Method
 

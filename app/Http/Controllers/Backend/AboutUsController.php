@@ -27,7 +27,7 @@ class AboutUsController extends Controller
     {
         $title = 'About Our Firm Edit';
 
-        $about_us = AboutUs::where('id', 1)->take(1)->get()->first();
+        $about_us = AboutUs::where('id', 1)->take(1)->get()->firstOrFail();
 
         return view('backend.about_us.edit', compact('title', 'about_us'));
     } // End Method
@@ -52,7 +52,7 @@ class AboutUsController extends Controller
         );
 
         try {
-            $data = AboutUs::where('id', 1)->take(1)->first();
+            $data = AboutUs::where('id', 1)->take(1)->firstOrFail();
             if (!$data) {
                 abort(404);
             }
@@ -103,7 +103,7 @@ class AboutUsController extends Controller
     {
         $title = 'Managing Partner Message Edit';
 
-        $about_message = AboutUs::where('id', '=', 2)->take(1)->get()->first();
+        $about_message = AboutUs::where('id', '=', 2)->take(1)->get()->firstOrFail();
 
         return view('backend.about_message.edit', compact('title', 'about_message'));
     } // End Method
@@ -130,7 +130,7 @@ class AboutUsController extends Controller
         );
 
         try {
-            $data = AboutUs::where('id', '=', 2)->take(1)->first();
+            $data = AboutUs::where('id', '=', 2)->take(1)->firstOrFail();
             if (!$data) {
                 abort(404);
             }

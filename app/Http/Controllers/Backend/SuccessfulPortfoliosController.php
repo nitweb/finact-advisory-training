@@ -26,7 +26,7 @@ class SuccessfulPortfoliosController extends Controller
     {
         $title = 'Firm Profile Edit';
 
-        $successful_portfolios = SuccessfulPortfolios::get()->first();
+        $successful_portfolios = SuccessfulPortfolios::get()->firstOrFail();
 
         return view('backend.successful_portfolios.edit', compact('title', 'successful_portfolios'));
     } // End Method

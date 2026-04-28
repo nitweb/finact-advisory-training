@@ -8,10 +8,12 @@
 
     <title>@yield('frontend_title') | Finact Advisory Training</title>
 
+    <meta name="meta_title" content="{{ siteSetting()->meta_title }}" />
+    <meta name="meta_description" content="{{ siteSetting()->meta_description }}" />
+
     <!-- favicons Icons -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/assets/images/favicons/fav.png') }}" />
 
-    <meta name="description" content="Itzone HTML 5 Template " />
 
     <!-- fonts -->
     {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,6 +68,28 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css') }}?v={{ time() }}" />
+
+    <style>
+        /* Mobile: show_mobile দেখাবে, show_desktop লুকাবে */
+        .show_mobile {
+            display: flex !important;
+        }
+
+        .show_desktop {
+            display: none !important;
+        }
+
+        /* Desktop (992px+): show_desktop দেখাবে, show_mobile লুকাবে */
+        @media (min-width: 992px) {
+            .show_desktop {
+                display: flex !important;
+            }
+
+            .show_mobile {
+                display: none !important;
+            }
+        }
+    </style>
 
 </head>
 
