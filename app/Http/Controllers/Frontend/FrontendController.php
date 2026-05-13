@@ -19,6 +19,7 @@ use App\Models\ServiceCategory;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\SuccessfulPortfolios;
+use App\Models\Testimonial;
 use App\Models\Trainer;
 use App\Models\Training;
 use App\Models\User;
@@ -47,7 +48,9 @@ class FrontendController extends Controller
 
         $client = Client::where('status', 'active')->orderBy('id', 'desc')->get();
 
-        return view('frontend.index', compact('slider', 'about_us', 'services', 'our_team', 'top_level_team', 'client', 'blog'));
+        $testimonials = Testimonial::where('status', 'active')->orderBy('id', 'desc')->get();
+
+        return view('frontend.index', compact('slider', 'about_us', 'services', 'our_team', 'top_level_team', 'client', 'blog', 'testimonials'));
     } // End Method
 
     public function ServiceDetails($slug)
@@ -272,4 +275,10 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.enroll');
     }
+
+    public function Testimonials()
+    {
+        $testimonials = Testimonial::where('status', 'active')->orderBy('id', 'desc')->get();
+        return view('frontend.pages.testimonials', compact('testimonials'));
+    } // End Method
 }

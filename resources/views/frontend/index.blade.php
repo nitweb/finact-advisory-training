@@ -20,10 +20,13 @@
     {{-- Global Remote Finance Section --}}
     @include('frontend.home.06_global_remote_finance')
 
+    {{-- Testimonials Section --}}
+    @include('frontend.home.07_testimonials')
+
     {{-- Blog Section --}}
-    @include('frontend.home.07_blog')
+    @include('frontend.home.08_blog')
 
     {{-- Call To Action Section --}}
-    @include('frontend.home.08_call_to_action')
+    @include('frontend.home.09_call_to_action')
 
 @endsection

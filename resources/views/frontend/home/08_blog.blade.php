@@ -56,13 +56,23 @@
                             </div>
 
                         </div>
-                        
+
                     </div>
 
                 </li>
             @endforeach
 
         </ul>
+
+        <div class="row">
+            <div class="col-12 text-center mt-3">
+                <div class="about-one__btn-box">
+                    <a href="{{ route('frontend.blog.list') }}" class="thm-btn">
+                        View All Blog<span class="fas fa-arrow-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
     </div>
 

@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\ServiceSubCategoryController;
 use App\Http\Controllers\Backend\Settings\SettingController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SuccessfulPortfoliosController;
+use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\TrainerController;
 use App\Http\Controllers\Backend\TrainingController;
 use App\Http\Controllers\Backend\WhoWeAreController;
@@ -99,6 +100,8 @@ Route::group(
                 Route::get('/training/enroll/invoice/{invoice}', [TrainingEnrollmentController::class, 'downloadInvoice'])->name('training.enroll.invoice');
 
                 // Route::get('/who-we-are', 'WhoWeAre')->name('who.we.are');
+
+                Route::get('/testimonials', 'Testimonials')->name('testimonials');
             },
         );
     },
@@ -505,6 +508,23 @@ Route::group(
                 Route::delete('/delete/{enrollment}', 'destroy')->name('delete');
                 Route::patch('/status/{enrollment}', 'updateStatus')->name('status');
             });
+
+        // Testimonial All Routes
+        Route::group(
+            [
+                'prefix' => 'testimonial',
+                'controller' => TestimonialController::class,
+                'as' => 'testimonial.',
+            ],
+            function () {
+                Route::get('/list', 'TestimonialList')->name('list');
+                Route::get('/add', 'TestimonialAdd')->name('add');
+                Route::post('/store', 'TestimonialStore')->name('store');
+                Route::get('/edit/{id}', 'TestimonialEdit')->name('edit');
+                Route::post('/update', 'TestimonialUpdate')->name('update');
+                Route::get('/delete/{id}', 'TestimonialDelete')->name('delete');
+            },
+        );
     },
 );
 

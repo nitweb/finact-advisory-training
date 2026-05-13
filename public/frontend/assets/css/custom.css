@@ -3908,7 +3908,7 @@
     .container {
         overflow-x: hidden;
     }
-    
+
     img {
         max-width: 100% !important;
         height: auto;
@@ -3935,3 +3935,6 @@
     }
 }
 
+.testimonial-two__client-ratting span {
+    color: #ffa426;
+}
