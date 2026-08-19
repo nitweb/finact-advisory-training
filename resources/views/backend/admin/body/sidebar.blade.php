@@ -79,10 +79,10 @@
             <li class="dropdown {{ request()->routeIs(['admin.training.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>
-                    <span>Training & Development</span>
+                    <span>Professional Academy</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('admin.training.list') }}">Training & Development</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.training.list') }}">Academy List</a></li>
                 </ul>
             </li>
 

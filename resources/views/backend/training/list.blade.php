@@ -93,7 +93,7 @@
                     <h3 class="modal-title fs-5"></h3>
                 </div>
                 <div class="modal-body">
-                    <h5>Are you sure you want to delete this Training?</h5>
+                    <h5>Are you sure you want to delete this Academy?</h5>
                 </div>
                 <div class="modal-footer" style="justify-content: space-between">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>

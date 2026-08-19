@@ -37,7 +37,7 @@
 
                                         {{-- Image --}}
                                         <div class="col-md-12 mb-3">
-                                            <label class="col-form-label">Training Image [850px by 400px]</label>
+                                            <label class="col-form-label">Academy Image [850px by 400px]</label>
                                             <div id="image-preview" class="image-preview">
                                                 <label for="image-upload" id="image-label">Choose File</label>
                                                 <input type="file" name="training_image" id="image-upload">
@@ -62,7 +62,7 @@
 
                                         {{-- Type --}}
                                         <div class="col-md-6 mb-3">
-                                            <label class="col-form-label">Training Type</label>
+                                            <label class="col-form-label">Academy Type</label>
                                             <select class="form-control selectric" name="type">
                                                 <option value="" disabled>— Select Type —</option>
                                                 <option value="online" {{ old('type', $training_info->type) == 'online' ? 'selected' : '' }}>Online</option>

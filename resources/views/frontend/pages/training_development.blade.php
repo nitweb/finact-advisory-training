@@ -1,5 +1,5 @@
 @extends('frontend.dashboard')
-@section('frontend_title', 'Training & Development')
+@section('frontend_title', 'Professional Academy')
 
 @section('frontend_content')
 
@@ -8,12 +8,12 @@
         <div class="page-header__bg" style="background-image: url({{ asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }});"></div>
         <div class="container">
             <div class="page-header__inner">
-                <h3>Training & Development</h3>
+                <h3>Professional Academy</h3>
                 <div class="thm-breadcrumb__inner">
                     <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="{{ route('frontend.index') }}">Home</a></li>
                         <li><span class="icon-arrow-angle-pointing-to-right"></span></li>
-                        <li>Training & Development</li>
+                        <li>Professional Academy</li>
                     </ul>
                 </div>
             </div>

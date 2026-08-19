@@ -13,7 +13,7 @@
                     <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="{{ route('frontend.index') }}">Home</a></li>
                         <li><span class="icon-arrow-angle-pointing-to-right"></span></li>
-                        <li><a href="{{ route('frontend.training.development') }}">Training & Development</a></li>
+                        <li><a href="{{ route('frontend.training.development') }}">Professional Academy</a></li>
                         <li><span class="icon-arrow-angle-pointing-to-right"></span></li>
                         <li>{{ Str::limit($training_details->title, 30) }}</li>
                     </ul>

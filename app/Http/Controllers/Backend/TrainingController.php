@@ -20,7 +20,7 @@ class TrainingController extends Controller
     // LIST
     public function TrainingList()
     {
-        $title         = 'Training List';
+        $title         = 'Academy List';
         $training_list = Training::orderBy('id', 'asc')->get();
         return view('backend.training.list', compact('title', 'training_list'));
     }
@@ -28,7 +28,7 @@ class TrainingController extends Controller
     // ADD FORM
     public function TrainingAdd()
     {
-        $title    = 'Add Training';
+        $title    = 'Add Academy';
         $trainers = Trainer::all();
         return view('backend.training.add', compact('title', 'trainers'));
     }
@@ -113,7 +113,7 @@ class TrainingController extends Controller
     // EDIT FORM
     public function TrainingEdit($id)
     {
-        $title         = 'Edit Training';
+        $title         = 'Edit Academy';
         $trainers      = Trainer::all();
         $training_info = Training::with('trainers')->findOrFail($id);
         return view('backend.training.edit', compact('title', 'trainers', 'training_info'));

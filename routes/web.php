@@ -87,8 +87,8 @@ Route::group(
                 Route::get('/global-remote-finance-support', 'RemoteSupport')->name('remote.support');
 
                 // Training & Development
-                Route::get('/training-and-development', 'TrainingDevelopment')->name('training.development');
-                Route::get('/training-and-development/{slug}', 'TrainingDevelopmentDetails')->name('training.development.details');
+                Route::get('/professional-academy', 'TrainingDevelopment')->name('training.development');
+                Route::get('/professional-academy/{slug}', 'TrainingDevelopmentDetails')->name('training.development.details');
 
                 // Trainer
                 Route::get('/trainer/{slug}', 'trainerDetails')->name('trainer.details');
@@ -488,7 +488,7 @@ Route::group(
         );
 
         // Training & Development All Routes
-        Route::prefix('training')
+        Route::prefix('academy')
             ->name('training.')
             ->group(function () {
                 Route::get('/list', [TrainingController::class, 'TrainingList'])->name('list');
