@@ -14,6 +14,20 @@
     <!-- favicons Icons -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/assets/images/favicons/fav.png') }}" />
 
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@yield('frontend_title') | Finact Advisory Training" />
+    <meta property="og:description" content="Finact Advisory Training: Trusted expertise in accounting, audit, and financial advisory services, committed to excellence and client success." />
+    <meta property="og:image" content="{{ asset('frontend/assets/images/og.jpeg') }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:site_name" content="Finact Advisory Training" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@yield('frontend_title') | Finact Advisory Training" />
+    <meta name="twitter:description" content="Finact Advisory Training: Trusted expertise in accounting, audit, and financial advisory services, committed to excellence and client success." />
+    <meta name="twitter:image" content="{{ asset('frontend/assets/images/og.jpeg') }}" />
+
 
     <!-- fonts -->
     {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
