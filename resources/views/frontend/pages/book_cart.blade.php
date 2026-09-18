@@ -68,8 +68,8 @@
                                     </td>
                                     <td data-label="Subtotal"><span class="cart-item__subtotal">৳ <span class="cart-item__subtotal-value">{{ number_format($item['price'] * $item['quantity']) }}</span></span></td>
                                     <td data-label="">
-                                        <a href="{{ route('frontend.book.cart.remove', $id) }}" class="cart-remove-btn" title="Remove">
-                                            <i class="fas fa-trash-alt"></i>
+                                        <a href="{{ route('frontend.book.cart.remove', $id) }}" class="cart-remove-btn" title="Remove item">
+                                            <i class="fas fa-times"></i>
                                         </a>
                                     </td>
                                 </tr>

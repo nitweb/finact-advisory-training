@@ -44,7 +44,7 @@
                             <li class="{{ request()->routeIs('frontend.remote.support') ? 'active' : '' }}"><a href="{{ route('frontend.remote.support') }}">Remote Support</a></li>
 
                             <li class="{{ request()->routeIs(['frontend.training.development', 'frontend.training.development.details', 'frontend.book.*']) ? 'active' : '' }}">
-                                <a href="{{ route('frontend.training.development') }}">Professional Academy</a>
+                                <a href="javascript:void(0)">Professional Academy</a>
                                 <ul class="shadow-box">
                                     <li class="{{ request()->routeIs('frontend.training.development') ? 'active' : '' }}"><a href="{{ route('frontend.training.development') }}">Trainings</a></li>
                                     <li class="{{ request()->routeIs('frontend.book.*') ? 'active' : '' }}"><a href="{{ route('frontend.book.list') }}">Books</a></li>
