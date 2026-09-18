@@ -120,6 +120,7 @@ Route::group(
                     Route::get('/cart', 'CartView')->name('cart');
                     Route::post('/cart/add/{id}', 'CartAdd')->name('cart.add');
                     Route::post('/cart/update/{id}', 'CartUpdate')->name('cart.update');
+                    Route::post('/cart/update-ajax/{id}', 'CartUpdateAjax')->name('cart.update.ajax');
                     Route::get('/cart/remove/{id}', 'CartRemove')->name('cart.remove');
                     Route::get('/checkout', 'CheckoutPage')->name('checkout');
                     Route::post('/checkout/submit', 'CheckoutSubmit')->name('checkout.submit');

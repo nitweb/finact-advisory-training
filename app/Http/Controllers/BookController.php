@@ -107,6 +107,47 @@ class BookController extends Controller
         return redirect()->route('frontend.book.cart');
     }
 
+    // AJAX cart quantity update — returns JSON, no page reload
+    public function CartUpdateAjax(Request $request, $id)
+    {
+        $request->validate([
+            'quantity' => 'required|integer|min:1',
+        ]);
+
+        $cart = $this->cart();
+        $qty = max(1, (int) $request->input('quantity', 1));
+
+        if (!isset($cart[$id])) {
+            return response()->json(['success' => false, 'message' => 'Item not found in cart.'], 404);
+        }
+
+        $book = Book::find($id);
+        $max_note = null;
+        if ($book && $qty > $book->stock) {
+            $qty = max(1, (int) $book->stock);
+            $max_note = 'Quantity limited to available stock (' . $book->stock . ').';
+        }
+
+        $cart[$id]['quantity'] = $qty;
+        Session::put(self::CART_KEY, $cart);
+
+        $cart_total = 0;
+        $cart_count = 0;
+        foreach ($cart as $item) {
+            $cart_total += $item['price'] * $item['quantity'];
+            $cart_count += $item['quantity'];
+        }
+
+        return response()->json([
+            'success'      => true,
+            'quantity'     => $cart[$id]['quantity'],
+            'item_subtotal'=> $cart[$id]['price'] * $cart[$id]['quantity'],
+            'cart_total'   => $cart_total,
+            'cart_count'   => $cart_count,
+            'note'         => $max_note,
+        ]);
+    }
+
     public function CartRemove($id)
     {
         $cart = $this->cart();
@@ -129,18 +170,26 @@ class BookController extends Controller
             $total += $item['price'] * $item['quantity'];
         }
 
-        return view('frontend.pages.book_checkout', compact('cart', 'total'));
+        $site_setting = siteSetting();
+        $delivery_charges = [
+            'inside_dhaka'  => (int) ($site_setting->inside_dhaka_charge ?? 0),
+            'outside_dhaka' => (int) ($site_setting->outside_dhaka_charge ?? 0),
+            'suburbs'       => (int) ($site_setting->suburbs_charge ?? 0),
+        ];
+
+        return view('frontend.pages.book_checkout', compact('cart', 'total', 'delivery_charges'));
     }
 
     // Creates a pending Order, then redirects to bKash payment page
     public function CheckoutSubmit(Request $request, BkashService $bkash)
     {
         $request->validate([
-            'name'    => 'required|string|max:120',
-            'phone'   => 'required|string|max:30',
-            'email'   => 'nullable|email|max:120',
-            'address' => 'required|string|max:255',
-            'note'    => 'nullable|string|max:500',
+            'name'          => 'required|string|max:120',
+            'phone'         => 'required|string|max:30',
+            'email'         => 'nullable|email|max:120',
+            'address'       => 'required|string|max:255',
+            'note'          => 'nullable|string|max:500',
+            'delivery_zone' => 'required|in:inside_dhaka,outside_dhaka,suburbs',
         ]);
 
         $cart = $this->cart();
@@ -151,23 +200,36 @@ class BookController extends Controller
 
         DB::beginTransaction();
         try {
-            $total = 0;
+            $subtotal = 0;
             foreach ($cart as $item) {
-                $total += $item['price'] * $item['quantity'];
+                $subtotal += $item['price'] * $item['quantity'];
             }
+
+            $site_setting = siteSetting();
+            $delivery_charges = [
+                'inside_dhaka'  => (int) ($site_setting->inside_dhaka_charge ?? 0),
+                'outside_dhaka' => (int) ($site_setting->outside_dhaka_charge ?? 0),
+                'suburbs'       => (int) ($site_setting->suburbs_charge ?? 0),
+            ];
+
+            $delivery_zone = $request->delivery_zone;
+            $delivery_charge = $delivery_charges[$delivery_zone] ?? 0;
+            $total = $subtotal + $delivery_charge;
 
             $invoice = 'BOOK-' . now()->format('YmdHis') . '-' . strtoupper(Str::random(5));
 
             $order = Order::create([
-                'invoice'        => $invoice,
-                'name'           => $request->name,
-                'phone'          => $request->phone,
-                'email'          => $request->email,
-                'address'        => $request->address,
-                'note'           => $request->note,
-                'total_amount'   => $total,
-                'payment_status' => 'pending',
-                'status'         => 'pending',
+                'invoice'          => $invoice,
+                'name'             => $request->name,
+                'phone'            => $request->phone,
+                'email'            => $request->email,
+                'address'          => $request->address,
+                'note'             => $request->note,
+                'delivery_zone'    => $delivery_zone,
+                'delivery_charge'  => $delivery_charge,
+                'total_amount'     => $total,
+                'payment_status'   => 'pending',
+                'status'           => 'pending',
             ]);
 
             foreach ($cart as $item) {

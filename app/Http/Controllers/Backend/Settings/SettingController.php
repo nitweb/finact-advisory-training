@@ -58,9 +58,15 @@ class SettingController extends Controller
             $request->all(),
             [
                 'id' => 'required|integer',
+                'inside_dhaka_charge' => 'required|integer|min:0',
+                'outside_dhaka_charge' => 'required|integer|min:0',
+                'suburbs_charge' => 'required|integer|min:0',
             ],
             [
                 'id.required' => 'ID is required',
+                'inside_dhaka_charge.required' => 'Inside Dhaka delivery charge is required',
+                'outside_dhaka_charge.required' => 'Outside Dhaka delivery charge is required',
+                'suburbs_charge.required' => 'Suburbs delivery charge is required',
             ],
         );
 
@@ -85,6 +91,10 @@ class SettingController extends Controller
 
             $data->meta_title = $request->meta_title;
             $data->meta_description = $request->meta_description;
+
+            $data->inside_dhaka_charge = (int) $request->inside_dhaka_charge;
+            $data->outside_dhaka_charge = (int) $request->outside_dhaka_charge;
+            $data->suburbs_charge = (int) $request->suburbs_charge;
 
             
 
