@@ -126,6 +126,7 @@ Route::group(
                     Route::get('/checkout/success/{invoice}', 'CheckoutSuccess')->name('checkout.success');
                     Route::get('/checkout/failed/{invoice}', 'CheckoutFailed')->name('checkout.failed');
                     Route::get('/invoice/{invoice}', 'DownloadInvoice')->name('invoice');
+                    Route::get('/sample/{slug}', 'BookSample')->name('sample');
                     Route::get('/{slug}', 'BookDetails')->name('details'); // ← MUST stay after fixed paths above
                 });
                 Route::get('/books-bkash-callback', [BookController::class, 'BkashCallback'])->name('book.bkash.callback');

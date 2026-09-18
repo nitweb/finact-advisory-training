@@ -41,6 +41,7 @@ class BookController extends Controller
                 'stock' => 'required|integer|min:0',
                 'description' => 'nullable',
                 'cover_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+                'sample_pdf' => 'nullable|file|mimes:pdf|max:10240',
                 'status' => 'required|in:active,inactive',
             ],
             [
@@ -49,6 +50,8 @@ class BookController extends Controller
                 'stock.required' => 'Stock is required',
                 'cover_image.image' => 'Cover must be an image',
                 'cover_image.max' => 'Cover image must be less than 2MB',
+                'sample_pdf.mimes' => 'Sample must be a PDF',
+                'sample_pdf.max' => 'Sample PDF must be less than 10MB',
             ],
         );
 
@@ -71,6 +74,13 @@ class BookController extends Controller
                 $name_gen = uniqid() . '.' . $file_input->getClientOriginalExtension();
                 $file_input->move(public_path('uploads/books'), $name_gen);
                 $data->cover_image = 'uploads/books/' . $name_gen;
+            }
+
+            if ($request->file('sample_pdf')) {
+                $file_input = $request->file('sample_pdf');
+                $name_gen = uniqid() . '.' . $file_input->getClientOriginalExtension();
+                $file_input->move(public_path('uploads/books/samples'), $name_gen);
+                $data->sample_pdf = 'uploads/books/samples/' . $name_gen;
             }
 
             $data->save();
@@ -110,6 +120,7 @@ class BookController extends Controller
                 'stock' => 'required|integer|min:0',
                 'description' => 'nullable',
                 'cover_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+                'sample_pdf' => 'nullable|file|mimes:pdf|max:10240',
                 'status' => 'required|in:active,inactive',
             ],
         );
@@ -140,6 +151,18 @@ class BookController extends Controller
                 $data->cover_image = 'uploads/books/' . $name_gen;
             }
 
+            if ($request->hasFile('sample_pdf')) {
+                $filePath = base_path('public/' . $data->sample_pdf);
+                if (!empty($data->sample_pdf) && file_exists($filePath)) {
+                    unlink($filePath);
+                }
+
+                $file_input = $request->file('sample_pdf');
+                $name_gen = uniqid() . '.' . $file_input->getClientOriginalExtension();
+                $file_input->move(public_path('uploads/books/samples'), $name_gen);
+                $data->sample_pdf = 'uploads/books/samples/' . $name_gen;
+            }
+
             $data->save();
 
             DB::commit();
@@ -162,6 +185,11 @@ class BookController extends Controller
             $filePath = base_path('public/' . $data->cover_image);
             if (!empty($data->cover_image) && file_exists($filePath)) {
                 unlink($filePath);
+            }
+
+            $samplePath = base_path('public/' . $data->sample_pdf);
+            if (!empty($data->sample_pdf) && file_exists($samplePath)) {
+                unlink($samplePath);
             }
 
             $data->delete();

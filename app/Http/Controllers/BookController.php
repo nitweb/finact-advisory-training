@@ -30,6 +30,21 @@ class BookController extends Controller
         return view('frontend.details.book_details', compact('book'));
     }
 
+    // Inline sample PDF preview
+    public function BookSample($slug)
+    {
+        $book = Book::where('slug', $slug)->where('status', 'active')->firstOrFail();
+
+        if (!$book->sample_pdf || !file_exists(public_path($book->sample_pdf))) {
+            abort(404);
+        }
+
+        return response()->file(public_path($book->sample_pdf), [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="' . basename($book->sample_pdf) . '"',
+        ]);
+    }
+
     // ── Cart (session based) ──
     protected function cart(): array
     {

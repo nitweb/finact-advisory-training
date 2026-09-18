@@ -41,6 +41,7 @@
                                                 <th>Author</th>
                                                 <th>Price</th>
                                                 <th>Stock</th>
+                                                <th>Sample</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -59,6 +60,13 @@
                                                     <td>{{ $item->author }}</td>
                                                     <td>৳ {{ number_format($item->price) }}</td>
                                                     <td>{{ $item->stock }}</td>
+                                                    <td>
+                                                        @if ($item->sample_pdf)
+                                                            <a href="{{ asset($item->sample_pdf) }}" target="_blank"><i class="fas fa-file-pdf"></i> View</a>
+                                                        @else
+                                                            —
+                                                        @endif
+                                                    </td>
                                                     <td>
                                                         <span class="badge bg-{{ $item->status == 'active' ? 'success' : 'secondary' }}">{{ ucfirst($item->status) }}</span>
                                                     </td>

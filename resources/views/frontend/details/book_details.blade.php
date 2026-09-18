@@ -60,6 +60,14 @@
                         {!! nl2br(e($book->description)) !!}
                     </div>
 
+                    @if ($book->sample_pdf)
+                        <div style="margin-bottom:20px;">
+                            <a href="{{ route('frontend.book.sample', $book->slug) }}" target="_blank" class="t-btn-outline">
+                                <i class="fas fa-book-open"></i> Read Sample
+                            </a>
+                        </div>
+                    @endif
+
                     @if ($book->stock > 0)
                         <form action="{{ route('frontend.book.cart.add', $book->id) }}" method="POST" style="display:flex; gap:10px; align-items:center;">
                             @csrf
@@ -71,6 +79,16 @@
                     @endif
                 </div>
             </div>
+
+            @if ($book->sample_pdf)
+                <div style="margin-top:40px;">
+                    <h4>Read Sample</h4>
+                    <iframe src="{{ route('frontend.book.sample', $book->slug) }}"
+                            style="width:100%; height:800px; border:1px solid #eee; border-radius:8px;"
+                            title="{{ $book->title }} — Sample Preview">
+                    </iframe>
+                </div>
+            @endif
 
         </div>
     </section>

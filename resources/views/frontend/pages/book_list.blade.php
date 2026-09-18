@@ -61,6 +61,12 @@
                                 <p class="t-desc">by {{ $item->author }}</p>
                             @endif
 
+                            @if ($item->sample_pdf)
+                                <a href="{{ route('frontend.book.sample', $item->slug) }}" target="_blank" class="t-type-badge">
+                                    <i class="fas fa-book-open"></i> Read Sample
+                                </a>
+                            @endif
+
                             <div class="t-fee-row">
                                 <div class="t-fee-block">
                                     <span class="t-fee-lbl">Price</span>

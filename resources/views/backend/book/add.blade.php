@@ -65,6 +65,13 @@
 
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
+                                            <label class="col-form-label">Sample PDF (for readers to preview)</label>
+                                            <input type="file" class="form-control @error('sample_pdf') is-invalid @enderror" name="sample_pdf" accept="application/pdf">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-4">
+                                        <div class="col-md-8">
                                             <label class="col-form-label">Description</label>
                                             <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="5">{{ old('description') }}</textarea>
                                         </div>
