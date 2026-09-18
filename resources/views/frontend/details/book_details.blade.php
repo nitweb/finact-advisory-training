@@ -30,67 +30,67 @@
                 <div class="alert alert-danger">{{ session('error') }}</div>
             @endif
 
-            <div class="row">
-                <div class="col-lg-5">
-                    <img src="{{ $book->cover_image ? asset($book->cover_image) : asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }}"
-                         alt="{{ $book->title }}" style="width:100%; border-radius:8px;">
+            <div class="book-details">
+                <div class="book-details__cover-wrap">
+                    <img class="book-details__cover"
+                         src="{{ $book->cover_image ? asset($book->cover_image) : asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }}"
+                         alt="{{ $book->title }}">
+
+                    @if ($book->sample_pdf)
+                        <button type="button"
+                                class="book-details__sample-btn js-open-pdf-modal"
+                                data-pdf-url="{{ route('frontend.book.sample', $book->slug) }}"
+                                data-pdf-title="{{ $book->title }}">
+                            <i class="fas fa-book-open"></i> Read Sample
+                        </button>
+                    @endif
                 </div>
 
-                <div class="col-lg-7">
-                    <h2>{{ $book->title }}</h2>
+                <div>
+                    <span class="book-details__badge">
+                        {{ $book->stock > 0 ? 'Available Now' : 'Out of Stock' }}
+                    </span>
+
+                    <h2 class="book-details__title">{{ $book->title }}</h2>
                     @if ($book->author)
-                        <p style="color:#777; margin-bottom:15px;">by {{ $book->author }}</p>
+                        <p class="book-details__author">by {{ $book->author }}</p>
                     @endif
 
-                    <div class="t-fee-row" style="max-width:340px;">
-                        <div class="t-fee-block">
-                            <span class="t-fee-lbl">Price</span>
-                            <span class="t-fee-main">৳ {{ number_format($book->price) }}</span>
+                    <div class="book-details__fee-row">
+                        <div class="book-details__fee-block">
+                            <span class="book-details__fee-lbl">Price</span>
+                            <span class="book-details__fee-main">৳ {{ number_format($book->price) }}</span>
                         </div>
-                        <div class="t-fee-divider"></div>
-                        <div class="t-fee-block">
-                            <span class="t-fee-lbl">Availability</span>
-                            <span class="t-fee-main">
+                        <div class="book-details__fee-divider"></div>
+                        <div class="book-details__fee-block">
+                            <span class="book-details__fee-lbl">Availability</span>
+                            <span class="book-details__fee-main">
                                 {{ $book->stock > 0 ? $book->stock . ' in stock' : 'Out of stock' }}
                             </span>
                         </div>
                     </div>
 
-                    <div style="margin:20px 0; line-height:1.8;">
+                    <div class="book-details__desc">
                         {!! nl2br(e($book->description)) !!}
                     </div>
 
-                    @if ($book->sample_pdf)
-                        <div style="margin-bottom:20px;">
-                            <a href="{{ route('frontend.book.sample', $book->slug) }}" target="_blank" class="t-btn-outline">
-                                <i class="fas fa-book-open"></i> Read Sample
-                            </a>
-                        </div>
-                    @endif
-
                     @if ($book->stock > 0)
-                        <form action="{{ route('frontend.book.cart.add', $book->id) }}" method="POST" style="display:flex; gap:10px; align-items:center;">
+                        <form action="{{ route('frontend.book.cart.add', $book->id) }}" method="POST" class="book-details__buy">
                             @csrf
-                            <input type="number" name="quantity" value="1" min="1" max="{{ $book->stock }}" style="width:80px; padding:8px;">
-                            <button type="submit" class="t-btn-fill">Add to Cart</button>
+                            <input type="number" name="quantity" value="1" min="1" max="{{ $book->stock }}" class="book-details__qty">
+                            <button type="submit" class="t-btn-fill" style="flex:none; padding:13px 34px;">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
                         </form>
                     @else
-                        <span class="t-type-badge">Out of Stock</span>
+                        <span class="t-type-badge" style="position:static;">Out of Stock</span>
                     @endif
                 </div>
             </div>
 
-            @if ($book->sample_pdf)
-                <div style="margin-top:40px;">
-                    <h4>Read Sample</h4>
-                    <iframe src="{{ route('frontend.book.sample', $book->slug) }}"
-                            style="width:100%; height:800px; border:1px solid #eee; border-radius:8px;"
-                            title="{{ $book->title }} — Sample Preview">
-                    </iframe>
-                </div>
-            @endif
-
         </div>
     </section>
+
+    @include('frontend.partials.book_pdf_modal')
 
 @endsection

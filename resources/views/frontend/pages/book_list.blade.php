@@ -26,11 +26,14 @@
     <section class="blog-page">
         <div class="container">
 
-            <div style="display:flex; justify-content:flex-end; margin-bottom:20px;">
-                <a href="{{ route('frontend.book.cart') }}" class="t-btn-fill">
+            <div class="book-toolbar">
+                <div class="book-toolbar__count">
+                    <strong>{{ $book_list->total() }}</strong> book{{ $book_list->total() == 1 ? '' : 's' }} available
+                </div>
+                <a href="{{ route('frontend.book.cart') }}" class="book-cart-btn">
                     <i class="fas fa-shopping-cart"></i> View Cart
                     @if (session('book_cart') && count(session('book_cart')) > 0)
-                        ({{ collect(session('book_cart'))->sum('quantity') }})
+                        <span class="book-cart-btn__badge">{{ collect(session('book_cart'))->sum('quantity') }}</span>
                     @endif
                 </a>
             </div>
@@ -42,46 +45,53 @@
                 <div class="alert alert-danger">{{ session('error') }}</div>
             @endif
 
-            <div class="training-grid">
+            <div class="book-grid">
 
                 @forelse ($book_list as $item)
-                    <div class="t-card">
-                        <div class="t-img-wrap">
+                    <div class="book-card">
+                        <div class="book-card__img-wrap">
                             <img src="{{ $item->cover_image ? asset($item->cover_image) : asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }}" alt="{{ $item->title }}">
+
+                            <span class="book-card__stock {{ $item->stock > 0 ? 'book-card__stock--in' : 'book-card__stock--out' }}">
+                                {{ $item->stock > 0 ? 'In Stock' : 'Out of Stock' }}
+                            </span>
+
+                            @if ($item->sample_pdf)
+                                <button type="button"
+                                        class="book-card__sample js-open-pdf-modal"
+                                        data-pdf-url="{{ route('frontend.book.sample', $item->slug) }}"
+                                        data-pdf-title="{{ $item->title }}">
+                                    <i class="fas fa-book-open"></i> Read Sample
+                                </button>
+                            @endif
                         </div>
 
-                        <div class="t-body">
-                            <h3 class="t-title">
+                        <div class="book-card__body">
+                            <h3 class="book-card__title">
                                 <a href="{{ route('frontend.book.details', $item->slug) }}">
                                     {{ Str::limit($item->title, 55) }}
                                 </a>
                             </h3>
 
                             @if ($item->author)
-                                <p class="t-desc">by {{ $item->author }}</p>
+                                <p class="book-card__author">by {{ $item->author }}</p>
                             @endif
 
-                            @if ($item->sample_pdf)
-                                <a href="{{ route('frontend.book.sample', $item->slug) }}" target="_blank" class="t-type-badge">
-                                    <i class="fas fa-book-open"></i> Read Sample
-                                </a>
-                            @endif
-
-                            <div class="t-fee-row">
-                                <div class="t-fee-block">
-                                    <span class="t-fee-lbl">Price</span>
-                                    <span class="t-fee-main">৳ {{ number_format($item->price) }}</span>
+                            <div class="book-card__fee-row">
+                                <div class="book-card__fee-block">
+                                    <span class="book-card__fee-lbl">Price</span>
+                                    <span class="book-card__fee-main">৳ {{ number_format($item->price) }}</span>
                                 </div>
-                                <div class="t-fee-divider"></div>
-                                <div class="t-fee-block">
-                                    <span class="t-fee-lbl">Availability</span>
-                                    <span class="t-fee-main">
-                                        {{ $item->stock > 0 ? $item->stock . ' in stock' : 'Out of stock' }}
+                                <div class="book-card__fee-divider"></div>
+                                <div class="book-card__fee-block">
+                                    <span class="book-card__fee-lbl">Availability</span>
+                                    <span class="book-card__fee-main">
+                                        {{ $item->stock > 0 ? $item->stock . ' left' : 'Sold out' }}
                                     </span>
                                 </div>
                             </div>
 
-                            <div class="t-actions">
+                            <div class="book-card__actions">
                                 <a href="{{ route('frontend.book.details', $item->slug) }}" class="t-btn-outline">
                                     View Details
                                 </a>
@@ -96,7 +106,10 @@
                         </div>
                     </div>
                 @empty
-                    <p>No books available right now.</p>
+                    <div class="book-empty">
+                        <i class="fas fa-book"></i>
+                        <p>No books available right now.</p>
+                    </div>
                 @endforelse
 
             </div>
@@ -127,5 +140,7 @@
 
         </div>
     </section>
+
+    @include('frontend.partials.book_pdf_modal')
 
 @endsection

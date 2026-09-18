@@ -25,61 +25,63 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
-                    <h4>Delivery Information</h4>
+                    <div class="checkout-panel">
+                        <h4>Delivery Information</h4>
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul style="margin-bottom:0;">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul style="margin-bottom:0;">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
-                    <form action="{{ route('frontend.book.checkout.submit') }}" method="POST">
-                        @csrf
-                        <div style="margin-bottom:15px;">
-                            <label>Full Name *</label>
-                            <input type="text" name="name" value="{{ old('name') }}" required style="width:100%; padding:10px;">
-                        </div>
-                        <div style="margin-bottom:15px;">
-                            <label>Phone *</label>
-                            <input type="text" name="phone" value="{{ old('phone') }}" required style="width:100%; padding:10px;">
-                        </div>
-                        <div style="margin-bottom:15px;">
-                            <label>Email</label>
-                            <input type="email" name="email" value="{{ old('email') }}" style="width:100%; padding:10px;">
-                        </div>
-                        <div style="margin-bottom:15px;">
-                            <label>Delivery Address *</label>
-                            <textarea name="address" required style="width:100%; padding:10px;">{{ old('address') }}</textarea>
-                        </div>
-                        <div style="margin-bottom:15px;">
-                            <label>Note (optional)</label>
-                            <textarea name="note" style="width:100%; padding:10px;">{{ old('note') }}</textarea>
-                        </div>
+                        <form action="{{ route('frontend.book.checkout.submit') }}" method="POST">
+                            @csrf
+                            <div class="checkout-field">
+                                <label>Full Name *</label>
+                                <input type="text" name="name" value="{{ old('name') }}" required>
+                            </div>
+                            <div class="checkout-field">
+                                <label>Phone *</label>
+                                <input type="text" name="phone" value="{{ old('phone') }}" required>
+                            </div>
+                            <div class="checkout-field">
+                                <label>Email</label>
+                                <input type="email" name="email" value="{{ old('email') }}">
+                            </div>
+                            <div class="checkout-field">
+                                <label>Delivery Address *</label>
+                                <textarea name="address" required>{{ old('address') }}</textarea>
+                            </div>
+                            <div class="checkout-field">
+                                <label>Note (optional)</label>
+                                <textarea name="note">{{ old('note') }}</textarea>
+                            </div>
 
-                        <button type="submit" class="t-btn-fill">Pay with bKash</button>
-                    </form>
+                            <button type="submit" class="checkout-pay-btn">
+                                <i class="fas fa-mobile-alt"></i> Pay with bKash
+                            </button>
+                        </form>
+                    </div>
                 </div>
 
                 <div class="col-lg-5">
-                    <h4>Order Summary</h4>
-                    <table class="table" style="width:100%; border-collapse:collapse;">
-                        <tbody>
-                            @foreach ($cart as $item)
-                                <tr style="border-bottom:1px solid #eee;">
-                                    <td style="padding:10px;">{{ $item['title'] }} x {{ $item['quantity'] }}</td>
-                                    <td style="padding:10px; text-align:right;">৳ {{ number_format($item['price'] * $item['quantity']) }}</td>
-                                </tr>
-                            @endforeach
-                            <tr>
-                                <td style="padding:10px; font-weight:bold;">Total</td>
-                                <td style="padding:10px; text-align:right; font-weight:bold;">৳ {{ number_format($total) }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="checkout-summary">
+                        <h4>Order Summary</h4>
+                        @foreach ($cart as $item)
+                            <div class="checkout-summary__item">
+                                <span class="checkout-summary__item-title">{{ $item['title'] }} <span style="color:#9ca3af;">x{{ $item['quantity'] }}</span></span>
+                                <span class="checkout-summary__item-price">৳ {{ number_format($item['price'] * $item['quantity']) }}</span>
+                            </div>
+                        @endforeach
+                        <div class="checkout-summary__total">
+                            <span>Total</span>
+                            <strong>৳ {{ number_format($total) }}</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
