@@ -32,42 +32,55 @@
             @endif
 
             @if (empty($cart))
-                <p>Your cart is empty. <a href="{{ route('frontend.book.list') }}">Browse books</a>.</p>
+                <div class="cart-empty">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty.</p>
+                    <a href="{{ route('frontend.book.list') }}" class="t-btn-fill" style="flex:none; padding:12px 28px; display:inline-block;">Browse Books</a>
+                </div>
             @else
-                <table class="table" style="width:100%; border-collapse:collapse;">
-                    <thead>
-                        <tr style="text-align:left; border-bottom:2px solid #eee;">
-                            <th style="padding:10px;">Book</th>
-                            <th style="padding:10px;">Price</th>
-                            <th style="padding:10px;">Quantity</th>
-                            <th style="padding:10px;">Subtotal</th>
-                            <th style="padding:10px;"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($cart as $id => $item)
-                            <tr style="border-bottom:1px solid #eee;">
-                                <td style="padding:10px;">{{ $item['title'] }}</td>
-                                <td style="padding:10px;">৳ {{ number_format($item['price']) }}</td>
-                                <td style="padding:10px;">
-                                    <form action="{{ route('frontend.book.cart.update', $id) }}" method="POST" style="display:flex; gap:8px;">
-                                        @csrf
-                                        <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1" style="width:70px; padding:6px;">
-                                        <button type="submit" class="t-btn-outline" style="padding:6px 12px;">Update</button>
-                                    </form>
-                                </td>
-                                <td style="padding:10px;">৳ {{ number_format($item['price'] * $item['quantity']) }}</td>
-                                <td style="padding:10px;">
-                                    <a href="{{ route('frontend.book.cart.remove', $id) }}" class="t-btn-outline" style="color:#e53935; border-color:#e53935;">Remove</a>
-                                </td>
+                <div class="cart-panel">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Book</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Subtotal</th>
+                                <th></th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($cart as $id => $item)
+                                <tr>
+                                    <td data-label="Book"><span class="cart-item__title">{{ $item['title'] }}</span></td>
+                                    <td data-label="Price"><span class="cart-item__price">৳ {{ number_format($item['price']) }}</span></td>
+                                    <td data-label="Quantity">
+                                        <form action="{{ route('frontend.book.cart.update', $id) }}" method="POST" class="cart-qty-form">
+                                            @csrf
+                                            <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1">
+                                            <button type="submit" class="cart-btn-mini">Update</button>
+                                        </form>
+                                    </td>
+                                    <td data-label="Subtotal"><span class="cart-item__subtotal">৳ {{ number_format($item['price'] * $item['quantity']) }}</span></td>
+                                    <td data-label="">
+                                        <a href="{{ route('frontend.book.cart.remove', $id) }}" class="cart-remove-btn" title="Remove">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 
-                <div style="text-align:right; margin-top:20px;">
-                    <h4>Total: ৳ {{ number_format($total) }}</h4>
-                    <a href="{{ route('frontend.book.checkout') }}" class="t-btn-fill">Proceed to Checkout</a>
+                    <div class="cart-summary">
+                        <div class="cart-summary__total">
+                            <span>Total Amount</span>
+                            <strong>৳ {{ number_format($total) }}</strong>
+                        </div>
+                        <a href="{{ route('frontend.book.checkout') }}" class="t-btn-fill" style="flex:none; padding:13px 34px; display:inline-flex; align-items:center; gap:8px;">
+                            Proceed to Checkout <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             @endif
 

@@ -13,29 +13,41 @@
     </section>
 
     <section class="blog-page">
-        <div class="container" style="text-align:center;">
-            <i class="fas fa-check-circle" style="font-size:60px; color:#28a745;"></i>
-            <h3 style="margin:20px 0 10px;">Thank you, {{ $order->name }}!</h3>
-            <p>Your order <strong>{{ $order->invoice }}</strong> has been placed and payment received via bKash
-                (Txn: {{ $order->bkash_trx_id }}).</p>
+        <div class="container">
+            <div class="success-panel">
+                <div class="success-panel__icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h3>Thank you, {{ $order->name }}!</h3>
+                <p>
+                    Your order <span class="success-panel__invoice">{{ $order->invoice }}</span> has been placed and
+                    payment received via bKash (Txn: {{ $order->bkash_trx_id }}).
+                </p>
 
-            <table class="table" style="width:100%; max-width:500px; margin:30px auto; border-collapse:collapse; text-align:left;">
-                <tbody>
-                    @foreach ($order->items as $item)
-                        <tr style="border-bottom:1px solid #eee;">
-                            <td style="padding:10px;">{{ $item->title }} x {{ $item->quantity }}</td>
-                            <td style="padding:10px; text-align:right;">৳ {{ number_format($item->subtotal) }}</td>
+                <table>
+                    <tbody>
+                        @foreach ($order->items as $item)
+                            <tr>
+                                <td>{{ $item->title }} x {{ $item->quantity }}</td>
+                                <td style="text-align:right;">৳ {{ number_format($item->subtotal) }}</td>
+                            </tr>
+                        @endforeach
+                        <tr>
+                            <td>Total</td>
+                            <td style="text-align:right;">৳ {{ number_format($order->total_amount) }}</td>
                         </tr>
-                    @endforeach
-                    <tr>
-                        <td style="padding:10px; font-weight:bold;">Total</td>
-                        <td style="padding:10px; text-align:right; font-weight:bold;">৳ {{ number_format($order->total_amount) }}</td>
-                    </tr>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
 
-            <a href="{{ route('frontend.book.invoice', $order->invoice) }}" class="t-btn-outline">Download Invoice</a>
-            <a href="{{ route('frontend.book.list') }}" class="t-btn-fill">Continue Shopping</a>
+                <div class="success-panel__actions">
+                    <a href="{{ route('frontend.book.invoice', $order->invoice) }}" class="t-btn-outline">
+                        <i class="fas fa-download"></i> Download Invoice
+                    </a>
+                    <a href="{{ route('frontend.book.list') }}" class="t-btn-fill">
+                        Continue Shopping
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
