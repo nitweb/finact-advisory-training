@@ -32,9 +32,12 @@
 
             <div class="book-details">
                 <div class="book-details__cover-wrap">
-                    <img class="book-details__cover"
-                         src="{{ $book->cover_image ? asset($book->cover_image) : asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }}"
-                         alt="{{ $book->title }}">
+                    <div class="book-details__cover-frame">
+                        <img class="book-details__cover"
+                             src="{{ $book->cover_image ? asset($book->cover_image) : asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }}"
+                             alt="{{ $book->title }}">
+                        <span class="book-details__cover-shine"></span>
+                    </div>
 
                     @if ($book->sample_pdf)
                         <button type="button"
@@ -44,26 +47,33 @@
                             <i class="fas fa-book-open"></i> Read Sample
                         </button>
                     @endif
+
+                    <ul class="book-details__trust">
+                        <li><i class="fas fa-truck"></i> Fast home delivery</li>
+                        <li><i class="fas fa-shield-alt"></i> 100% original copy</li>
+                        <li><i class="fas fa-lock"></i> Secure checkout</li>
+                    </ul>
                 </div>
 
                 <div>
-                    <span class="book-details__badge">
+                    <span class="book-details__badge {{ $book->stock > 0 ? '' : 'is-out' }}">
+                        <i class="fas {{ $book->stock > 0 ? 'fa-check-circle' : 'fa-times-circle' }}"></i>
                         {{ $book->stock > 0 ? 'Available Now' : 'Out of Stock' }}
                     </span>
 
                     <h2 class="book-details__title">{{ $book->title }}</h2>
                     @if ($book->author)
-                        <p class="book-details__author">by {{ $book->author }}</p>
+                        <p class="book-details__author">by <span>{{ $book->author }}</span></p>
                     @endif
 
                     <div class="book-details__fee-row">
                         <div class="book-details__fee-block">
-                            <span class="book-details__fee-lbl">Price</span>
+                            <span class="book-details__fee-lbl"><i class="fas fa-tag"></i> Price</span>
                             <span class="book-details__fee-main">৳ {{ number_format($book->price) }}</span>
                         </div>
                         <div class="book-details__fee-divider"></div>
                         <div class="book-details__fee-block">
-                            <span class="book-details__fee-lbl">Availability</span>
+                            <span class="book-details__fee-lbl"><i class="fas fa-boxes"></i> Availability</span>
                             <span class="book-details__fee-main">
                                 {{ $book->stock > 0 ? $book->stock . ' in stock' : 'Out of stock' }}
                             </span>
@@ -77,8 +87,12 @@
                     @if ($book->stock > 0)
                         <form action="{{ route('frontend.book.cart.add', $book->id) }}" method="POST" class="book-details__buy">
                             @csrf
-                            <input type="number" name="quantity" value="1" min="1" max="{{ $book->stock }}" class="book-details__qty">
-                            <button type="submit" class="t-btn-fill" style="flex:none; padding:13px 34px;">
+                            <div class="book-details__qty-stepper">
+                                <button type="button" class="book-details__qty-btn book-details__qty-minus" aria-label="Decrease quantity">&minus;</button>
+                                <input type="number" name="quantity" value="1" min="1" max="{{ $book->stock }}" class="book-details__qty" inputmode="numeric">
+                                <button type="button" class="book-details__qty-btn book-details__qty-plus" aria-label="Increase quantity">&plus;</button>
+                            </div>
+                            <button type="submit" class="t-btn-fill book-details__cart-btn">
                                 <i class="fas fa-shopping-cart"></i> Add to Cart
                             </button>
                         </form>
@@ -90,6 +104,36 @@
 
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var stepper = document.querySelector('.book-details__qty-stepper');
+            if (!stepper) return;
+
+            var input = stepper.querySelector('.book-details__qty');
+            var minus = stepper.querySelector('.book-details__qty-minus');
+            var plus = stepper.querySelector('.book-details__qty-plus');
+            var max = parseInt(input.getAttribute('max'), 10) || 9999;
+            var min = parseInt(input.getAttribute('min'), 10) || 1;
+
+            function clamp(val) {
+                if (isNaN(val)) val = min;
+                return Math.min(max, Math.max(min, val));
+            }
+
+            minus.addEventListener('click', function () {
+                input.value = clamp(parseInt(input.value, 10) - 1);
+            });
+
+            plus.addEventListener('click', function () {
+                input.value = clamp(parseInt(input.value, 10) + 1);
+            });
+
+            input.addEventListener('change', function () {
+                input.value = clamp(parseInt(input.value, 10));
+            });
+        });
+    </script>
 
     @include('frontend.partials.book_pdf_modal')
 
