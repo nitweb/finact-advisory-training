@@ -53,6 +53,14 @@
                     <td>৳ {{ number_format($item->subtotal) }}</td>
                 </tr>
             @endforeach
+            <tr>
+                <td colspan="3">Subtotal</td>
+                <td>৳ {{ number_format($order->total_amount - $order->delivery_charge) }}</td>
+            </tr>
+            <tr>
+                <td colspan="3">Delivery Charge ({{ ucfirst(str_replace('_', ' ', $order->delivery_zone)) }})</td>
+                <td>৳ {{ number_format($order->delivery_charge) }}</td>
+            </tr>
             <tr class="total-row">
                 <td colspan="3">Total</td>
                 <td>৳ {{ number_format($order->total_amount) }}</td>

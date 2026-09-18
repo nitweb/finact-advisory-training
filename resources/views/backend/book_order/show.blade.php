@@ -31,6 +31,8 @@
                                         <p><strong>Phone:</strong> {{ $order->phone }}</p>
                                         <p><strong>Email:</strong> {{ $order->email ?? '—' }}</p>
                                         <p><strong>Address:</strong> {{ $order->address }}</p>
+                                        <p><strong>Delivery Zone:</strong> {{ $order->delivery_zone ? \App\Inc\Settings::getDeliveryZones()[$order->delivery_zone] ?? ucfirst(str_replace('_', ' ', $order->delivery_zone)) : '—' }}</p>
+                                        <p><strong>Delivery Charge:</strong> ৳ {{ number_format($order->delivery_charge) }}</p>
                                         <p><strong>Note:</strong> {{ $order->note ?? '—' }}</p>
                                     </div>
                                     <div class="col-md-6">
@@ -67,6 +69,14 @@
                                                 <td>৳ {{ number_format($item->subtotal) }}</td>
                                             </tr>
                                         @endforeach
+                                        <tr>
+                                            <td colspan="3" class="text-end">Subtotal</td>
+                                            <td>৳ {{ number_format($order->total_amount - $order->delivery_charge) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" class="text-end">Delivery Charge</td>
+                                            <td>৳ {{ number_format($order->delivery_charge) }}</td>
+                                        </tr>
                                         <tr>
                                             <td colspan="3" class="text-end"><strong>Total</strong></td>
                                             <td><strong>৳ {{ number_format($order->total_amount) }}</strong></td>
