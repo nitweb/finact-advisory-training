@@ -69,6 +69,19 @@
                             <a href="#!" class="main-menu-three__search searcher-toggler-box fal fa-search"></a>
                         </div> --}}
 
+                        @php
+                            $headerCart = session('book_cart', []);
+                            $headerCartCount = collect($headerCart)->sum('quantity');
+                        @endphp
+                        @if ($headerCartCount > 0)
+                            <div class="main-menu-three__cart-box" id="header-cart-box" style="margin-right: 15px;">
+                                <a href="{{ route('frontend.book.cart') }}" id="header-cart-icon" style="position: relative; display: inline-flex; align-items: center; font-size: 22px; color: inherit;">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span id="header-cart-count" style="position: absolute; top: -8px; right: -10px; background: #e02b2b; color: #fff; font-size: 11px; line-height: 1; min-width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 2px;">{{ $headerCartCount }}</span>
+                                </a>
+                            </div>
+                        @endif
+
                         <div class="main-menu-three__btn-box">
                             <a href="{{ route('frontend.contact.us') }}" class="thm-btn">Get in Touch<span class="icon-right-arrow"></span></a>
                         </div>

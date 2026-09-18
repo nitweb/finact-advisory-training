@@ -190,6 +190,7 @@ class BookController extends Controller
             'address'       => 'required|string|max:255',
             'note'          => 'nullable|string|max:500',
             'delivery_zone' => 'required|in:inside_dhaka,outside_dhaka,suburbs',
+            'payment_method'=> 'required|in:bkash,cod',
         ]);
 
         $cart = $this->cart();
@@ -228,6 +229,7 @@ class BookController extends Controller
                 'delivery_zone'    => $delivery_zone,
                 'delivery_charge'  => $delivery_charge,
                 'total_amount'     => $total,
+                'payment_method'   => $request->payment_method,
                 'payment_status'   => 'pending',
                 'status'           => 'pending',
             ]);
@@ -248,6 +250,27 @@ class BookController extends Controller
             DB::rollBack();
             Log::error('Book Checkout Error: ' . $e->getMessage());
             return redirect()->back()->with('error', 'Something went wrong! Please try again.')->withInput();
+        }
+
+        // Cash on Delivery: skip bKash entirely, confirm order immediately
+        if ($request->payment_method === 'cod') {
+            foreach ($order->items as $item) {
+                if ($item->book_id) {
+                    $book = Book::find($item->book_id);
+                    if ($book) {
+                        $book->decrement('stock', min($item->quantity, $book->stock));
+                    }
+                }
+            }
+
+            $order->update([
+                'status' => 'processing',
+            ]);
+
+            // Clear cart
+            Session::forget(self::CART_KEY);
+
+            return redirect()->route('frontend.book.checkout.success', $order->invoice);
         }
 
         // Kick off bKash Tokenized Checkout
@@ -327,7 +350,13 @@ class BookController extends Controller
 
     public function DownloadInvoice($invoice)
     {
-        $order = Order::with('items')->where('invoice', $invoice)->where('payment_status', 'paid')->firstOrFail();
+        $order = Order::with('items')
+            ->where('invoice', $invoice)
+            ->where(function ($q) {
+                $q->where('payment_status', 'paid')
+                  ->orWhere('payment_method', 'cod');
+            })
+            ->firstOrFail();
 
         $pdf = Pdf::loadView('frontend.pdf.book_order_invoice', compact('order'))->setPaper('a4', 'portrait');
 
