@@ -96,6 +96,27 @@
                 </ul>
             </li>
 
+            <li class="dropdown {{ request()->routeIs(['admin.book.list', 'admin.book.add', 'admin.book.edit']) ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="book"></i>
+                    <span>Books</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.book.list') }}">Book List</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.book.add') }}">Add Book</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown {{ request()->routeIs(['admin.book.order.list', 'admin.book.order.show']) ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="shopping-cart"></i>
+                    <span>Book Orders</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.book.order.list') }}">Order List</a></li>
+                </ul>
+            </li>
+
             <li class="dropdown {{ request()->routeIs('admin.testimonial.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="star"></i>

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Backend\AboutUsController;
 use App\Http\Controllers\Backend\Admin\AdminController;
+use App\Http\Controllers\Backend\BookController as AdminBookController;
+use App\Http\Controllers\Backend\BookOrderController;
 use App\Http\Controllers\Backend\Blog\BlogCategoryController;
 use App\Http\Controllers\Backend\Blog\BlogController;
 use App\Http\Controllers\Backend\CareerController;
@@ -26,6 +28,7 @@ use App\Http\Controllers\Backend\TrainerController;
 use App\Http\Controllers\Backend\TrainingController;
 use App\Http\Controllers\Backend\WhoWeAreController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingEnrollmentController;
 use App\Http\Middleware\RoleMiddleware;
@@ -110,6 +113,23 @@ Route::group(
                 Route::post('/training/enroll/submit', [TrainingEnrollmentController::class, 'EnrollSubmit'])->name('training.enroll.submit');
                 Route::get('/training/enroll/success/{invoice}', [TrainingEnrollmentController::class, 'EnrollSuccess'])->name('training.enroll.success');
                 Route::get('/training/enroll/invoice/{invoice}', [TrainingEnrollmentController::class, 'downloadInvoice'])->name('training.enroll.invoice');
+
+                // Book Shop (inside Professional Academy)
+                Route::controller(BookController::class)->prefix('books')->name('book.')->group(function () {
+                    Route::get('/', 'BookList')->name('list');
+                    Route::get('/cart', 'CartView')->name('cart');
+                    Route::post('/cart/add/{id}', 'CartAdd')->name('cart.add');
+                    Route::post('/cart/update/{id}', 'CartUpdate')->name('cart.update');
+                    Route::get('/cart/remove/{id}', 'CartRemove')->name('cart.remove');
+                    Route::get('/checkout', 'CheckoutPage')->name('checkout');
+                    Route::post('/checkout/submit', 'CheckoutSubmit')->name('checkout.submit');
+                    Route::get('/checkout/success/{invoice}', 'CheckoutSuccess')->name('checkout.success');
+                    Route::get('/checkout/failed/{invoice}', 'CheckoutFailed')->name('checkout.failed');
+                    Route::get('/invoice/{invoice}', 'DownloadInvoice')->name('invoice');
+                    Route::get('/sample/{slug}', 'BookSample')->name('sample');
+                    Route::get('/{slug}', 'BookDetails')->name('details'); // ← MUST stay after fixed paths above
+                });
+                Route::get('/books-bkash-callback', [BookController::class, 'BkashCallback'])->name('book.bkash.callback');
 
                 // Route::get('/who-we-are', 'WhoWeAre')->name('who.we.are');
 
@@ -519,6 +539,29 @@ Route::group(
                 Route::get('/show/{enrollment}', 'show')->name('show');
                 Route::delete('/delete/{enrollment}', 'destroy')->name('delete');
                 Route::patch('/status/{enrollment}', 'updateStatus')->name('status');
+            });
+
+        // Book Shop All Routes
+        Route::prefix('book')
+            ->controller(AdminBookController::class)
+            ->name('book.')
+            ->group(function () {
+                Route::get('/list', 'BookList')->name('list');
+                Route::get('/add', 'BookAdd')->name('add');
+                Route::post('/store', 'BookStore')->name('store');
+                Route::get('/edit/{id}', 'BookEdit')->name('edit');
+                Route::post('/update', 'BookUpdate')->name('update');
+                Route::get('/delete/{id}', 'BookDelete')->name('delete');
+            });
+
+        Route::prefix('book/order')
+            ->controller(BookOrderController::class)
+            ->name('book.order.')
+            ->group(function () {
+                Route::get('/list', 'OrderList')->name('list');
+                Route::get('/show/{id}', 'OrderShow')->name('show');
+                Route::patch('/status/{id}', 'OrderUpdateStatus')->name('status');
+                Route::delete('/delete/{id}', 'OrderDelete')->name('delete');
             });
 
         // Testimonial All Routes
