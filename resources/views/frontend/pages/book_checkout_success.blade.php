@@ -20,8 +20,13 @@
                 </div>
                 <h3>Thank you, {{ $order->name }}!</h3>
                 <p>
-                    Your order <span class="success-panel__invoice">{{ $order->invoice }}</span> has been placed and
-                    payment received via bKash (Txn: {{ $order->bkash_trx_id }}).
+                    @if ($order->payment_method === 'cod')
+                        Your order <span class="success-panel__invoice">{{ $order->invoice }}</span> has been placed successfully.
+                        You'll pay <strong>৳ {{ number_format($order->total_amount) }}</strong> in cash when it's delivered.
+                    @else
+                        Your order <span class="success-panel__invoice">{{ $order->invoice }}</span> has been placed and
+                        payment received via bKash (Txn: {{ $order->bkash_trx_id }}).
+                    @endif
                 </p>
 
                 <table>

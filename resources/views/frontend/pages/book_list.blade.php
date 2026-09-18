@@ -55,15 +55,6 @@
                             <span class="book-card__stock {{ $item->stock > 0 ? 'book-card__stock--in' : 'book-card__stock--out' }}">
                                 {{ $item->stock > 0 ? 'In Stock' : 'Out of Stock' }}
                             </span>
-
-                            @if ($item->sample_pdf)
-                                <button type="button"
-                                        class="book-card__sample js-open-pdf-modal"
-                                        data-pdf-url="{{ route('frontend.book.sample', $item->slug) }}"
-                                        data-pdf-title="{{ $item->title }}">
-                                    <i class="fas fa-book-open"></i> Read Sample
-                                </button>
-                            @endif
                         </div>
 
                         <div class="book-card__body">
