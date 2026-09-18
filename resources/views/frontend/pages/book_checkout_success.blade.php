@@ -33,6 +33,10 @@
                             </tr>
                         @endforeach
                         <tr>
+                            <td>Delivery Charge ({{ ucfirst(str_replace('_', ' ', $order->delivery_zone)) }})</td>
+                            <td style="text-align:right;">৳ {{ number_format($order->delivery_charge) }}</td>
+                        </tr>
+                        <tr>
                             <td>Total</td>
                             <td style="text-align:right;">৳ {{ number_format($order->total_amount) }}</td>
                         </tr>

@@ -19,4 +19,13 @@ class Settings
             'inactive' => 'Inactive',
         ];
     }
+
+    public static function getDeliveryZones()
+    {
+        return [
+            'inside_dhaka'  => 'Inside Dhaka',
+            'outside_dhaka' => 'Outside Dhaka',
+            'suburbs'       => 'Suburbs',
+        ];
+    }
 }

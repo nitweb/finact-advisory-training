@@ -129,6 +129,26 @@
                                             <textarea name="meta_description" rows="4" class="form-control">{{ old('meta_description', $site_setting->meta_description) }}</textarea>
                                         </div>
 
+                                        <div class="col-12">
+                                            <hr>
+                                            <h5 class="mb-3">Book Delivery Charges</h5>
+                                        </div>
+
+                                        <div class="col-md-4 mb-4">
+                                            <label class="col-form-label">Inside Dhaka Charge (৳)</label>
+                                            <input type="number" min="0" step="1" class="form-control @error('inside_dhaka_charge') is-invalid @enderror" name="inside_dhaka_charge" value="{{ old('inside_dhaka_charge', $site_setting->inside_dhaka_charge) }}" data-parsley-required-message="Inside Dhaka charge is required*" required>
+                                        </div>
+
+                                        <div class="col-md-4 mb-4">
+                                            <label class="col-form-label">Outside Dhaka Charge (৳)</label>
+                                            <input type="number" min="0" step="1" class="form-control @error('outside_dhaka_charge') is-invalid @enderror" name="outside_dhaka_charge" value="{{ old('outside_dhaka_charge', $site_setting->outside_dhaka_charge) }}" data-parsley-required-message="Outside Dhaka charge is required*" required>
+                                        </div>
+
+                                        <div class="col-md-4 mb-4">
+                                            <label class="col-form-label">Suburbs Charge (৳)</label>
+                                            <input type="number" min="0" step="1" class="form-control @error('suburbs_charge') is-invalid @enderror" name="suburbs_charge" value="{{ old('suburbs_charge', $site_setting->suburbs_charge) }}" data-parsley-required-message="Suburbs charge is required*" required>
+                                        </div>
+
                                     </div>
 
                                 </div>
