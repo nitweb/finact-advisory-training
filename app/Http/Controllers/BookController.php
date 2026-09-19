@@ -243,7 +243,7 @@ class BookController extends Controller
 
             $subtotal = 0;
             foreach ($cart as $item) {
-                $subtotal += $item['price'] * $item['quantity'];
+                $subtotal += $books->get($item['book_id'])->price * $item['quantity'];
             }
 
             $site_setting = siteSetting();
@@ -279,13 +279,15 @@ class BookController extends Controller
             ]);
 
             foreach ($cart as $item) {
+                $book = $books->get($item['book_id']);
+
                 OrderItem::create([
                     'order_id' => $order->id,
-                    'book_id'  => $item['book_id'],
-                    'title'    => $item['title'],
-                    'price'    => $item['price'],
+                    'book_id'  => $book->id,
+                    'title'    => $book->title,
+                    'price'    => $book->price,
                     'quantity' => $item['quantity'],
-                    'subtotal' => $item['price'] * $item['quantity'],
+                    'subtotal' => $book->price * $item['quantity'],
                 ]);
 
                 $books->get($item['book_id'])->decrement('stock', $item['quantity']);
@@ -319,10 +321,6 @@ class BookController extends Controller
     {
         $order = Order::with('items')
             ->where('invoice', $invoice)
-            ->where(function ($q) {
-                $q->where('payment_status', 'paid')
-                    ->orWhere('payment_method', 'cod');
-            })
             ->firstOrFail();
 
         $pdf = Pdf::loadView('frontend.pdf.book_order_invoice', compact('order'))->setPaper('a4', 'portrait');

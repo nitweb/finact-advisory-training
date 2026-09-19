@@ -3,6 +3,63 @@
 
 @section('frontend_content')
 
+    <style>
+        /* ===== Book card: clean white style, full cover with soft shadow ===== */
+        .book-card {
+            background: #fff;
+            border: 1px solid #e9e9ee;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: box-shadow .25s ease, transform .25s ease;
+        }
+        .book-card:hover {
+            box-shadow: 0 10px 28px rgba(0, 0, 0, .08);
+            transform: translateY(-3px);
+        }
+
+        .book-card .book-card__img-wrap {
+            position: relative;
+            height: 280px;               /* sob card er same height */
+            padding: 26px 20px 12px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .book-card .book-card__img-wrap img.book-card__img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            height: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            object-position: center;
+            filter: drop-shadow(6px 8px 10px rgba(0, 0, 0, .28));
+            transition: transform .3s ease;
+        }
+        .book-card:hover .book-card__img {
+            transform: scale(1.04);
+        }
+
+        /* stock badge always on top */
+        .book-card .book-card__stock {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 2;
+        }
+
+        /* centered text */
+        .book-card .book-card__body {
+            text-align: center;
+        }
+        .book-card .book-card__actions {
+            justify-content: center;
+        }
+    </style>
+
     <!--Page Header Start-->
     <section class="page-header">
         <div class="page-header__bg" style="background-image: url({{ asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }});"></div>
@@ -48,9 +105,17 @@
             <div class="book-grid">
 
                 @forelse ($book_list as $item)
+                    @php
+                        $cover = $item->cover_image
+                            ? asset($item->cover_image)
+                            : asset('frontend/assets/images/backgrounds/page-header-bg.jpg');
+                    @endphp
+
                     <div class="book-card">
                         <div class="book-card__img-wrap">
-                            <img src="{{ $item->cover_image ? asset($item->cover_image) : asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }}" alt="{{ $item->title }}">
+                            <a href="{{ route('frontend.book.details', $item->slug) }}" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;">
+                                <img class="book-card__img" src="{{ $cover }}" alt="{{ $item->title }}">
+                            </a>
 
                             <span class="book-card__stock {{ $item->stock > 0 ? 'book-card__stock--in' : 'book-card__stock--out' }}">
                                 {{ $item->stock > 0 ? 'In Stock' : 'Out of Stock' }}

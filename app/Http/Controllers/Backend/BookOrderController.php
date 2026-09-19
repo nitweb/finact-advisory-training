@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BookOrderController extends Controller
 {
@@ -26,6 +27,23 @@ class BookOrderController extends Controller
         $order = Order::with('items')->findOrFail($id);
 
         return view('backend.book_order.show', compact('title', 'order'));
+    } // End Method
+
+    public function OrderInvoice($id)
+    {
+        $order = Order::with('items')->findOrFail($id);
+        $print = true;
+
+        return view('frontend.pdf.book_order_invoice', compact('order', 'print'));
+    } // End Method
+
+    public function OrderInvoicePdf($id)
+    {
+        $order = Order::with('items')->findOrFail($id);
+
+        return Pdf::loadView('frontend.pdf.book_order_invoice', compact('order'))
+            ->setPaper('a4', 'portrait')
+            ->download($order->invoice . '.pdf');
     } // End Method
 
     public function OrderUpdateStatus(Request $request, $id)

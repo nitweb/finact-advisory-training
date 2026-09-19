@@ -124,6 +124,24 @@ class TrainingEnrollmentController extends Controller
         ]);
     }
 
+    // ── Backend Invoice (print view + PDF) ──
+    public function adminInvoice(Enrollment $enrollment)
+    {
+        $enrollment->load('training');
+        $print = true;
+
+        return view('frontend.pdf.enrollment_invoice', compact('enrollment', 'print'));
+    }
+
+    public function adminInvoicePdf(Enrollment $enrollment)
+    {
+        $enrollment->load('training');
+
+        return Pdf::loadView('frontend.pdf.enrollment_invoice', compact('enrollment'))
+            ->setPaper('a4', 'portrait')
+            ->download($enrollment->invoice . '.pdf');
+    }
+
     public function downloadInvoice($invoice)
     {
         $enrollment = Enrollment::with('training')->where('invoice', $invoice)->firstOrFail();

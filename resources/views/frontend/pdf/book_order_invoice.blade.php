@@ -267,17 +267,49 @@
         .footer-strip span {
             color: #d8c39a;
         }
+
+        .toolbar {
+            padding: 12px 48px;
+            background: #f0f4f9;
+            text-align: right;
+        }
+
+        .toolbar a,
+        .toolbar button {
+            display: inline-block;
+            font-size: 12px;
+            padding: 7px 14px;
+            margin-left: 6px;
+            border: 1px solid #163355;
+            border-radius: 4px;
+            background: #163355;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media print {
+            .toolbar {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body>
+    @if (!empty($print))
+        <div class="toolbar">
+            <button type="button" onclick="window.print()">Print</button>
+            <a href="{{ route('admin.book.order.invoice.pdf', $order->id) }}">Download PDF</a>
+        </div>
+    @endif
     <div class="sheet">
 
         <!-- Letterhead -->
         <div class="letterhead">
             <div class="brand-col">
                 @if (siteSetting() && siteSetting()->header_logo)
-                    <img class="brand-logo" src="{{ public_path(siteSetting()->header_logo) }}" alt="{{ config('app.name') }}">
+                    <img class="brand-logo" src="{{ !empty($print) ? asset(siteSetting()->header_logo) : public_path(siteSetting()->header_logo) }}" alt="{{ config('app.name') }}">
                 @else
                     <div class="brand-name">{{ config('app.name') }}</div>
                 @endif
@@ -297,7 +329,7 @@
                 <div class="doc-title">Invoice</div>
                 <div class="invoice-num">{{ $order->invoice }}</div><br>
                 <span class="status-pill {{ $order->payment_status === 'paid' ? 'status-paid' : ($order->payment_status === 'pending' ? 'status-pending' : 'status-other') }}">
-                    {{ ucfirst($order->payment_status) }}
+                    {{ $order->payment_method === 'cod' && $order->payment_status === 'pending' ? 'Cash on Delivery' : ucfirst($order->payment_status) }}
                 </span>
             </div>
         </div>

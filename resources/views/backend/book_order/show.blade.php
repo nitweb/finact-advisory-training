@@ -19,6 +19,8 @@
                             <div class="card-header d-flex justify-content-between">
                                 <h4>{{ $title }} — {{ $order->invoice }}</h4>
                                 <h4>
+                                    <a href="{{ route('admin.book.order.invoice', $order->id) }}" target="_blank" class="btn btn-outline-secondary"><i class="fas fa-print"></i> Print Invoice</a>
+                                    <a href="{{ route('admin.book.order.invoice.pdf', $order->id) }}" class="btn btn-outline-primary"><i class="fas fa-file-pdf"></i> Download PDF</a>
                                     <a href="{{ URL::previous() }}" class="btn btn-outline-dark"><i class="fas fa-arrow-left"></i> Back</a>
                                 </h4>
                             </div>
@@ -51,7 +53,7 @@
                                         <p><strong>Order Date:</strong> {{ $order->created_at->format('d M Y, h:i A') }}</p>
                                         <p>
                                             <strong>Payment Status:</strong>
-                                            <select id="payment_status" class="form-control" style="max-width:200px; display:inline-block;" data-url="{{ route('admin.book.order.payment.status', $order->id) }}">
+                                            <select id="payment_status" class="form-control selectric" style="max-width:200px; display:inline-block;" data-url="{{ route('admin.book.order.payment.status', $order->id) }}">
                                                 @foreach (['pending', 'paid', 'failed', 'cancelled'] as $ps)
                                                     <option value="{{ $ps }}" {{ $order->payment_status == $ps ? 'selected' : '' }}>{{ ucfirst($ps) }}</option>
                                                 @endforeach
@@ -59,7 +61,7 @@
                                         </p>
                                         <p>
                                             <strong>Order Status:</strong>
-                                            <select id="order_status" class="form-control" style="max-width:200px; display:inline-block;" data-url="{{ route('admin.book.order.status', $order->id) }}">
+                                            <select id="order_status" class="form-control selectric" style="max-width:200px; display:inline-block;" data-url="{{ route('admin.book.order.status', $order->id) }}">
                                                 @foreach (['pending', 'processing', 'completed', 'cancelled'] as $status)
                                                     <option value="{{ $status }}" {{ $order->status == $status ? 'selected' : '' }}>{{ ucfirst($status) }}</option>
                                                 @endforeach

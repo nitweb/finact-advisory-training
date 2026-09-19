@@ -131,17 +131,49 @@
         .footer p {
             margin-bottom: 3px;
         }
+
+        .toolbar {
+            padding: 12px 20px;
+            background: #f0f4f9;
+            text-align: right;
+        }
+
+        .toolbar a,
+        .toolbar button {
+            display: inline-block;
+            font-size: 12px;
+            padding: 7px 14px;
+            margin-left: 6px;
+            border: 1px solid #163355;
+            border-radius: 4px;
+            background: #163355;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media print {
+            .toolbar {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body>
+    @if (!empty($print))
+        <div class="toolbar">
+            <button type="button" onclick="window.print()">Print</button>
+            <a href="{{ route('admin.training.enrollment.invoice.pdf', $enrollment->id) }}">Download PDF</a>
+        </div>
+    @endif
 
     {{-- Header --}}
     <div class="header">
         <h1>Enrollment Invoice</h1>
         <p>{{ siteSetting()->site_name ?? 'Finact Advisory Training' }}</p>
         <p>{{ siteSetting()->site_email ?? '' }} &nbsp;|&nbsp; {{ siteSetting()->site_phone ?? '' }}</p>
-        <p>{{ siteSetting()->head_address ?? '' }}</p>
+        <p>{{ siteSetting()->site_address ?? '' }}</p>
         <span class="invoice-num">{{ $enrollment->invoice }}</span>
     </div>
 
@@ -243,7 +275,7 @@
         <tr>
             <td class="lbl">Payment Status</td>
             <td class="val">
-                <span class="status-text">Pending Verification</span>
+                <span class="status-text">{{ $enrollment->status === 'pending' ? 'Pending Verification' : ucfirst($enrollment->status) }}</span>
             </td>
         </tr>
         <tr>
@@ -257,16 +289,18 @@
     </table>
 
     {{-- Notice --}}
-    <div class="notice">
-        Your payment is currently under verification. You will be contacted on
-        <strong>{{ $enrollment->phone }}</strong> within 24 hours of submission.
-        Please keep your bKash Transaction ID <strong>{{ $enrollment->bkash_trx_id }}</strong> safe for reference.
-    </div>
+    @if ($enrollment->status === 'pending')
+        <div class="notice">
+            Your payment is currently under verification. You will be contacted on
+            <strong>{{ $enrollment->phone }}</strong> within 24 hours of submission.
+            Please keep your bKash Transaction ID <strong>{{ $enrollment->bkash_trx_id }}</strong> safe for reference.
+        </div>
+    @endif
 
     {{-- Footer --}}
     <div class="footer">
         <p><strong>{{ siteSetting()->site_name ?? 'A Zaman Academy & Advisory' }}</strong></p>
-        <p>{{ siteSetting()->head_address ?? '' }}</p>
+        <p>{{ siteSetting()->site_address ?? '' }}</p>
         <p>Generated on {{ now()->format('d M Y, h:i A') }}</p>
     </div>
 

@@ -16,6 +16,12 @@
                                     {{-- <button onclick="printInvoice()" class="btn btn-outline-secondary btn-sm">
                                         <i class="fas fa-print"></i> Print
                                     </button> --}}
+                                    <a href="{{ route('admin.training.enrollment.invoice', $enrollment->id) }}" target="_blank" class="btn btn-outline-secondary btn-sm">
+                                        <i class="fas fa-print"></i> Print Invoice
+                                    </a>
+                                    <a href="{{ route('admin.training.enrollment.invoice.pdf', $enrollment->id) }}" class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-file-pdf"></i> Download PDF
+                                    </a>
                                     <a href="{{ route('admin.training.enrollment.list') }}" class="btn btn-outline-dark btn-sm">
                                         <i class="fas fa-arrow-left"></i> Back
                                     </a>

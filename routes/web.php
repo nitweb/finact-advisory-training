@@ -537,6 +537,8 @@ Route::group(
             ->group(function () {
                 Route::get('/list', 'index')->name('list');
                 Route::get('/show/{enrollment}', 'show')->name('show');
+                Route::get('/invoice/{enrollment}', 'adminInvoice')->name('invoice');
+                Route::get('/invoice/{enrollment}/pdf', 'adminInvoicePdf')->name('invoice.pdf');
                 Route::delete('/delete/{enrollment}', 'destroy')->name('delete');
                 Route::patch('/status/{enrollment}', 'updateStatus')->name('status');
             });
@@ -560,6 +562,8 @@ Route::group(
             ->group(function () {
                 Route::get('/list', 'OrderList')->name('list');
                 Route::get('/show/{id}', 'OrderShow')->name('show');
+                Route::get('/invoice/{id}', 'OrderInvoice')->name('invoice');
+                Route::get('/invoice/{id}/pdf', 'OrderInvoicePdf')->name('invoice.pdf');
                 Route::patch('/status/{id}', 'OrderUpdateStatus')->name('status');
                 Route::patch('/payment-status/{id}', 'OrderUpdatePaymentStatus')->name('payment.status');
                 Route::delete('/delete/{id}', 'OrderDelete')->name('delete');

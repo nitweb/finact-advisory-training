@@ -100,6 +100,12 @@
                                                             <a href="{{ route('admin.training.enrollment.show', $item->id) }}" class="btn btn-outline-primary btn-sm" title="View">
                                                                 <i class="fas fa-eye"></i>
                                                             </a>
+                                                            <a href="{{ route('admin.training.enrollment.invoice', $item->id) }}" target="_blank" class="btn btn-outline-secondary btn-sm" title="Print Invoice">
+                                                                <i class="fas fa-print"></i>
+                                                            </a>
+                                                            <a href="{{ route('admin.training.enrollment.invoice.pdf', $item->id) }}" class="btn btn-outline-info btn-sm" title="Download PDF">
+                                                                <i class="fas fa-download"></i>
+                                                            </a>
                                                             <button type="button" class="btn btn-outline-danger btn-sm" data-del="{{ route('admin.training.enrollment.delete', $item->id) }}" data-bs-toggle="modal" data-bs-target="#enrollment_delete_modal" data-name="{{ $item->invoice }}" title="Delete">
                                                                 <i class="far fa-trash-alt"></i>
                                                             </button>

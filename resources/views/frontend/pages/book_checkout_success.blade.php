@@ -61,11 +61,9 @@
                 </table>
 
                 <div class="success-panel__actions">
-                    @if ($order->payment_status === 'paid' || $order->payment_method === 'cod')
-                        <a href="{{ route('frontend.book.invoice', $order->invoice) }}" class="t-btn-outline">
-                            <i class="fas fa-download"></i> Download Invoice
-                        </a>
-                    @endif
+                    <a href="{{ route('frontend.book.invoice', $order->invoice) }}" class="t-btn-outline">
+                        <i class="fas fa-download"></i> Download Invoice
+                    </a>
                     <a href="{{ route('frontend.book.list') }}" class="t-btn-fill">
                         Continue Shopping
                     </a>

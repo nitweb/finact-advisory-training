@@ -147,7 +147,7 @@
                                 <a href="javascript:void(0)">Professional Academy</a>
                                 <ul class="shadow-box">
                                     <li class="{{ request()->routeIs('frontend.training.development') ? 'active' : '' }}"><a href="{{ route('frontend.training.development') }}">Trainings</a></li>
-                                    <li class="{{ request()->routeIs('frontend.book.*') ? 'active' : '' }}"><a href="{{ route('frontend.book.list') }}">Books</a></li>
+                                    <li class="{{ request()->routeIs('frontend.book.*') ? 'active' : '' }}"><a href="{{ route('frontend.book.list') }}">Book Store</a></li>
                                 </ul>
                             </li>
 

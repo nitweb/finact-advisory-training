@@ -75,7 +75,9 @@
                                                     <td>{{ $item->created_at->format('d M Y') }}</td>
                                                     <td>
                                                         <div class="table_actions d-flex gap-2">
-                                                            <a href="{{ route('admin.book.order.show', $item->id) }}" class="btn btn-outline-primary" title="View"><i class="far fa-eye"></i></a>
+                                                            <a href="{{ route('admin.book.order.show', $item->id) }}" class="btn btn-sm btn-outline-primary" title="View"><i class="far fa-eye"></i></a>
+                                                            <a href="{{ route('admin.book.order.invoice', $item->id) }}" target="_blank" class="btn btn-sm btn-outline-secondary" title="Print Invoice"><i class="fas fa-print"></i></a>
+                                                            <a href="{{ route('admin.book.order.invoice.pdf', $item->id) }}" class="btn btn-sm btn-outline-info" title="Download PDF"><i class="fas fa-download"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
