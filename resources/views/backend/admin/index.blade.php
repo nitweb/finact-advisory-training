@@ -574,7 +574,7 @@
             </div>
 
             {{-- Recent Book Orders --}}
-            <div class="row mt-1">
+            <div class="row mt-3">
                 <div class="col-12">
                     <div class="card section-card">
                         <div class="section-card-header">
