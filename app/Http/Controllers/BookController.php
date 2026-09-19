@@ -137,7 +137,15 @@ class BookController extends Controller
 
         if (isset($cart[$id])) {
             $book = Book::find($id);
-            if ($book && $qty > $book->stock) {
+
+            if (!$book || $book->stock < 1) {
+                unset($cart[$id]);
+                Session::put(self::CART_KEY, $cart);
+                return redirect()->route('frontend.book.cart')
+                    ->with('error', 'This book is no longer in stock and was removed from your cart.');
+            }
+
+            if ($qty > $book->stock) {
                 $qty = $book->stock;
             }
             $cart[$id]['quantity'] = $qty;
@@ -162,9 +170,20 @@ class BookController extends Controller
         }
 
         $book = Book::find($id);
+
+        if (!$book || $book->stock < 1) {
+            unset($cart[$id]);
+            Session::put(self::CART_KEY, $cart);
+            return response()->json([
+                'success' => false,
+                'removed' => true,
+                'message' => 'This book is no longer in stock and was removed from your cart.',
+            ], 422);
+        }
+
         $max_note = null;
-        if ($book && $qty > $book->stock) {
-            $qty = max(1, (int) $book->stock);
+        if ($qty > $book->stock) {
+            $qty = $book->stock;
             $max_note = 'Quantity limited to available stock (' . $book->stock . ').';
         }
 

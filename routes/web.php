@@ -589,10 +589,3 @@ Route::group(
 );
 
 require __DIR__ . '/auth.php';
-
-Route::get('admin/login', function () {
-    if (Auth::check()) {
-        return redirect('admin/dashboard');
-    }
-    return view('auth.login'); // Adjust the view name based on your setup
-})->name('login');

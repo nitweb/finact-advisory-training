@@ -30,8 +30,11 @@ class TrainingEnrollmentController extends Controller
             'email' => 'nullable|email|max:120',
             'address' => 'nullable|string|max:255',
             'note' => 'nullable|string|max:500',
-            'bkash_number' => 'required|string|max:30',
-            'bkash_trx_id' => 'required|string|max:100',
+            'bkash_number' => ['required', 'string', 'max:30', 'regex:/^(?:\+?88)?01[3-9]\d{8}$/'],
+            'bkash_trx_id' => ['required', 'string', 'max:100', 'unique:enrollments,bkash_trx_id'],
+        ], [
+            'bkash_number.regex' => 'Please enter a valid bKash number.',
+            'bkash_trx_id.unique' => 'This Transaction ID has already been used.',
         ]);
 
         DB::beginTransaction();
