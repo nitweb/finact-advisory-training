@@ -25,10 +25,15 @@
 
         /* Welcome / hero banner */
         .gradient-banner {
-            background: linear-gradient(115deg, var(--brand-navy) 0%, var(--brand-navy-light) 55%, var(--brand-gold) 130%);
+            background: linear-gradient(115deg, var(--brand-navy) 0%, var(--brand-navy-light) 55%, var(--brand-gold) 100%);
             border-radius: 18px;
             position: relative;
             overflow: hidden;
+        }
+
+        .gradient-banner>* {
+            position: relative;
+            z-index: 2;
         }
 
         .gradient-banner::before {
@@ -40,6 +45,8 @@
             height: 220px;
             background: rgba(255, 255, 255, 0.08);
             border-radius: 50%;
+            z-index: 1;
+            pointer-events: none;
         }
 
         .gradient-banner::after {
@@ -51,6 +58,8 @@
             height: 160px;
             background: rgba(255, 255, 255, 0.06);
             border-radius: 50%;
+            z-index: 1;
+            pointer-events: none;
         }
 
         .hover-scale {
@@ -63,7 +72,7 @@
         }
 
         .visit_card_btn {
-            background-color: #fff;
+            background-color: #fff !important;
             color: var(--brand-navy) !important;
             border-color: #fff;
         }
@@ -275,8 +284,8 @@
                             </h4>
                             <p class="mb-0 opacity-75">Here's what's happening across your site today.</p>
                         </div>
-                        <a href="{{ route('frontend.index') }}" target="_blank" class="btn btn-light text-primary fw-semibold px-4 py-2 rounded-pill shadow-sm hover-scale visit_card_btn">
-                            🌐 Visit Frontend
+                        <a href="{{ route('frontend.index') }}" target="_blank" class="btn btn-light fw-semibold px-4 py-2 rounded-pill shadow-sm hover-scale visit_card_btn">
+                            🌐 <span>Visit Frontend</span>
                         </a>
                     </div>
                 </div>
@@ -565,7 +574,7 @@
             </div>
 
             {{-- Recent Book Orders --}}
-            <div class="row mt-4">
+            <div class="row mt-1">
                 <div class="col-12">
                     <div class="card section-card">
                         <div class="section-card-header">
