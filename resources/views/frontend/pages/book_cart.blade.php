@@ -68,7 +68,16 @@
                                     <div class="cartx-item__info">
                                         <span class="cartx-item__tag"><i class="fas fa-book-open"></i> Book</span>
                                         <h5 class="cartx-item__title">{{ $item['title'] }}</h5>
-                                        <span class="cartx-item__unit">৳ {{ number_format($item['price']) }} <small>per copy</small></span>
+                                        <span class="cartx-item__unit">
+                                            @if (($item['discount_percent'] ?? 0) > 0)
+                                                <del style="opacity:.6;">৳ {{ number_format($item['original_price']) }}</del>
+                                            @endif
+                                            ৳ {{ number_format($item['price']) }}
+                                            @if (($item['discount_percent'] ?? 0) > 0)
+                                                <small style="color:#dc3545;font-weight:600;">({{ $item['discount_percent'] }}% OFF)</small>
+                                            @endif
+                                            <small>per copy</small>
+                                        </span>
                                     </div>
 
                                     <div class="cartx-item__qty">

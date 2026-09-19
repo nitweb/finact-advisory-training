@@ -382,7 +382,15 @@
                 @foreach ($order->items as $item)
                     <tr>
                         <td class="item-title">{{ $item->title }}</td>
-                        <td class="num">Tk {{ number_format($item->price) }}</td>
+                        <td class="num">
+                            @if ($item->discount_percent > 0 && $item->original_price)
+                                <span style="text-decoration:line-through;color:#888;">Tk {{ number_format($item->original_price) }}</span><br>
+                            @endif
+                            Tk {{ number_format($item->price) }}
+                            @if ($item->discount_percent > 0)
+                                <br><small>({{ $item->discount_percent }}% off)</small>
+                            @endif
+                        </td>
                         <td class="num">{{ $item->quantity }}</td>
                         <td class="num">Tk {{ number_format($item->subtotal) }}</td>
                     </tr>

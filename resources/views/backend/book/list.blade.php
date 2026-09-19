@@ -58,7 +58,15 @@
                                                     </td>
                                                     <td>{{ $item->title }}</td>
                                                     <td>{{ $item->author }}</td>
-                                                    <td>৳ {{ number_format($item->price) }}</td>
+                                                    <td>
+                                                        @if ($item->has_discount)
+                                                            <span class="badge bg-danger">{{ $item->discount_percent }}% OFF</span><br>
+                                                            <del class="text-muted">৳ {{ number_format($item->price) }}</del>
+                                                            <strong>৳ {{ number_format($item->final_price) }}</strong>
+                                                        @else
+                                                            ৳ {{ number_format($item->price) }}
+                                                        @endif
+                                                    </td>
                                                     <td>{{ $item->stock }}</td>
                                                     <td>
                                                         @if ($item->sample_pdf)

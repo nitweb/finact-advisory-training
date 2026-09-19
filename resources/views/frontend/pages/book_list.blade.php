@@ -51,6 +51,23 @@
             z-index: 2;
         }
 
+        /* discount badge top-left */
+        .book-card .book-card__discount {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 2;
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: #dc3545;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            line-height: 1.2;
+        }
+
         /* centered text */
         .book-card .book-card__body {
             text-align: center;
@@ -117,6 +134,10 @@
                                 <img class="book-card__img" src="{{ $cover }}" alt="{{ $item->title }}">
                             </a>
 
+                            @if ($item->has_discount)
+                                <span class="book-card__discount">{{ $item->discount_percent }}% OFF</span>
+                            @endif
+
                             <span class="book-card__stock {{ $item->stock > 0 ? 'book-card__stock--in' : 'book-card__stock--out' }}">
                                 {{ $item->stock > 0 ? 'In Stock' : 'Out of Stock' }}
                             </span>
@@ -136,7 +157,13 @@
                             <div class="book-card__fee-row">
                                 <div class="book-card__fee-block">
                                     <span class="book-card__fee-lbl">Price</span>
-                                    <span class="book-card__fee-main">৳ {{ number_format($item->price) }}</span>
+                                    @if ($item->has_discount)
+                                        <span class="book-card__fee-main">৳ {{ number_format($item->final_price) }}
+                                            <del style="font-size:.75em;opacity:.6;font-weight:400;">৳ {{ number_format($item->price) }}</del>
+                                        </span>
+                                    @else
+                                        <span class="book-card__fee-main">৳ {{ number_format($item->price) }}</span>
+                                    @endif
                                 </div>
                                 <div class="book-card__fee-divider"></div>
                                 <div class="book-card__fee-block">

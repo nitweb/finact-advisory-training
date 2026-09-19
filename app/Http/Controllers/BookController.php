@@ -47,7 +47,24 @@ class BookController extends Controller
     // ── Cart (session based) ──
     protected function cart(): array
     {
-        return Session::get(self::CART_KEY, []);
+        $cart = Session::get(self::CART_KEY, []);
+
+        if (empty($cart)) {
+            return $cart;
+        }
+
+        // Keep cart prices in sync with current book prices/discounts
+        $books = Book::whereIn('id', array_keys($cart))->get()->keyBy('id');
+        foreach ($cart as $id => $item) {
+            $book = $books->get($id);
+            if ($book) {
+                $cart[$id]['price'] = $book->final_price;
+                $cart[$id]['original_price'] = $book->price;
+                $cart[$id]['discount_percent'] = $book->has_discount ? (int) $book->discount_percent : 0;
+            }
+        }
+
+        return $cart;
     }
 
     public function CartAdd(Request $request, $id)
@@ -72,7 +89,9 @@ class BookController extends Controller
             $cart[$id] = [
                 'book_id'  => $book->id,
                 'title'    => $book->title,
-                'price'    => $book->price,
+                'price'    => $book->final_price,
+                'original_price'   => $book->price,
+                'discount_percent' => $book->has_discount ? (int) $book->discount_percent : 0,
                 'cover'    => $book->cover_image,
                 'quantity' => $qty,
             ];
@@ -243,7 +262,7 @@ class BookController extends Controller
 
             $subtotal = 0;
             foreach ($cart as $item) {
-                $subtotal += $books->get($item['book_id'])->price * $item['quantity'];
+                $subtotal += $books->get($item['book_id'])->final_price * $item['quantity'];
             }
 
             $site_setting = siteSetting();
@@ -285,9 +304,11 @@ class BookController extends Controller
                     'order_id' => $order->id,
                     'book_id'  => $book->id,
                     'title'    => $book->title,
-                    'price'    => $book->price,
+                    'original_price'   => $book->price,
+                    'discount_percent' => $book->has_discount ? (int) $book->discount_percent : 0,
+                    'price'    => $book->final_price,
                     'quantity' => $item['quantity'],
-                    'subtotal' => $book->price * $item['quantity'],
+                    'subtotal' => $book->final_price * $item['quantity'],
                 ]);
 
                 $books->get($item['book_id'])->decrement('stock', $item['quantity']);

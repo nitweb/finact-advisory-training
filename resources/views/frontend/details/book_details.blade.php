@@ -55,6 +55,11 @@
                         <i class="fas {{ $book->stock > 0 ? 'fa-check-circle' : 'fa-times-circle' }}"></i>
                         {{ $book->stock > 0 ? 'Available Now' : 'Out of Stock' }}
                     </span>
+                    @if ($book->has_discount)
+                        <span class="book-details__badge" style="background:#dc3545;color:#fff;margin-left:6px;">
+                            <i class="fas fa-percent"></i> {{ $book->discount_percent }}% OFF
+                        </span>
+                    @endif
 
                     <h2 class="book-details__title">{{ $book->title }}</h2>
                     @if ($book->author)
@@ -64,7 +69,13 @@
                     <div class="book-details__fee-row">
                         <div class="book-details__fee-block">
                             <span class="book-details__fee-lbl"><i class="fas fa-tag"></i> Price</span>
-                            <span class="book-details__fee-main">৳ {{ number_format($book->price) }}</span>
+                            @if ($book->has_discount)
+                                <span class="book-details__fee-main">৳ {{ number_format($book->final_price) }}
+                                    <del style="font-size:.75em;opacity:.6;font-weight:400;">৳ {{ number_format($book->price) }}</del>
+                                </span>
+                            @else
+                                <span class="book-details__fee-main">৳ {{ number_format($book->price) }}</span>
+                            @endif
                         </div>
                         <div class="book-details__fee-divider"></div>
                         <div class="book-details__fee-block">

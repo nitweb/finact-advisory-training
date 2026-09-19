@@ -52,6 +52,10 @@
                                             <input type="number" min="0" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price', $book->price) }}" required>
                                         </div>
                                         <div class="col-md-4">
+                                            <label class="col-form-label">Discount (%)</label>
+                                            <input type="number" placeholder="0" min="0" max="100" class="form-control @error('discount_percent') is-invalid @enderror" name="discount_percent" value="{{ old('discount_percent', $book->discount_percent) }}">
+                                        </div>
+                                        <div class="col-md-4">
                                             <label class="col-form-label">Stock</label>
                                             <input type="number" min="0" class="form-control @error('stock') is-invalid @enderror" name="stock" value="{{ old('stock', $book->stock) }}" required>
                                         </div>

@@ -38,6 +38,7 @@ class BookController extends Controller
                 'title' => 'required|max:255',
                 'author' => 'nullable|max:150',
                 'price' => 'required|integer|min:0',
+                'discount_percent' => 'nullable|integer|min:0|max:100',
                 'stock' => 'required|integer|min:0',
                 'description' => 'nullable',
                 'cover_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
@@ -65,6 +66,7 @@ class BookController extends Controller
             $data->slug = Str::slug($request->title) . '-' . uniqid();
             $data->author = $request->author;
             $data->price = $request->price;
+            $data->discount_percent = (int) $request->input('discount_percent', 0);
             $data->stock = $request->stock;
             $data->description = $request->description;
             $data->status = $request->status;
@@ -117,6 +119,7 @@ class BookController extends Controller
                 'title' => 'required|max:255',
                 'author' => 'nullable|max:150',
                 'price' => 'required|integer|min:0',
+                'discount_percent' => 'nullable|integer|min:0|max:100',
                 'stock' => 'required|integer|min:0',
                 'description' => 'nullable',
                 'cover_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
@@ -135,6 +138,7 @@ class BookController extends Controller
             $data->title = $request->title;
             $data->author = $request->author;
             $data->price = $request->price;
+            $data->discount_percent = (int) $request->input('discount_percent', 0);
             $data->stock = $request->stock;
             $data->description = $request->description;
             $data->status = $request->status;

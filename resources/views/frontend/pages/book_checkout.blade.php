@@ -132,7 +132,11 @@
                             <h4>Order Summary</h4>
                             @foreach ($cart as $item)
                                 <div class="checkout-summary__item">
-                                    <span class="checkout-summary__item-title">{{ $item['title'] }} <span style="color:#9ca3af;">x{{ $item['quantity'] }}</span></span>
+                                    <span class="checkout-summary__item-title">{{ $item['title'] }} <span style="color:#9ca3af;">x{{ $item['quantity'] }}</span>
+                                        @if (($item['discount_percent'] ?? 0) > 0)
+                                            <small style="color:#dc3545;">({{ $item['discount_percent'] }}% OFF)</small>
+                                        @endif
+                                    </span>
                                     <span class="checkout-summary__item-price">&#2547;{{ number_format($item['price'] * $item['quantity']) }}</span>
                                 </div>
                             @endforeach

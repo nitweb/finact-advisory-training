@@ -83,7 +83,15 @@
                                         @foreach ($order->items as $item)
                                             <tr>
                                                 <td>{{ $item->title }}</td>
-                                                <td>৳ {{ number_format($item->price) }}</td>
+                                                <td>
+                                                    @if ($item->discount_percent > 0 && $item->original_price)
+                                                        <del class="text-muted">৳ {{ number_format($item->original_price) }}</del><br>
+                                                    @endif
+                                                    ৳ {{ number_format($item->price) }}
+                                                    @if ($item->discount_percent > 0)
+                                                        <span class="badge bg-danger">-{{ $item->discount_percent }}%</span>
+                                                    @endif
+                                                </td>
                                                 <td>{{ $item->quantity }}</td>
                                                 <td>৳ {{ number_format($item->subtotal) }}</td>
                                             </tr>
