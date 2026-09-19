@@ -33,17 +33,12 @@
             <div class="book-details">
                 <div class="book-details__cover-wrap">
                     <div class="book-details__cover-frame">
-                        <img class="book-details__cover"
-                             src="{{ $book->cover_image ? asset($book->cover_image) : asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }}"
-                             alt="{{ $book->title }}">
+                        <img class="book-details__cover" src="{{ $book->cover_image ? asset($book->cover_image) : asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }}" alt="{{ $book->title }}">
                         <span class="book-details__cover-shine"></span>
                     </div>
 
                     @if ($book->sample_pdf)
-                        <button type="button"
-                                class="book-details__sample-btn js-open-pdf-modal"
-                                data-pdf-url="{{ route('frontend.book.sample', $book->slug) }}"
-                                data-pdf-title="{{ $book->title }}">
+                        <button type="button" class="book-details__sample-btn js-open-pdf-modal" data-pdf-url="{{ route('frontend.book.sample', $book->slug) }}" data-pdf-title="{{ $book->title }}">
                             <i class="fas fa-book-open"></i> Read Sample
                         </button>
                     @endif
@@ -85,7 +80,7 @@
                     </div>
 
                     @if ($book->stock > 0)
-                        <form action="{{ route('frontend.book.cart.add', $book->id) }}" method="POST" class="book-details__buy">
+                        <form action="{{ route('frontend.book.cart.add', $book->id) }}" method="POST" class="book-details__buy js-add-to-cart">
                             @csrf
                             <div class="book-details__qty-stepper">
                                 <button type="button" class="book-details__qty-btn book-details__qty-minus" aria-label="Decrease quantity">&minus;</button>
@@ -106,7 +101,7 @@
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             var stepper = document.querySelector('.book-details__qty-stepper');
             if (!stepper) return;
 
@@ -121,20 +116,21 @@
                 return Math.min(max, Math.max(min, val));
             }
 
-            minus.addEventListener('click', function () {
+            minus.addEventListener('click', function() {
                 input.value = clamp(parseInt(input.value, 10) - 1);
             });
 
-            plus.addEventListener('click', function () {
+            plus.addEventListener('click', function() {
                 input.value = clamp(parseInt(input.value, 10) + 1);
             });
 
-            input.addEventListener('change', function () {
+            input.addEventListener('change', function() {
                 input.value = clamp(parseInt(input.value, 10));
             });
         });
     </script>
 
     @include('frontend.partials.book_pdf_modal')
+    @include('frontend.partials.cart_ajax')
 
 @endsection

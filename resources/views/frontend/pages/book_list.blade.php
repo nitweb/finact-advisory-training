@@ -87,7 +87,7 @@
                                     View Details
                                 </a>
                                 @if ($item->stock > 0)
-                                    <form action="{{ route('frontend.book.cart.add', $item->id) }}" method="POST">
+                                    <form action="{{ route('frontend.book.cart.add', $item->id) }}" method="POST" class="js-add-to-cart">
                                         @csrf
                                         <input type="hidden" name="quantity" value="1">
                                         <button type="submit" class="t-btn-fill">Add to Cart</button>
@@ -133,5 +133,6 @@
     </section>
 
     @include('frontend.partials.book_pdf_modal')
+    @include('frontend.partials.cart_ajax')
 
 @endsection

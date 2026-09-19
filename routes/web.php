@@ -130,7 +130,6 @@ Route::group(
                     Route::get('/sample/{slug}', 'BookSample')->name('sample');
                     Route::get('/{slug}', 'BookDetails')->name('details'); // ← MUST stay after fixed paths above
                 });
-                Route::get('/books-bkash-callback', [BookController::class, 'BkashCallback'])->name('book.bkash.callback');
 
                 // Route::get('/who-we-are', 'WhoWeAre')->name('who.we.are');
 
@@ -562,6 +561,7 @@ Route::group(
                 Route::get('/list', 'OrderList')->name('list');
                 Route::get('/show/{id}', 'OrderShow')->name('show');
                 Route::patch('/status/{id}', 'OrderUpdateStatus')->name('status');
+                Route::patch('/payment-status/{id}', 'OrderUpdatePaymentStatus')->name('payment.status');
                 Route::delete('/delete/{id}', 'OrderDelete')->name('delete');
             });
 

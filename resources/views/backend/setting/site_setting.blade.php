@@ -149,6 +149,20 @@
                                             <input type="number" min="0" step="1" class="form-control @error('suburbs_charge') is-invalid @enderror" name="suburbs_charge" value="{{ old('suburbs_charge', $site_setting->suburbs_charge) }}" data-parsley-required-message="Suburbs charge is required*" required>
                                         </div>
 
+
+                                        <div class="col-12">
+                                            <hr>
+                                            <h5 class="mb-3">bKash Payment (Training &amp; Book Checkout)</h5>
+                                        </div>
+
+                                        <div class="col-md-6 mb-4">
+                                            <label class="col-form-label">bKash Receiving Number</label>
+                                            <input type="text" class="form-control @error('bkash_number') is-invalid @enderror" name="bkash_number" value="{{ old('bkash_number', $site_setting->bkash_number) }}" placeholder="01XXXXXXXXX" maxlength="14">
+                                            @error('bkash_number')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+
                                     </div>
 
                                 </div>

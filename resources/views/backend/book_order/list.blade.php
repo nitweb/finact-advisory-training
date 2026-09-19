@@ -39,6 +39,8 @@
                                                 <th>Customer</th>
                                                 <th>Phone</th>
                                                 <th>Total</th>
+                                                <th>Method</th>
+                                                <th>bKash Trx ID</th>
                                                 <th>Payment</th>
                                                 <th>Status</th>
                                                 <th>Date</th>
@@ -54,6 +56,16 @@
                                                     <td>{{ $item->name }}</td>
                                                     <td>{{ $item->phone }}</td>
                                                     <td>৳ {{ number_format($item->total_amount) }}</td>
+                                                    <td>
+                                                        @if (strtolower($item->payment_method) === 'cod')
+                                                            Cash on Delivery
+                                                        @elseif (strtolower($item->payment_method) === 'bkash')
+                                                            bKash
+                                                        @else
+                                                            {{ strtoupper($item->payment_method) }}
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $item->bkash_trx_id ?? '—' }}</td>
                                                     <td>
                                                         <span class="badge bg-{{ $item->payment_status == 'paid' ? 'success' : ($item->payment_status == 'pending' ? 'warning' : 'danger') }}">
                                                             {{ ucfirst($item->payment_status) }}

@@ -36,10 +36,27 @@
                                         <p><strong>Note:</strong> {{ $order->note ?? '—' }}</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <p><strong>Payment Status:</strong> {{ ucfirst($order->payment_status) }}</p>
-                                        <p><strong>bKash Payment ID:</strong> {{ $order->bkash_payment_id ?? '—' }}</p>
+                                        <p>
+                                            <strong>Payment Method:</strong>
+                                            @if (strtolower($order->payment_method ?? '') === 'cod')
+                                                Cash on Delivery
+                                            @elseif (strtolower($order->payment_method ?? '') === 'bkash')
+                                                bKash
+                                            @else
+                                                {{ strtoupper($order->payment_method ?? 'N/A') }}
+                                            @endif
+                                        </p>
+                                        <p><strong>bKash Number:</strong> {{ $order->bkash_number ?? '—' }}</p>
                                         <p><strong>bKash Trx ID:</strong> {{ $order->bkash_trx_id ?? '—' }}</p>
                                         <p><strong>Order Date:</strong> {{ $order->created_at->format('d M Y, h:i A') }}</p>
+                                        <p>
+                                            <strong>Payment Status:</strong>
+                                            <select id="payment_status" class="form-control" style="max-width:200px; display:inline-block;" data-url="{{ route('admin.book.order.payment.status', $order->id) }}">
+                                                @foreach (['pending', 'paid', 'failed', 'cancelled'] as $ps)
+                                                    <option value="{{ $ps }}" {{ $order->payment_status == $ps ? 'selected' : '' }}>{{ ucfirst($ps) }}</option>
+                                                @endforeach
+                                            </select>
+                                        </p>
                                         <p>
                                             <strong>Order Status:</strong>
                                             <select id="order_status" class="form-control" style="max-width:200px; display:inline-block;" data-url="{{ route('admin.book.order.status', $order->id) }}">
@@ -102,6 +119,29 @@
 
 @section('footer_script')
     <script>
+        $('#payment_status').on('change', function() {
+            var select = $(this);
+            var previous = '{{ $order->payment_status }}';
+            $.ajax({
+                url: select.data('url'),
+                type: 'PATCH',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    payment_status: select.val()
+                },
+                success: function(res) {
+                    if (res.success) {
+                        alert('Payment status updated to ' + res.label + '. Stock adjusted where needed.');
+                        location.reload();
+                    }
+                },
+                error: function(xhr) {
+                    alert((xhr.responseJSON && xhr.responseJSON.message) || 'Could not update payment status.');
+                    select.val(previous);
+                }
+            });
+        });
+
         $('#order_status').on('change', function() {
             var url = $(this).data('url');
             var status = $(this).val();

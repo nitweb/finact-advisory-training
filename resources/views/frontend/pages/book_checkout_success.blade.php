@@ -25,7 +25,7 @@
                         You'll pay <strong>৳ {{ number_format($order->total_amount) }}</strong> in cash when it's delivered.
                     @else
                         Your order <span class="success-panel__invoice">{{ $order->invoice }}</span> has been placed and
-                        payment received via bKash (Txn: {{ $order->bkash_trx_id }}).
+                        your bKash payment (Txn: {{ $order->bkash_trx_id }}) is being verified. We'll confirm your order shortly.
                     @endif
                 </p>
 
@@ -45,13 +45,27 @@
                             <td>Total</td>
                             <td style="text-align:right;">৳ {{ number_format($order->total_amount) }}</td>
                         </tr>
+                        <tr>
+                            <td>Payment Method</td>
+                            <td style="text-align:right;">
+                                @if (strtolower($order->payment_method ?? '') === 'cod')
+                                    Cash on Delivery
+                                @elseif (strtolower($order->payment_method ?? '') === 'bkash')
+                                    bKash
+                                @else
+                                    {{ strtoupper($order->payment_method ?? 'N/A') }}
+                                @endif
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
 
                 <div class="success-panel__actions">
-                    <a href="{{ route('frontend.book.invoice', $order->invoice) }}" class="t-btn-outline">
-                        <i class="fas fa-download"></i> Download Invoice
-                    </a>
+                    @if ($order->payment_status === 'paid' || $order->payment_method === 'cod')
+                        <a href="{{ route('frontend.book.invoice', $order->invoice) }}" class="t-btn-outline">
+                            <i class="fas fa-download"></i> Download Invoice
+                        </a>
+                    @endif
                     <a href="{{ route('frontend.book.list') }}" class="t-btn-fill">
                         Continue Shopping
                     </a>

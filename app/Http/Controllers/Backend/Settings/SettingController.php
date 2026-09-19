@@ -61,6 +61,7 @@ class SettingController extends Controller
                 'inside_dhaka_charge' => 'required|integer|min:0',
                 'outside_dhaka_charge' => 'required|integer|min:0',
                 'suburbs_charge' => 'required|integer|min:0',
+                'bkash_number' => ['nullable', 'regex:/^(?:\+?88)?01[3-9]\d{8}$/'],
             ],
             [
                 'id.required' => 'ID is required',
@@ -95,8 +96,9 @@ class SettingController extends Controller
             $data->inside_dhaka_charge = (int) $request->inside_dhaka_charge;
             $data->outside_dhaka_charge = (int) $request->outside_dhaka_charge;
             $data->suburbs_charge = (int) $request->suburbs_charge;
+            $data->bkash_number = $request->bkash_number;
 
-            
+
 
             if ($request->file('header_logo')) {
                 if (file_exists(base_path('public/' . $data->header_logo))) {
