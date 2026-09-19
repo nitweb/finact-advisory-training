@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
 use App\Models\Blog;
+use App\Models\Book;
+use App\Models\Order;
 use App\Models\Contact;
 use App\Models\Enrollment;
 use App\Models\Gallery;
@@ -34,8 +36,10 @@ class AdminController extends Controller
         $blogs = Blog::where('status', 'active')->latest()->get();
         $galleries = Gallery::all();
         $contacts = Contact::latest()->get();
+        $books = Book::where('status', 'active')->latest()->get();
+        $bookOrders = Order::latest()->get();
 
-        return view('backend.admin.index', compact('services', 'trainers', 'trainings', 'enrollments', 'blogs', 'galleries', 'contacts'));
+        return view('backend.admin.index', compact('services', 'trainers', 'trainings', 'enrollments', 'blogs', 'galleries', 'contacts', 'books', 'bookOrders'));
     }
 
     public function AdminLogout(Request $request)
