@@ -79,6 +79,17 @@
         .book-card .book-card__actions {
             justify-content: center;
         }
+
+        /* when there's no discount, price block takes full row width */
+        .book-card .book-card__fee-block--full {
+            flex: 1 1 100%;
+        }
+
+        /* old price shown bigger with strike-through */
+        .book-card .book-card__fee-old {
+            text-decoration: line-through;
+            opacity: .55;
+        }
     </style>
 
     <!--Page Header Start-->
@@ -157,23 +168,21 @@
                             @endif
 
                             <div class="book-card__fee-row">
-                                <div class="book-card__fee-block">
+                                <div class="book-card__fee-block{{ $item->has_discount ? '' : ' book-card__fee-block--full' }}">
                                     <span class="book-card__fee-lbl">Price</span>
                                     @if ($item->has_discount)
-                                        <span class="book-card__fee-main">৳ {{ number_format($item->final_price) }}
-                                            <del style="font-size:.75em;opacity:.6;font-weight:400;">৳ {{ number_format($item->price) }}</del>
-                                        </span>
+                                        <span class="book-card__fee-main">৳ {{ number_format($item->final_price) }}</span>
                                     @else
                                         <span class="book-card__fee-main">৳ {{ number_format($item->price) }}</span>
                                     @endif
                                 </div>
-                                <div class="book-card__fee-divider"></div>
-                                <div class="book-card__fee-block">
-                                    <span class="book-card__fee-lbl">Availability</span>
-                                    <span class="book-card__fee-main">
-                                        {{ $item->stock > 0 ? $item->stock . ' left' : 'Sold out' }}
-                                    </span>
-                                </div>
+                                @if ($item->has_discount)
+                                    <div class="book-card__fee-divider"></div>
+                                    <div class="book-card__fee-block">
+                                        <span class="book-card__fee-lbl">Old Price</span>
+                                        <span class="book-card__fee-main book-card__fee-old">৳ {{ number_format($item->price) }}</span>
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="book-card__actions">

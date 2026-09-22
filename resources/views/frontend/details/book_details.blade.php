@@ -67,23 +67,21 @@
                     @endif
 
                     <div class="book-details__fee-row">
-                        <div class="book-details__fee-block">
+                        <div class="book-details__fee-block{{ $book->has_discount ? '' : ' book-details__fee-block--full' }}">
                             <span class="book-details__fee-lbl"><i class="fas fa-tag"></i> Price</span>
                             @if ($book->has_discount)
-                                <span class="book-details__fee-main">৳ {{ number_format($book->final_price) }}
-                                    <del style="font-size:.75em;opacity:.6;font-weight:400;">৳ {{ number_format($book->price) }}</del>
-                                </span>
+                                <span class="book-details__fee-main">৳ {{ number_format($book->final_price) }}</span>
                             @else
                                 <span class="book-details__fee-main">৳ {{ number_format($book->price) }}</span>
                             @endif
                         </div>
-                        <div class="book-details__fee-divider"></div>
-                        <div class="book-details__fee-block">
-                            <span class="book-details__fee-lbl"><i class="fas fa-boxes"></i> Availability</span>
-                            <span class="book-details__fee-main">
-                                {{ $book->stock > 0 ? $book->stock . ' in stock' : 'Out of stock' }}
-                            </span>
-                        </div>
+                        @if ($book->has_discount)
+                            <div class="book-details__fee-divider"></div>
+                            <div class="book-details__fee-block">
+                                <span class="book-details__fee-lbl"><i class="fas fa-tag"></i> Old Price</span>
+                                <span class="book-details__fee-main book-details__fee-old">৳ {{ number_format($book->price) }}</span>
+                            </div>
+                        @endif
                     </div>
 
                     <div class="book-details__desc">
@@ -95,15 +93,13 @@
                             @csrf
                             <div class="book-details__qty-stepper">
                                 <button type="button" class="book-details__qty-btn book-details__qty-minus" aria-label="Decrease quantity">&minus;</button>
-                                <input type="number" name="quantity" value="1" min="1" max="{{ $book->stock }}" class="book-details__qty" inputmode="numeric">
+                                <input type="number" name="quantity" value="1" min="1" class="book-details__qty" inputmode="numeric" data-max="{{ $book->stock }}">
                                 <button type="button" class="book-details__qty-btn book-details__qty-plus" aria-label="Increase quantity">&plus;</button>
                             </div>
                             <button type="submit" class="t-btn-fill book-details__cart-btn">
                                 <i class="fas fa-shopping-cart"></i> Add to Cart
                             </button>
                         </form>
-                    @else
-                        <span class="t-type-badge" style="position:static;">Out of Stock</span>
                     @endif
                 </div>
             </div>
@@ -119,7 +115,7 @@
             var input = stepper.querySelector('.book-details__qty');
             var minus = stepper.querySelector('.book-details__qty-minus');
             var plus = stepper.querySelector('.book-details__qty-plus');
-            var max = parseInt(input.getAttribute('max'), 10) || 9999;
+            var max = parseInt(input.getAttribute('data-max'), 10) || 9999;
             var min = parseInt(input.getAttribute('min'), 10) || 1;
 
             function clamp(val) {

@@ -102,7 +102,7 @@ class BookController extends Controller
         // Don't allow more than available stock
         if ($cart[$id]['quantity'] > $book->stock) {
             $cart[$id]['quantity'] = $book->stock;
-            $message = 'Only ' . $book->stock . ' copies available. "' . $book->title . '" updated in your cart.';
+            $message = 'Only limited copies available. "' . $book->title . '" updated in your cart.';
         }
 
         Session::put(self::CART_KEY, $cart);
@@ -184,7 +184,7 @@ class BookController extends Controller
         $max_note = null;
         if ($qty > $book->stock) {
             $qty = $book->stock;
-            $max_note = 'Quantity limited to available stock (' . $book->stock . ').';
+            $max_note = 'Quantity limited to available stock.';
         }
 
         $cart[$id]['quantity'] = $qty;

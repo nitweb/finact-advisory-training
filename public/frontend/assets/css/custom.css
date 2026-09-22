@@ -4394,6 +4394,15 @@
     flex-shrink: 0;
 }
 
+.book-details__fee-block--full {
+    flex: 1 1 100%;
+}
+
+.book-details__fee-old {
+    text-decoration: line-through;
+    opacity: .55;
+}
+
 .book-details__desc {
     font-size: 15px;
     line-height: 1.9;
