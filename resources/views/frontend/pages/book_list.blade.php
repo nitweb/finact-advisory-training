@@ -12,6 +12,7 @@
             overflow: hidden;
             transition: box-shadow .25s ease, transform .25s ease;
         }
+
         .book-card:hover {
             box-shadow: 0 10px 28px rgba(0, 0, 0, .08);
             transform: translateY(-3px);
@@ -19,7 +20,8 @@
 
         .book-card .book-card__img-wrap {
             position: relative;
-            height: 280px;               /* sob card er same height */
+            height: 280px;
+            /* sob card er same height */
             padding: 26px 20px 12px;
             background: #fff;
             display: flex;
@@ -39,6 +41,7 @@
             filter: drop-shadow(6px 8px 10px rgba(0, 0, 0, .28));
             transition: transform .3s ease;
         }
+
         .book-card:hover .book-card__img {
             transform: scale(1.04);
         }
@@ -72,6 +75,7 @@
         .book-card .book-card__body {
             text-align: center;
         }
+
         .book-card .book-card__actions {
             justify-content: center;
         }
@@ -123,9 +127,7 @@
 
                 @forelse ($book_list as $item)
                     @php
-                        $cover = $item->cover_image
-                            ? asset($item->cover_image)
-                            : asset('frontend/assets/images/backgrounds/page-header-bg.jpg');
+                        $cover = $item->cover_image ? asset($item->cover_image) : asset('frontend/assets/images/backgrounds/page-header-bg.jpg');
                     @endphp
 
                     <div class="book-card">
