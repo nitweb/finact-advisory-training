@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Mail\BookOrderThankYouMail;
+use App\Services\SmsService;
+use Illuminate\Support\Facades\Mail;
 
 class BookController extends Controller
 {
@@ -342,7 +345,31 @@ class BookController extends Controller
 
         Session::forget(self::CART_KEY);
 
+        $this->sendOrderThankYou($order);
+
         return redirect()->route('frontend.book.checkout.success', $order->invoice);
+    }
+
+    // Thank-you email + SMS sent immediately; failures never block the order.
+    protected function sendOrderThankYou(Order $order): void
+    {
+        $order->load('items');
+
+        if ($order->email) {
+            try {
+                Mail::to($order->email)->send(new BookOrderThankYouMail($order));
+            } catch (\Throwable $e) {
+                Log::error('Book order thank-you mail failed: ' . $e->getMessage());
+            }
+        }
+
+        $sms = 'Thank you ' . $order->name . '! Your order ' . $order->invoice
+            . ' (Total: BDT ' . number_format($order->total_amount) . ') has been received. '
+            . config('app.name');
+
+        // dd($sms, $order->phone);
+
+        app(SmsService::class)->sendSms($order->phone, $sms);
     }
 
     public function CheckoutSuccess($invoice)
