@@ -58,6 +58,8 @@ Route::group(
         // Contact Message Store Route
         Route::post('/admin/contact/store', [ContactController::class, 'ContactStore'])->name('admin.contact.store');
         Route::post('/admin/job-application/store', [JobApplyController::class, 'JobApplyStore'])->name('admin.job_apply.store');
+        Route::get('/i/{token}', [BookController::class, 'DownloadInvoiceByToken'])
+            ->name('frontend.book.invoice.token');
 
         Route::group(
             [
