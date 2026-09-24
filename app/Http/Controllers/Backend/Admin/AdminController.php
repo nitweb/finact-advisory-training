@@ -16,6 +16,7 @@ use App\Models\Slider;
 use App\Models\Trainer;
 use App\Models\Training;
 use App\Models\User;
+use App\Services\SmsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +28,11 @@ use Intervention\Image\Drivers\Gd\Driver;
 
 class AdminController extends Controller
 {
-    public function AdminDashboard()
+    // public function __construct(SmsService $sms) {
+    //     // dd($sms->checkSMSBalance());
+    // }    
+
+    public function AdminDashboard(SmsService $sms)
     {
         $services = Service::where('status', 'active')->latest()->get();
         $trainers = Trainer::where('status', 'active')->latest()->get();
@@ -38,8 +43,9 @@ class AdminController extends Controller
         $contacts = Contact::latest()->get();
         $books = Book::where('status', 'active')->latest()->get();
         $bookOrders = Order::latest()->get();
+        $smsBalance = $sms->checkSMSBalance();
 
-        return view('backend.admin.index', compact('services', 'trainers', 'trainings', 'enrollments', 'blogs', 'galleries', 'contacts', 'books', 'bookOrders'));
+        return view('backend.admin.index', compact('services', 'trainers', 'trainings', 'enrollments', 'blogs', 'galleries', 'contacts', 'books', 'bookOrders', 'smsBalance'));
     }
 
     public function AdminLogout(Request $request)

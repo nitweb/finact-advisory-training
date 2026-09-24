@@ -294,6 +294,22 @@
             {{-- KPI Stat Cards --}}
             <div class="row g-3">
 
+                {{-- SMS --}}
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <a href="{{ route('admin.service.list') }}">
+                        <div class="card kpi-card p-3 h-100">
+                            <span class="kpi-top-accent"></span>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="kpi-icon-wrap"><i class="fas fa-concierge-bell"></i></div>
+                                <div>
+                                    <p class="kpi-label">SMS Balance</p>
+                                    <h2 class="kpi-value">{{ $smsBalance }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
                 {{-- Services --}}
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <a href="{{ route('admin.service.list') }}">
