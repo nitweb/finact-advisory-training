@@ -66,41 +66,32 @@
                         <p class="book-details__author">by <span>{{ $book->author }}</span></p>
                     @endif
 
-                    <div class="book-details__fee-row">
-                        <div class="book-details__fee-block{{ $book->has_discount ? '' : ' book-details__fee-block--full' }}">
-                            <span class="book-details__fee-lbl"><i class="fas fa-tag"></i> Price</span>
+                    <div class="book-details__purchase">
+                        <div class="book-details__price">
+                            <span class="book-details__price-now">৳ {{ number_format($book->has_discount ? $book->final_price : $book->price) }}</span>
                             @if ($book->has_discount)
-                                <span class="book-details__fee-main">৳ {{ number_format($book->final_price) }}</span>
-                            @else
-                                <span class="book-details__fee-main">৳ {{ number_format($book->price) }}</span>
+                                <span class="book-details__price-old">৳ {{ number_format($book->price) }}</span>
                             @endif
                         </div>
-                        @if ($book->has_discount)
-                            <div class="book-details__fee-divider"></div>
-                            <div class="book-details__fee-block">
-                                <span class="book-details__fee-lbl"><i class="fas fa-tag"></i> Old Price</span>
-                                <span class="book-details__fee-main book-details__fee-old">৳ {{ number_format($book->price) }}</span>
-                            </div>
+
+                        @if ($book->stock > 0)
+                            <form action="{{ route('frontend.book.cart.add', $book->id) }}" method="POST" class="book-details__buy js-add-to-cart">
+                                @csrf
+                                <div class="book-details__qty-stepper">
+                                    <button type="button" class="book-details__qty-btn book-details__qty-minus" aria-label="Decrease quantity">&minus;</button>
+                                    <input type="number" name="quantity" value="1" min="1" class="book-details__qty" inputmode="numeric" data-max="{{ $book->stock }}">
+                                    <button type="button" class="book-details__qty-btn book-details__qty-plus" aria-label="Increase quantity">&plus;</button>
+                                </div>
+                                <button type="submit" class="t-btn-fill book-details__cart-btn">
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                                </button>
+                            </form>
                         @endif
                     </div>
 
                     <div class="book-details__desc">
                         {!! nl2br(e($book->description)) !!}
                     </div>
-
-                    @if ($book->stock > 0)
-                        <form action="{{ route('frontend.book.cart.add', $book->id) }}" method="POST" class="book-details__buy js-add-to-cart">
-                            @csrf
-                            <div class="book-details__qty-stepper">
-                                <button type="button" class="book-details__qty-btn book-details__qty-minus" aria-label="Decrease quantity">&minus;</button>
-                                <input type="number" name="quantity" value="1" min="1" class="book-details__qty" inputmode="numeric" data-max="{{ $book->stock }}">
-                                <button type="button" class="book-details__qty-btn book-details__qty-plus" aria-label="Increase quantity">&plus;</button>
-                            </div>
-                            <button type="submit" class="t-btn-fill book-details__cart-btn">
-                                <i class="fas fa-shopping-cart"></i> Add to Cart
-                            </button>
-                        </form>
-                    @endif
                 </div>
             </div>
 
