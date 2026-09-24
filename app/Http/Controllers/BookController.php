@@ -373,8 +373,8 @@ class BookController extends Controller
             $invoiceUrl = route('frontend.book.invoice.token', $order->invoice_token);
 
             $sms = sprintf(
-                'Dear %s, your order is confirmed. Total: BDT %s. Invoice: %s - %s',
-                Str::words($order->name, 1, ''),
+                "Dear %s, thank you for your order. Total: BDT %s.\nInvoice: %s\n- %s",
+                Str::limit(Str::words($order->name, 2, ''), 15, ''),
                 number_format($order->total_amount),
                 $invoiceUrl,
                 config('app.name')
