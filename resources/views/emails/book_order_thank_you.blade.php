@@ -40,8 +40,10 @@
         </table>
 
         <p style="margin-top:24px;">
-            <a href="{{ route('frontend.book.invoice', $order->invoice) }}" style="background:#163355; color:#fff; padding:10px 18px; text-decoration:none; border-radius:4px;">Download Invoice</a>
+            <a href="{{ $invoiceUrl }}" style="background:#163355; color:#fff; padding:10px 18px; text-decoration:none; border-radius:4px;">Download Invoice</a>
         </p>
+
+        <p style="font-size:13px; color:#5b6678;">Your invoice is also attached to this email as a PDF.</p>
 
         <p style="font-size:12px; color:#8a94a6;">{{ config('app.name') }}</p>
     </div>

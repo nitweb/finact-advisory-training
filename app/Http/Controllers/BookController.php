@@ -356,6 +356,11 @@ class BookController extends Controller
     {
         $order->load('items');
 
+        // Old orders may not have a token yet; create one on the fly
+        if (empty($order->invoice_token)) {
+            $order->update(['invoice_token' => Str::random(10)]);
+        }
+
         if ($order->email) {
             try {
                 Mail::to($order->email)->send(new BookOrderThankYouMail($order));
@@ -365,11 +370,6 @@ class BookController extends Controller
         }
 
         try {
-            // Old orders may not have a token yet; create one on the fly
-            if (empty($order->invoice_token)) {
-                $order->update(['invoice_token' => Str::random(10)]);
-            }
-
             $invoiceUrl = route('frontend.book.invoice.token', $order->invoice_token);
 
             $sms = sprintf(
