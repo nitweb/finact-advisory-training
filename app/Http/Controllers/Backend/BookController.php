@@ -16,7 +16,7 @@ class BookController extends Controller
     {
         $title = 'Book List';
 
-        $books = Book::orderBy('id', 'desc')->get();
+        $books = Book::orderBy('id', 'asc')->get();
 
         return view('backend.book.list', compact('title', 'books'));
     } // End Method
