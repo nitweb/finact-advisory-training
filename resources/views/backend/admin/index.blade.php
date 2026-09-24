@@ -300,7 +300,7 @@
                         <div class="card kpi-card p-3 h-100">
                             <span class="kpi-top-accent"></span>
                             <div class="d-flex align-items-center gap-3">
-                                <div class="kpi-icon-wrap"><i class="fas fa-concierge-bell"></i></div>
+                                <div class="kpi-icon-wrap"><i class="fas fa-sms"></i></div>
                                 <div>
                                     <p class="kpi-label">SMS Balance</p>
                                     <h2 class="kpi-value">{{ $smsBalance }}</h2>
